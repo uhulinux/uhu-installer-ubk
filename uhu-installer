@@ -1161,12 +1161,10 @@ sub on_install_bootloader_toggled {
 
 sub on_passwords_next_clicked {
 
-	unless ($install_type eq 'expertlive' or $install_type eq 'easy') {
-		if (w('username')->get_text !~ /^[[:ascii:]]{3,}$/ or w('username')->get_text =~ /[[:space:]]/) {
-			popup('error', _("Username contains invalid characters!"), _('Username error'));
-			w('username')->grab_focus;
-			return;
-		}
+	if (w('username')->get_text !~ /^[[:ascii:]]{3,}$/ or w('username')->get_text =~ /[[:space:]]/) {
+		popup('error', _("Username contains invalid characters!"), _('Username error'));
+		w('username')->grab_focus;
+		return;
 	}
 	
 	if (w('fullname')->get_text =~ /[,:=]/) {
