@@ -1,0 +1,4297 @@
+------------------------------------------------------------------------
+r1131 | janusz@uhulinux.hu | 2014-06-30 13:48:46 +0200 (h, 30 jún 2014) | 1 line
+Changed paths:
+   A /tags/2.2.55 (from /trunk:1130)
+
+2.2.55
+------------------------------------------------------------------------
+r1130 | janusz@uhulinux.hu | 2014-06-30 13:48:43 +0200 (h, 30 jún 2014) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer.desktop
+
+use uhulogo as icon
+
+------------------------------------------------------------------------
+r1128 | janusz@uhulinux.hu | 2014-06-30 13:42:06 +0200 (h, 30 jún 2014) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer.desktop
+   A /trunk/uhu-installer.png
+
+desktop icon
+
+------------------------------------------------------------------------
+r1126 | janusz@uhulinux.hu | 2014-06-19 13:10:49 +0200 (cs, 19 jún 2014) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+fix boot partition settings
+
+------------------------------------------------------------------------
+r1124 | janusz@uhulinux.hu | 2014-06-05 15:50:00 +0200 (cs, 05 jún 2014) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+remove debug
+
+------------------------------------------------------------------------
+r1122 | janusz@uhulinux.hu | 2014-06-03 17:44:51 +0200 (k, 03 jún 2014) | 2 lines
+Changed paths:
+   M /trunk/hu.po
+   M /trunk/uhu-installer.pot
+   M /trunk/update
+
+i18n update
+
+------------------------------------------------------------------------
+r1120 | janusz@uhulinux.hu | 2014-06-03 17:34:42 +0200 (k, 03 jún 2014) | 4 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+create separate boot end EFI boot partition
+write fstab in boot manager install phase
+filehandler usage fixes
+
+------------------------------------------------------------------------
+r1118 | janusz@uhulinux.hu | 2014-04-23 16:07:35 +0200 (sze, 23 ápr 2014) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+wipefs fixes
+
+------------------------------------------------------------------------
+r1117 | janusz@uhulinux.hu | 2014-03-04 14:15:07 +0100 (k, 04 márc 2014) | 4 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+STDERR encoding fix
+remove debugs
+uninitialized variables fix
+
+------------------------------------------------------------------------
+r1115 | janusz@uhulinux.hu | 2014-02-21 12:32:15 +0100 (p, 21 febr 2014) | 3 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+grub2
+create efi compatible gpt partition table in esay install
+
+------------------------------------------------------------------------
+r1113 | janusz@uhulinux.hu | 2014-02-07 15:28:13 +0100 (p, 07 febr 2014) | 3 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+fixes
+grub2
+
+------------------------------------------------------------------------
+r1111 | janusz@uhulinux.hu | 2012-04-23 18:07:17 +0200 (h, 23 ápr 2012) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* run update-grubmenu after grub install
+
+------------------------------------------------------------------------
+r1109 | janusz@uhulinux.hu | 2012-04-21 15:22:31 +0200 (szo, 21 ápr 2012) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* udevinfo fix
+
+------------------------------------------------------------------------
+r1108 | janusz@uhulinux.hu | 2011-12-15 16:08:39 +0100 (cs, 15 dec 2011) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* vd (virtio device) support
+
+------------------------------------------------------------------------
+r1107 | janusz@uhulinux.hu | 2011-04-05 18:09:05 +0200 (k, 05 ápr 2011) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* update-grubmenu fixes
+
+------------------------------------------------------------------------
+r1106 | janusz@uhulinux.hu | 2011-04-05 16:32:29 +0200 (k, 05 ápr 2011) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* swap path handling fix
+
+------------------------------------------------------------------------
+r1104 | janusz@uhulinux.hu | 2010-09-06 18:01:38 +0200 (h, 06 szept 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* do not install grub to swap
+
+------------------------------------------------------------------------
+r1103 | janusz@uhulinux.hu | 2010-09-06 17:55:03 +0200 (h, 06 szept 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* show partition label and type
+
+------------------------------------------------------------------------
+r1102 | janusz@uhulinux.hu | 2010-09-06 17:25:35 +0200 (h, 06 szept 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* skip extended partitions from grub list
+
+------------------------------------------------------------------------
+r1101 | janusz@uhulinux.hu | 2010-09-06 17:22:25 +0200 (h, 06 szept 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* skip extended partition
+
+------------------------------------------------------------------------
+r1100 | janusz@uhulinux.hu | 2010-09-06 17:08:25 +0200 (h, 06 szept 2010) | 2 lines
+Changed paths:
+   M /trunk/hu.po
+   M /trunk/uhu-installer
+   M /trunk/uhu-installer.glade
+   M /trunk/uhu-installer.pot
+
+* i18n fixes
+
+------------------------------------------------------------------------
+r1099 | janusz@uhulinux.hu | 2010-09-06 16:55:19 +0200 (h, 06 szept 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* popup icons and titles
+
+------------------------------------------------------------------------
+r1097 | janusz@uhulinux.hu | 2010-09-02 13:01:41 +0200 (cs, 02 szept 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* bootdevfs fix
+
+------------------------------------------------------------------------
+r1095 | janusz@uhulinux.hu | 2010-08-31 18:45:40 +0200 (k, 31 aug 2010) | 2 lines
+Changed paths:
+   M /trunk/hu.po
+   M /trunk/uhu-installer
+   M /trunk/uhu-installer.glade
+   M /trunk/uhu-installer.pot
+
+* finish text fix
+
+------------------------------------------------------------------------
+r1093 | janusz@uhulinux.hu | 2010-08-31 18:35:43 +0200 (k, 31 aug 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* better disk cleanup
+
+------------------------------------------------------------------------
+r1091 | janusz@uhulinux.hu | 2010-08-31 18:01:34 +0200 (k, 31 aug 2010) | 2 lines
+Changed paths:
+   M /trunk/hu.po
+   M /trunk/uhu-installer
+   M /trunk/uhu-installer.pot
+
+* i18n update
+
+------------------------------------------------------------------------
+r1090 | janusz@uhulinux.hu | 2010-08-31 17:59:19 +0200 (k, 31 aug 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* disk access check
+
+------------------------------------------------------------------------
+r1088 | janusz@uhulinux.hu | 2010-08-30 17:54:48 +0200 (h, 30 aug 2010) | 3 lines
+Changed paths:
+   M /trunk/hu.po
+   M /trunk/uhu-installer
+   M /trunk/uhu-installer.glade
+   M /trunk/uhu-installer.pot
+
+* i18n frissítések, javítások
+* telepítés vége üzenet
+
+------------------------------------------------------------------------
+r1086 | janusz@uhulinux.hu | 2010-06-30 19:02:57 +0200 (sze, 30 jún 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* wipefs before mkfs
+
+------------------------------------------------------------------------
+r1085 | janusz@uhulinux.hu | 2010-06-11 11:55:39 +0200 (p, 11 jún 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* install grub to /boot partition
+
+------------------------------------------------------------------------
+r1084 | janusz@uhulinux.hu | 2010-06-11 11:16:33 +0200 (p, 11 jún 2010) | 3 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* normal mod fstab fix
+* minden mount torolheto, kiveve az utolsot
+
+------------------------------------------------------------------------
+r1083 | janusz@uhulinux.hu | 2010-06-11 10:40:28 +0200 (p, 11 jún 2010) | 3 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* ne csatoljuk a swapot
+* particio tipus fixalas
+
+------------------------------------------------------------------------
+r1081 | janusz@uhulinux.hu | 2010-05-28 17:22:52 +0200 (p, 28 máj 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* uuid hivatkozasok az fstab-ba
+
+------------------------------------------------------------------------
+r1080 | janusz@uhulinux.hu | 2010-05-27 12:58:41 +0200 (cs, 27 máj 2010) | 3 lines
+Changed paths:
+   M /trunk/uhu-installer
+   M /trunk/uhu-installer.glade
+
+* disk list refresh button
+* kippable bootloader installation
+
+------------------------------------------------------------------------
+r1079 | janusz@uhulinux.hu | 2010-05-27 11:58:35 +0200 (cs, 27 máj 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer.glade
+
+* window icon
+
+------------------------------------------------------------------------
+r1077 | janusz@uhulinux.hu | 2010-05-26 20:51:44 +0200 (sze, 26 máj 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* fix username check
+
+------------------------------------------------------------------------
+r1076 | janusz@uhulinux.hu | 2010-05-26 20:37:10 +0200 (sze, 26 máj 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* password check order
+
+------------------------------------------------------------------------
+r1075 | janusz@uhulinux.hu | 2010-05-26 19:50:30 +0200 (sze, 26 máj 2010) | 2 lines
+Changed paths:
+   M /trunk/hu.po
+   M /trunk/uhu-installer.glade
+   M /trunk/uhu-installer.pot
+
+* tooltip i18n fix
+
+------------------------------------------------------------------------
+r1074 | janusz@uhulinux.hu | 2010-05-26 19:20:44 +0200 (sze, 26 máj 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer.glade
+
+* window size fixes
+
+------------------------------------------------------------------------
+r1073 | janusz@uhulinux.hu | 2010-05-26 19:04:39 +0200 (sze, 26 máj 2010) | 2 lines
+Changed paths:
+   M /trunk/hu.po
+
+* hu.po fix
+
+------------------------------------------------------------------------
+r1071 | janusz@uhulinux.hu | 2010-05-26 11:17:39 +0200 (sze, 26 máj 2010) | 3 lines
+Changed paths:
+   M /trunk/hu.po
+   M /trunk/uhu-installer.glade
+   M /trunk/uhu-installer.pot
+
+* i18n fixes
+* hide notebook tabs
+
+------------------------------------------------------------------------
+r1069 | janusz@uhulinux.hu | 2010-05-26 09:52:23 +0200 (sze, 26 máj 2010) | 3 lines
+Changed paths:
+   M /trunk/hu.po
+   M /trunk/uhu-installer
+   M /trunk/uhu-installer.glade
+   M /trunk/uhu-installer.pot
+
+* gettext fixes
+* remove log from UI
+
+------------------------------------------------------------------------
+r1068 | janusz@uhulinux.hu | 2010-05-14 14:20:35 +0200 (p, 14 máj 2010) | 2 lines
+Changed paths:
+   M /trunk/hu.po
+
+* hu.po fix
+
+------------------------------------------------------------------------
+r1066 | janusz@uhulinux.hu | 2010-05-14 13:54:27 +0200 (p, 14 máj 2010) | 2 lines
+Changed paths:
+   M /trunk/hu.po
+   M /trunk/uhu-installer
+   M /trunk/uhu-installer.glade
+   M /trunk/uhu-installer.pot
+
+* magyarázó szöveg a módokhoz
+
+------------------------------------------------------------------------
+r1064 | janusz@uhulinux.hu | 2010-05-13 23:52:36 +0200 (cs, 13 máj 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* show username in live mode
+
+------------------------------------------------------------------------
+r1063 | janusz@uhulinux.hu | 2010-05-13 23:49:13 +0200 (cs, 13 máj 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* usermod fix
+
+------------------------------------------------------------------------
+r1062 | janusz@uhulinux.hu | 2010-05-13 23:48:25 +0200 (cs, 13 máj 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* skip disks which have partitions
+
+------------------------------------------------------------------------
+r1061 | janusz@uhulinux.hu | 2010-05-13 23:33:18 +0200 (cs, 13 máj 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* selectable fs type (ext*) for /boot
+
+------------------------------------------------------------------------
+r1060 | janusz@uhulinux.hu | 2010-05-13 23:23:24 +0200 (cs, 13 máj 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* uneditable path in live mode
+
+------------------------------------------------------------------------
+r1058 | janusz@uhulinux.hu | 2010-05-13 22:23:01 +0200 (cs, 13 máj 2010) | 3 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* comment fix
+* remove uhu-installer desktop icon after live install
+
+------------------------------------------------------------------------
+r1056 | janusz@uhulinux.hu | 2010-05-05 22:45:05 +0200 (sze, 05 máj 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* log /var/log/uhu-installer.log
+
+------------------------------------------------------------------------
+r1054 | janusz@uhulinux.hu | 2010-05-05 22:32:43 +0200 (sze, 05 máj 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* change automatic login username
+
+------------------------------------------------------------------------
+r1053 | janusz@uhulinux.hu | 2010-05-05 22:26:26 +0200 (sze, 05 máj 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* remove reiserfs
+
+------------------------------------------------------------------------
+r1052 | janusz@uhulinux.hu | 2010-05-05 22:24:14 +0200 (sze, 05 máj 2010) | 2 lines
+Changed paths:
+   M /trunk/hu.po
+   M /trunk/uhu-installer
+   M /trunk/uhu-installer.glade
+   M /trunk/uhu-installer.pot
+
+* fullname support
+
+------------------------------------------------------------------------
+r1050 | janusz@uhulinux.hu | 2010-05-05 21:28:43 +0200 (sze, 05 máj 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* mount all device from fstab after install
+
+------------------------------------------------------------------------
+r1049 | janusz@uhulinux.hu | 2010-05-05 21:07:22 +0200 (sze, 05 máj 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* fstab path fix
+
+------------------------------------------------------------------------
+r1048 | janusz@uhulinux.hu | 2010-05-05 20:55:07 +0200 (sze, 05 máj 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* device path fix
+
+------------------------------------------------------------------------
+r1046 | janusz@uhulinux.hu | 2010-05-05 20:34:03 +0200 (sze, 05 máj 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* create readonly src device
+
+------------------------------------------------------------------------
+r1044 | janusz@uhulinux.hu | 2010-05-05 19:51:59 +0200 (sze, 05 máj 2010) | 2 lines
+Changed paths:
+   M /trunk/hu.po
+
+áááááááááááááááá
+
+------------------------------------------------------------------------
+r1042 | janusz@uhulinux.hu | 2010-04-29 18:59:26 +0200 (cs, 29 ápr 2010) | 4 lines
+Changed paths:
+   M /trunk/hu.po
+   M /trunk/uhu-installer
+   M /trunk/uhu-installer.pot
+
+* fstab létrehozása normál módban
+* expert módban kitöröljük a path-t swap esetén
+* i18n fixek
+
+------------------------------------------------------------------------
+r1040 | janusz@uhulinux.hu | 2010-04-29 14:27:00 +0200 (cs, 29 ápr 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* upss :)
+
+------------------------------------------------------------------------
+r1038 | janusz@uhulinux.hu | 2010-04-29 14:15:30 +0200 (cs, 29 ápr 2010) | 2 lines
+Changed paths:
+   M /trunk/hu.po
+   M /trunk/uhu-installer
+   M /trunk/uhu-installer.pot
+
+* i18n fixes
+
+------------------------------------------------------------------------
+r1036 | janusz@uhulinux.hu | 2010-04-29 13:56:08 +0200 (cs, 29 ápr 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer.glade
+
+* remove default username and passwords
+
+------------------------------------------------------------------------
+r1034 | janusz@uhulinux.hu | 2010-04-29 13:54:43 +0200 (cs, 29 ápr 2010) | 2 lines
+Changed paths:
+   M /trunk/hu.po
+   M /trunk/uhu-installer
+   M /trunk/uhu-installer.pot
+
+* i18n hu fixes
+
+------------------------------------------------------------------------
+r1031 | janusz@uhulinux.hu | 2010-04-29 13:33:14 +0200 (cs, 29 ápr 2010) | 2 lines
+Changed paths:
+   M /trunk/hu.po
+
+i18n hu fixes
+
+------------------------------------------------------------------------
+r1029 | janusz@uhulinux.hu | 2010-04-29 13:23:07 +0200 (cs, 29 ápr 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* i18n fix
+
+------------------------------------------------------------------------
+r1027 | janusz@uhulinux.hu | 2010-04-29 13:08:18 +0200 (cs, 29 ápr 2010) | 2 lines
+Changed paths:
+   A /trunk/hu.po
+   M /trunk/uhu-installer
+   M /trunk/uhu-installer.glade
+   A /trunk/uhu-installer.pot
+   A /trunk/update
+
+* i18n
+
+------------------------------------------------------------------------
+r1025 | janusz@uhulinux.hu | 2010-04-16 22:46:17 +0200 (p, 16 ápr 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+* hide partitions in easy mode (ugly hack)
+
+------------------------------------------------------------------------
+r1023 | janusz@uhulinux.hu | 2010-04-16 16:40:06 +0200 (p, 16 ápr 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer.glade
+
+* hide notebook tabs
+
+------------------------------------------------------------------------
+r1021 | janusz@uhulinux.hu | 2010-04-14 23:56:10 +0200 (sze, 14 ápr 2010) | 3 lines
+Changed paths:
+   M /trunk/uhu-installer
+   M /trunk/uhu-installer.glade
+
+* naplozas
+* angol szovegek
+
+------------------------------------------------------------------------
+r1020 | janusz@uhulinux.hu | 2010-04-14 18:17:56 +0200 (sze, 14 ápr 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+   M /trunk/uhu-installer.glade
+
+...
+
+------------------------------------------------------------------------
+r1018 | pozsy@uhulinux.hu | 2010-04-13 17:48:01 +0200 (k, 13 ápr 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer-cli
+
+- oops
+
+------------------------------------------------------------------------
+r1016 | pozsy@uhulinux.hu | 2010-04-13 17:32:02 +0200 (k, 13 ápr 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer.glade
+
+- ui fixes
+
+------------------------------------------------------------------------
+r1015 | pozsy@uhulinux.hu | 2010-04-13 17:25:34 +0200 (k, 13 ápr 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+- typo fix
+
+------------------------------------------------------------------------
+r1013 | pozsy@uhulinux.hu | 2010-04-13 17:19:07 +0200 (k, 13 ápr 2010) | 2 lines
+Changed paths:
+   D /trunk/uhu-installer.deesktop
+   A /trunk/uhu-installer.desktop (from /trunk/uhu-installer.deesktop:1011)
+
+- uhu-installer.deesktop -> uhu-installer.desktop
+
+------------------------------------------------------------------------
+r1011 | pozsy@uhulinux.hu | 2010-04-13 16:58:38 +0200 (k, 13 ápr 2010) | 2 lines
+Changed paths:
+   A /trunk/uhu-installer-cli (from /trunk/uhuinstall:1008)
+   D /trunk/uhuinstall
+
+- uhuinstall -> uhu-installer-cli
+
+------------------------------------------------------------------------
+r1010 | pozsy@uhulinux.hu | 2010-04-13 16:55:07 +0200 (k, 13 ápr 2010) | 2 lines
+Changed paths:
+   M /trunk/uhu-installer
+
+- installer -> uhu-installer
+
+------------------------------------------------------------------------
+r1009 | pozsy@uhulinux.hu | 2010-04-13 16:54:08 +0200 (k, 13 ápr 2010) | 3 lines
+Changed paths:
+   D /trunk/installer
+   D /trunk/installer.glade
+   A /trunk/uhu-installer (from /trunk/installer:1007)
+   A /trunk/uhu-installer.deesktop
+   A /trunk/uhu-installer.glade (from /trunk/installer.glade:1006)
+
+- desktop file
+- installer -> uhu-installer
+
+------------------------------------------------------------------------
+r1008 | pozsy@uhulinux.hu | 2010-04-13 16:37:20 +0200 (k, 13 ápr 2010) | 2 lines
+Changed paths:
+   M /trunk/uhuinstall
+
+- backport safer dm mirror from installer to uhu-installer
+
+------------------------------------------------------------------------
+r1007 | pozsy@uhulinux.hu | 2010-04-13 16:31:58 +0200 (k, 13 ápr 2010) | 2 lines
+Changed paths:
+   M /trunk/installer
+
+- load from /usr/share
+
+------------------------------------------------------------------------
+r1004 | janusz@uhulinux.hu | 2010-04-02 21:47:50 +0200 (p, 02 ápr 2010) | 2 lines
+Changed paths:
+   M /trunk/installer
+
+* "normal" install
+
+------------------------------------------------------------------------
+r1003 | janusz@uhulinux.hu | 2010-04-02 01:17:36 +0200 (p, 02 ápr 2010) | 3 lines
+Changed paths:
+   M /trunk/installer
+
+* további figyelmeztetések
+* disk méret ellenőrzés
+
+------------------------------------------------------------------------
+r1001 | janusz@uhulinux.hu | 2010-03-23 21:08:56 +0100 (k, 23 márc 2010) | 2 lines
+Changed paths:
+   M /trunk/installer
+   M /trunk/installer.glade
+
+gui
+
+------------------------------------------------------------------------
+r1000 | janusz@uhulinux.hu | 2010-03-23 00:37:48 +0100 (k, 23 márc 2010) | 2 lines
+Changed paths:
+   M /trunk/installer
+
+happy 1000 :)
+
+------------------------------------------------------------------------
+r999 | janusz@uhulinux.hu | 2010-03-22 15:27:31 +0100 (h, 22 márc 2010) | 2 lines
+Changed paths:
+   M /trunk/installer
+   M /trunk/installer.glade
+
+* easy mode
+
+------------------------------------------------------------------------
+r998 | janusz@uhulinux.hu | 2010-03-18 22:56:33 +0100 (cs, 18 márc 2010) | 2 lines
+Changed paths:
+   M /trunk/installer
+
+* forkolos cuccok
+
+------------------------------------------------------------------------
+r997 | janusz@uhulinux.hu | 2010-03-17 22:53:16 +0100 (sze, 17 márc 2010) | 2 lines
+Changed paths:
+   M /trunk/installer
+   M /trunk/installer.glade
+
+* steps
+
+------------------------------------------------------------------------
+r996 | janusz@uhulinux.hu | 2010-03-16 23:54:39 +0100 (k, 16 márc 2010) | 2 lines
+Changed paths:
+   A /trunk/installer
+   A /trunk/installer.glade
+
+* installer GUI
+
+------------------------------------------------------------------------
+r994 | pozsy@uhulinux.hu | 2010-03-02 15:29:18 +0100 (k, 02 márc 2010) | 2 lines
+Changed paths:
+   M /trunk/uhuinstall
+
+- dm-mirror is needed for copy
+
+------------------------------------------------------------------------
+r992 | pozsy@uhulinux.hu | 2010-02-23 02:49:40 +0100 (k, 23 febr 2010) | 2 lines
+Changed paths:
+   M /trunk/uhuinstall
+
+- add journal after resize
+
+------------------------------------------------------------------------
+r990 | pozsy@uhulinux.hu | 2010-02-21 19:09:30 +0100 (v, 21 febr 2010) | 2 lines
+Changed paths:
+   M /trunk/uhuinstall
+
+- install using device-mapper
+
+------------------------------------------------------------------------
+r988 | pozsy@uhulinux.hu | 2010-02-17 18:22:55 +0100 (sze, 17 febr 2010) | 3 lines
+Changed paths:
+   M /trunk/uhuinstall
+
+- fstab fix
+- do not use unsupported ext3 flags for /boot
+
+------------------------------------------------------------------------
+r986 | pozsy@uhulinux.hu | 2010-02-17 17:10:48 +0100 (sze, 17 febr 2010) | 5 lines
+Changed paths:
+   M /trunk/uhuinstall
+
+- use ext3 for /boot (grub sucks with ext4)
+- add label "Boot" for boot device
+- create /etc/fstab
+- sync after install
+
+------------------------------------------------------------------------
+r984 | pozsy@uhulinux.hu | 2010-02-17 16:04:22 +0100 (sze, 17 febr 2010) | 4 lines
+Changed paths:
+   M /trunk/uhuinstall
+
+- proper dm/loop device teardown after install
+- lvm/fs resize after install
+- use ext4 for /boot
+
+------------------------------------------------------------------------
+r982 | pozsy@uhulinux.hu | 2010-02-17 14:18:04 +0100 (sze, 17 febr 2010) | 2 lines
+Changed paths:
+   D /trunk/Makefile
+   D /trunk/po
+   D /trunk/src
+   A /trunk/uhuinstall
+
+- initial commit of installer-ng
+
+------------------------------------------------------------------------
+r979 | pozsy | 2008-03-11 18:41:43 +0100 (k, 11 márc 2008) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/partition-manager
+
+- typo fix
+
+------------------------------------------------------------------------
+r977 | pozsy | 2008-02-28 19:44:45 +0100 (cs, 28 febr 2008) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/partition-manager
+
+- cciss support
+
+------------------------------------------------------------------------
+r975 | pozsy | 2007-12-17 11:01:12 +0100 (h, 17 dec 2007) | 2 lines
+Changed paths:
+   M /trunk/src/usr/share/uhu-installer/welcome/warning/index.html
+   M /trunk/src/usr/share/uhu-installer/welcome/warning/index.hu.html
+
+- 2.0 -> 2.1 in the warning text
+
+------------------------------------------------------------------------
+r973 | pozsy | 2007-11-08 14:13:12 +0100 (cs, 08 nov 2007) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-installer
+
+- use black color to print on banner
+
+------------------------------------------------------------------------
+r971 | pozsy | 2007-11-08 13:25:03 +0100 (cs, 08 nov 2007) | 2 lines
+Changed paths:
+   M /trunk/src/usr/share/uhu-installer/uhu-installer.png
+
+- pngs should be pngs :)
+
+------------------------------------------------------------------------
+r969 | pozsy | 2007-11-08 13:22:42 +0100 (cs, 08 nov 2007) | 2 lines
+Changed paths:
+   M /trunk/src/usr/share/uhu-installer/uhu-installer.png
+
+- update banner
+
+------------------------------------------------------------------------
+r967 | pozsy | 2007-11-07 17:44:13 +0100 (sze, 07 nov 2007) | 2 lines
+Changed paths:
+   M /trunk/src/etc/X11/xorg.conf.in
+
+- try vesa in auto mode too
+
+------------------------------------------------------------------------
+r965 | pozsy | 2007-11-07 11:30:32 +0100 (sze, 07 nov 2007) | 2 lines
+Changed paths:
+   M /trunk/src/usr/share/uhu-installer/the_end/release_notes/index.html
+   M /trunk/src/usr/share/uhu-installer/the_end/release_notes/index.hu.html
+
+- update the_end
+
+------------------------------------------------------------------------
+r964 | pozsy | 2007-11-07 11:27:38 +0100 (sze, 07 nov 2007) | 2 lines
+Changed paths:
+   M /trunk/src/etc/X11/xorg.conf.in
+
+- drop vga from xorg.conf.in
+
+------------------------------------------------------------------------
+r962 | pozsy | 2007-11-07 10:12:03 +0100 (sze, 07 nov 2007) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/adduser
+
+- fix gdm autologin setup
+
+------------------------------------------------------------------------
+r960 | pozsy | 2007-11-06 00:49:43 +0100 (k, 06 nov 2007) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/package-manager
+
+- better nfs mount options in package-manager
+
+------------------------------------------------------------------------
+r958 | pozsy | 2007-10-30 13:34:02 +0100 (k, 30 okt 2007) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/adduser
+
+- /etc/gdm/gdm.conf is /etc/gdm/custom.conf now
+
+------------------------------------------------------------------------
+r957 | egmont | 2007-04-19 18:35:14 +0200 (cs, 19 ápr 2007) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-installer
+
+- typo fix: occurred
+
+------------------------------------------------------------------------
+r955 | egmont | 2006-08-24 12:10:33 +0200 (cs, 24 aug 2006) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-installer
+   M /trunk/src/usr/share/uhu-installer/uhu-installer.png
+
+- update banner
+
+------------------------------------------------------------------------
+r953 | egmont | 2006-08-23 15:06:52 +0200 (sze, 23 aug 2006) | 2 lines
+Changed paths:
+   M /trunk/src/usr/share/uhu-installer/the_end/release_notes/uhulogo.png
+
+- update uhulogo
+
+------------------------------------------------------------------------
+r951 | egmont | 2006-08-09 18:01:40 +0200 (sze, 09 aug 2006) | 2 lines
+Changed paths:
+   M /trunk/src/usr/share/uhu-installer/the_end/release_notes/index.html
+   M /trunk/src/usr/share/uhu-installer/the_end/release_notes/index.hu.html
+
+- update congratulations text
+
+------------------------------------------------------------------------
+r949 | egmont | 2006-08-08 16:58:32 +0200 (k, 08 aug 2006) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/partition-manager
+
+- drop reiser4 and jfs, they do not work
+
+------------------------------------------------------------------------
+r947 | egmont | 2006-08-03 17:16:21 +0200 (cs, 03 aug 2006) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+
+- hu.po update
+
+------------------------------------------------------------------------
+r945 | egmont | 2006-08-02 17:57:30 +0200 (sze, 02 aug 2006) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- upgrade: fix home directories
+
+------------------------------------------------------------------------
+r943 | egmont | 2006-08-01 18:15:01 +0200 (k, 01 aug 2006) | 3 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/package-manager
+   M /trunk/src/usr/sbin/uhu-installer
+
+- sort package groups
+- move the banner text to the right
+
+------------------------------------------------------------------------
+r941 | pozsy | 2006-07-26 16:51:05 +0200 (sze, 26 júl 2006) | 2 lines
+Changed paths:
+   M /trunk/src/sbin/init
+
+- fix /dev/root creation (merge from uhu-initscripts)
+
+------------------------------------------------------------------------
+r939 | egmont | 2006-07-21 19:04:42 +0200 (p, 21 júl 2006) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-installer
+
+- update the banner text
+
+------------------------------------------------------------------------
+r937 | egmont | 2006-07-21 18:24:38 +0200 (p, 21 júl 2006) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-installer
+   D /trunk/src/usr/share/uhu-installer/uhu-installer.jpg
+   A /trunk/src/usr/share/uhu-installer/uhu-installer.png
+
+- use png rather than jpeg, jpeg loader is not present
+
+------------------------------------------------------------------------
+r935 | egmont | 2006-07-21 17:58:59 +0200 (p, 21 júl 2006) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-installer
+   A /trunk/src/usr/share/uhu-installer/uhu-installer.jpg
+   D /trunk/src/usr/share/uhu-installer/uhu-installer.png
+
+- new banner based on Vlad's artwork
+
+------------------------------------------------------------------------
+r933 | janusz | 2006-07-19 14:44:50 +0200 (sze, 19 júl 2006) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/adduser
+
+- fix regexp
+
+------------------------------------------------------------------------
+r931 | janusz | 2006-07-19 13:27:35 +0200 (sze, 19 júl 2006) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/adduser
+
+- autologin support for kdm
+
+------------------------------------------------------------------------
+r929 | egmont | 2006-07-18 20:53:26 +0200 (k, 18 júl 2006) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- upgrade script updates
+
+------------------------------------------------------------------------
+r927 | pozsy | 2006-07-18 19:00:36 +0200 (k, 18 júl 2006) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/usr/lib/uhu-installer/adduser
+   M /trunk/src/usr/share/uhu-installer/adduser/adduser.glade2
+
+- add autologin support to adduser
+
+------------------------------------------------------------------------
+r925 | egmont | 2006-07-17 16:33:59 +0200 (h, 17 júl 2006) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/package-manager
+
+- icon fix
+
+------------------------------------------------------------------------
+r923 | egmont | 2006-07-13 20:20:22 +0200 (cs, 13 júl 2006) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/usr/share/uhu-installer/package-manager/package-manager.glade2
+
+- remove the kitchen sink
+
+------------------------------------------------------------------------
+r921 | egmont | 2006-07-13 18:59:05 +0200 (cs, 13 júl 2006) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+
+- po fix
+
+------------------------------------------------------------------------
+r919 | egmont | 2006-07-13 17:40:53 +0200 (cs, 13 júl 2006) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- upgrade: fix bug that caused the removal of lots of packages
+
+------------------------------------------------------------------------
+r917 | egmont | 2006-07-13 14:25:07 +0200 (cs, 13 júl 2006) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- upgrade script cleanup
+
+------------------------------------------------------------------------
+r915 | egmont | 2006-06-29 17:57:23 +0200 (cs, 29 jún 2006) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- dpkg is fixed now, remove workaround
+
+------------------------------------------------------------------------
+r913 | egmont | 2006-06-29 12:25:00 +0200 (cs, 29 jún 2006) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/usr/lib/uhu-installer/mouse
+
+- update to inputattach-1.24
+
+------------------------------------------------------------------------
+r911 | egmont | 2006-06-22 19:25:26 +0200 (cs, 22 jún 2006) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- upgrade script part 5
+
+------------------------------------------------------------------------
+r909 | egmont | 2006-06-22 18:09:52 +0200 (cs, 22 jún 2006) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- upgrade script part 4
+
+------------------------------------------------------------------------
+r907 | egmont | 2006-06-21 19:33:47 +0200 (sze, 21 jún 2006) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- upgrade script part 3
+
+------------------------------------------------------------------------
+r905 | egmont | 2006-06-19 19:06:21 +0200 (h, 19 jún 2006) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- upgrade script part 2
+
+------------------------------------------------------------------------
+r903 | egmont | 2006-06-19 17:18:31 +0200 (h, 19 jún 2006) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/po/update
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- upgrade script part 1
+
+------------------------------------------------------------------------
+r901 | pozsy | 2006-06-07 10:09:12 +0200 (sze, 07 jún 2006) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/package-manager
+
+- use curlftpfs instead of lufs
+
+------------------------------------------------------------------------
+r899 | egmont | 2006-05-26 18:47:50 +0200 (p, 26 máj 2006) | 2 lines
+Changed paths:
+   M /trunk/src/usr/share/uhu-installer/welcome/warning/index.hu.html
+
+- typo fix
+
+------------------------------------------------------------------------
+r897 | pozsy | 2006-05-26 18:31:49 +0200 (p, 26 máj 2006) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/welcome
+   D /trunk/src/usr/share/uhu-installer/welcome/LICENSE
+   D /trunk/src/usr/share/uhu-installer/welcome/WARNING
+   A /trunk/src/usr/share/uhu-installer/welcome/license
+   A /trunk/src/usr/share/uhu-installer/welcome/license/index.html
+   A /trunk/src/usr/share/uhu-installer/welcome/license/index.hu.html
+   A /trunk/src/usr/share/uhu-installer/welcome/warning
+   A /trunk/src/usr/share/uhu-installer/welcome/warning/index.html
+   A /trunk/src/usr/share/uhu-installer/welcome/warning/index.hu.html
+   M /trunk/src/usr/share/uhu-installer/welcome/welcome.glade2
+
+- use html on the welcome screen
+
+------------------------------------------------------------------------
+r896 | egmont | 2006-05-26 16:57:56 +0200 (p, 26 máj 2006) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/usr/lib/uhu-installer/package-manager
+
+- properly use gettext
+
+------------------------------------------------------------------------
+r894 | egmont | 2006-05-26 15:48:14 +0200 (p, 26 máj 2006) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- temporarily refuse upgrading
+
+------------------------------------------------------------------------
+r892 | egmont | 2006-05-26 14:59:00 +0200 (p, 26 máj 2006) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   D /trunk/src/usr/lib/uhu-installer/the_end2
+   D /trunk/src/usr/share/uhu-installer/the_end2
+
+- remove the_end2
+
+------------------------------------------------------------------------
+r890 | pozsy | 2006-05-23 16:06:32 +0200 (k, 23 máj 2006) | 3 lines
+Changed paths:
+   M /trunk/src/usr/lib/perl5/vendor_perl/UHU/steps.pm
+   M /trunk/src/usr/lib/uhu-installer/the_end
+   D /trunk/src/usr/share/uhu-installer/the_end/RELEASE_NOTES
+   A /trunk/src/usr/share/uhu-installer/the_end/release_notes
+   A /trunk/src/usr/share/uhu-installer/the_end/release_notes/index.html
+   A /trunk/src/usr/share/uhu-installer/the_end/release_notes/index.hu.html
+   A /trunk/src/usr/share/uhu-installer/the_end/release_notes/uhulogo.png
+   M /trunk/src/usr/share/uhu-installer/the_end/the_end.glade2
+
+- the_end: use html2view
+- drop the_end2
+
+------------------------------------------------------------------------
+r887 | egmont | 2006-05-23 14:49:02 +0200 (k, 23 máj 2006) | 2 lines
+Changed paths:
+   M /trunk/src/etc/X11/xorg.conf.in
+
+- x.org uses the new "kbd" driver instead of old "keyboard"
+
+------------------------------------------------------------------------
+r886 | egmont | 2006-05-09 19:44:08 +0200 (k, 09 máj 2006) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/partition-manager
+
+- don't recommend /usr on separate partition
+
+------------------------------------------------------------------------
+r884 | egmont | 2006-05-09 18:50:43 +0200 (k, 09 máj 2006) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/package-manager
+
+- revert accidentally committed hunk
+
+------------------------------------------------------------------------
+r882 | egmont | 2006-05-09 18:05:59 +0200 (k, 09 máj 2006) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/sbin/init
+   M /trunk/src/usr/lib/uhu-installer/package-manager
+
+- do not generate sysconfig/{font,consolemap,layout}
+
+------------------------------------------------------------------------
+r880 | egmont | 2006-05-08 17:34:29 +0200 (h, 08 máj 2006) | 3 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/usr/lib/uhu-installer/package-manager
+   M /trunk/src/usr/share/uhu-installer/partition-manager/partition-manager.glade2
+   M /trunk/src/usr/share/uhu-installer/uhu-installer.png
+
+- strings update: use "CD or DVD"
+- banner gfx updated
+
+------------------------------------------------------------------------
+r878 | egmont | 2006-05-05 20:29:35 +0200 (p, 05 máj 2006) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/package-manager
+
+- package manager: fix searching for accented characters
+
+------------------------------------------------------------------------
+r876 | egmont | 2006-05-05 19:46:45 +0200 (p, 05 máj 2006) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/package-manager
+
+- package manager: fix a debug message
+
+------------------------------------------------------------------------
+r874 | egmont | 2006-05-05 18:59:17 +0200 (p, 05 máj 2006) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/package-manager
+
+- package manager: start with recommended selection
+
+------------------------------------------------------------------------
+r872 | egmont | 2006-05-05 18:54:46 +0200 (p, 05 máj 2006) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/usr/lib/uhu-installer/package-manager
+   M /trunk/src/usr/share/uhu-installer/package-manager/package-manager.glade2
+
+- package manager: load some predefined selections
+
+------------------------------------------------------------------------
+r870 | egmont | 2006-05-05 16:45:36 +0200 (p, 05 máj 2006) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/usr/lib/uhu-installer/package-manager
+
+- package manager: do not update too often if search field changes
+
+------------------------------------------------------------------------
+r868 | egmont | 2006-05-05 16:17:27 +0200 (p, 05 máj 2006) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/usr/lib/uhu-installer/package-manager
+   M /trunk/src/usr/share/uhu-installer/package-manager/package-manager.glade2
+
+- package manager: drop categories and radio buttons
+
+------------------------------------------------------------------------
+r866 | egmont | 2006-05-03 19:15:47 +0200 (sze, 03 máj 2006) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/sbin/init
+
+- gettextize init
+
+------------------------------------------------------------------------
+r864 | egmont | 2006-05-03 18:52:25 +0200 (sze, 03 máj 2006) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/usr/lib/uhu-installer/adduser
+
+- gettextize directory names
+
+------------------------------------------------------------------------
+r862 | egmont | 2006-05-02 18:40:58 +0200 (k, 02 máj 2006) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/package-manager
+
+- lang fix
+
+------------------------------------------------------------------------
+r860 | egmont | 2006-05-02 18:06:05 +0200 (k, 02 máj 2006) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/package-manager
+
+- typo fix
+
+------------------------------------------------------------------------
+r858 | egmont | 2006-05-02 17:49:27 +0200 (k, 02 máj 2006) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/sbin/init
+   M /trunk/src/usr/lib/uhu-installer/package-manager
+
+- avoid name conflict
+
+------------------------------------------------------------------------
+r856 | egmont | 2006-05-02 17:17:30 +0200 (k, 02 máj 2006) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/po/update
+   A /trunk/src/etc/X11/xorg.conf.in (from /trunk/src/etc/X11/xorg.conf.installer:855)
+   D /trunk/src/etc/X11/xorg.conf.installer
+   M /trunk/src/sbin/init
+   M /trunk/src/usr/lib/uhu-installer/package-manager
+
+- keyboard layout depends on current language
+
+------------------------------------------------------------------------
+r854 | egmont | 2006-04-28 14:10:52 +0200 (p, 28 ápr 2006) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/usr/lib/perl5/vendor_perl/UHU/steps.pm
+
+- cleanup banner texts
+
+------------------------------------------------------------------------
+r852 | egmont | 2006-04-28 12:32:50 +0200 (p, 28 ápr 2006) | 2 lines
+Changed paths:
+   M /trunk/po/Makefile
+   M /trunk/po/hu.po
+   M /trunk/src/usr/lib/perl5/vendor_perl/UHU/steps.pm
+
+- cleanup banner texts
+
+------------------------------------------------------------------------
+r850 | egmont | 2006-04-27 21:01:19 +0200 (cs, 27 ápr 2006) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/po/update
+   M /trunk/src/usr/lib/perl5/vendor_perl/UHU/steps.pm
+   M /trunk/src/usr/sbin/uhu-installer
+   D /trunk/src/usr/share/uhu-installer/addroot/addroot.png
+   D /trunk/src/usr/share/uhu-installer/adduser/adduser.png
+   D /trunk/src/usr/share/uhu-installer/grubinstall/grubinstall.png
+   D /trunk/src/usr/share/uhu-installer/mouse/mouse.png
+   D /trunk/src/usr/share/uhu-installer/package-manager/package-manager.png
+   D /trunk/src/usr/share/uhu-installer/partition-manager/partition-manager.png
+   D /trunk/src/usr/share/uhu-installer/the_end/the_end.png
+   A /trunk/src/usr/share/uhu-installer/uhu-installer.png
+   D /trunk/src/usr/share/uhu-installer/welcome/welcome.png
+   D /trunk/src/usr/share/uhu-installer/xorg-config
+
+- print banner text at runtime
+
+------------------------------------------------------------------------
+r848 | egmont | 2006-04-25 22:16:04 +0200 (k, 25 ápr 2006) | 2 lines
+Changed paths:
+   M /trunk/src/sbin/init
+
+- drop the dpi option of the X server
+
+------------------------------------------------------------------------
+r846 | egmont | 2006-04-20 16:17:14 +0200 (cs, 20 ápr 2006) | 3 lines
+Changed paths:
+   M /trunk/src/sbin/init
+
+- set environment variables from /etc/env.d/*.env
+- keep LANG if something goes wrong
+
+------------------------------------------------------------------------
+r842 | pozsy | 2006-04-18 17:02:03 +0200 (k, 18 ápr 2006) | 2 lines
+Changed paths:
+   M /trunk/src/sbin/init
+
+- update init script (using /etc/rc.boot/10-system.boot)
+
+------------------------------------------------------------------------
+r840 | egmont | 2006-04-11 15:06:37 +0200 (k, 11 ápr 2006) | 4 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/usr/lib/uhu-installer/package-manager
+
+- fix sorting of unknown sections
+- add Firmware section
+- hu.po update
+
+------------------------------------------------------------------------
+r838 | pozsy | 2006-04-04 13:31:32 +0200 (k, 04 ápr 2006) | 2 lines
+Changed paths:
+   M /trunk/src/sbin/init
+
+- do not run sysinfo during install (can cause problems)
+
+------------------------------------------------------------------------
+r836 | pozsy | 2006-04-03 21:10:58 +0200 (h, 03 ápr 2006) | 2 lines
+Changed paths:
+   M /trunk/src/sbin/init
+
+- drop unneeded code (mostly modprobes)
+
+------------------------------------------------------------------------
+r834 | egmont | 2006-04-03 18:25:33 +0200 (h, 03 ápr 2006) | 2 lines
+Changed paths:
+   M /trunk/src/usr/share/uhu-installer/welcome/WARNING
+
+- s/1.2/2.0/g in WARNING
+
+------------------------------------------------------------------------
+r832 | egmont | 2006-03-29 20:33:08 +0200 (sze, 29 márc 2006) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/usr/lib/uhu-installer/package-manager
+
+- english fix
+
+------------------------------------------------------------------------
+r830 | egmont | 2006-03-29 19:57:48 +0200 (sze, 29 márc 2006) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/package-manager
+
+- store installation language in /etc/sysconfig/locale
+
+------------------------------------------------------------------------
+r828 | egmont | 2006-03-20 12:04:15 +0100 (h, 20 márc 2006) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/usr/lib/uhu-installer/package-manager
+
+- fix Section names
+
+------------------------------------------------------------------------
+r826 | pozsy | 2006-03-07 22:03:13 +0100 (k, 07 márc 2006) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/partition-manager
+
+- add reiser4 support
+
+------------------------------------------------------------------------
+r824 | egmont | 2006-02-22 19:51:54 +0100 (sze, 22 febr 2006) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/addroot
+   M /trunk/src/usr/lib/uhu-installer/adduser
+
+- fix previous commit
+
+------------------------------------------------------------------------
+r822 | egmont | 2006-02-22 17:09:13 +0100 (sze, 22 febr 2006) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/addroot
+   M /trunk/src/usr/lib/uhu-installer/adduser
+
+- use md5 crypt
+
+------------------------------------------------------------------------
+r820 | pozsy | 2006-02-09 18:17:21 +0100 (cs, 09 febr 2006) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/the_end
+   M /trunk/src/usr/lib/uhu-installer/welcome
+
+- update for Gtk2::Ex::PodViewer 0.14
+
+------------------------------------------------------------------------
+r818 | egmont | 2005-12-12 16:53:54 +0100 (h, 12 dec 2005) | 2 lines
+Changed paths:
+   M /trunk/src/etc/X11/xorg.conf.installer
+
+- xorg.conf update
+
+------------------------------------------------------------------------
+r816 | egmont | 2005-12-12 16:38:50 +0100 (h, 12 dec 2005) | 2 lines
+Changed paths:
+   M /trunk/src/sbin/init
+
+- modules.skip is gone
+
+------------------------------------------------------------------------
+r814 | pozsy | 2005-10-20 20:11:29 +0200 (cs, 20 okt 2005) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/grubinstall
+
+- typo fix
+
+------------------------------------------------------------------------
+r813 | pozsy | 2005-10-20 20:10:34 +0200 (cs, 20 okt 2005) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/grubinstall
+
+- better grub install when installing from image
+
+------------------------------------------------------------------------
+r811 | pozsy | 2005-10-20 17:48:40 +0200 (cs, 20 okt 2005) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/package-manager
+
+- better code for installing from packages.t*
+
+------------------------------------------------------------------------
+r809 | pozsy | 2005-10-20 17:36:47 +0200 (cs, 20 okt 2005) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/package-manager
+
+- create more dirs when installing from archive
+
+------------------------------------------------------------------------
+r807 | egmont | 2005-10-20 17:11:37 +0200 (cs, 20 okt 2005) | 2 lines
+Changed paths:
+   M /trunk/src/sbin/init
+
+- ramdisks are now called /dev/ram*
+
+------------------------------------------------------------------------
+r805 | pozsy | 2005-10-20 16:41:44 +0200 (cs, 20 okt 2005) | 3 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/package-manager
+   M /trunk/src/usr/lib/uhu-installer/partition-manager
+
+- /dev/disks no longer exists
+- support installing from packages.tar.bz2
+
+------------------------------------------------------------------------
+r803 | egmont | 2005-10-20 16:38:36 +0200 (cs, 20 okt 2005) | 2 lines
+Changed paths:
+   M /trunk/src/sbin/init
+
+- loadkeys fix
+
+------------------------------------------------------------------------
+r801 | egmont | 2005-10-18 15:04:01 +0200 (k, 18 okt 2005) | 2 lines
+Changed paths:
+   M /trunk/src/sbin/init
+
+- execute loadkeys+setfont earlier
+
+------------------------------------------------------------------------
+r799 | egmont | 2005-10-17 19:24:48 +0200 (h, 17 okt 2005) | 2 lines
+Changed paths:
+   M /trunk/src/sbin/init
+
+- load hu and us keyboard layout at once
+
+------------------------------------------------------------------------
+r797 | egmont | 2005-10-13 15:33:31 +0200 (cs, 13 okt 2005) | 2 lines
+Changed paths:
+   M /trunk/src/sbin/init
+
+- root's home is /root even in the installer and rescue system
+
+------------------------------------------------------------------------
+r795 | egmont | 2005-10-10 22:00:49 +0200 (h, 10 okt 2005) | 2 lines
+Changed paths:
+   M /trunk/src/etc/X11/xorg.conf.installer
+
+- use xkb groups
+
+------------------------------------------------------------------------
+r793 | egmont | 2005-09-12 17:33:44 +0200 (h, 12 szept 2005) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/welcome
+
+- bring up warning window for UTF-8 test release
+
+------------------------------------------------------------------------
+r791 | egmont | 2005-09-01 17:51:30 +0200 (cs, 01 szept 2005) | 2 lines
+Changed paths:
+   M /trunk/po/update
+   M /trunk/src/usr/lib/uhu-installer/package-manager
+
+- assume UTF-8 package descriptions
+
+------------------------------------------------------------------------
+r789 | egmont | 2005-08-31 17:55:57 +0200 (sze, 31 aug 2005) | 2 lines
+Changed paths:
+   M /trunk/src/sbin/init
+
+- set LANG to UTF-8 version
+
+------------------------------------------------------------------------
+r787 | egmont | 2005-08-31 17:11:25 +0200 (sze, 31 aug 2005) | 2 lines
+Changed paths:
+   M /trunk/src/sbin/init
+   M /trunk/src/usr/lib/uhu-installer/mouse
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- UTF-8
+
+------------------------------------------------------------------------
+r785 | egmont | 2005-02-17 14:06:50 +0100 (cs, 17 febr 2005) | 2 lines
+Changed paths:
+   M /trunk/src/usr/share/uhu-installer/the_end2/the_end2-1024x768.png
+   M /trunk/src/usr/share/uhu-installer/the_end2/the_end2-640x480.png
+   M /trunk/src/usr/share/uhu-installer/the_end2/the_end2-800x600.png
+
+- "the_end2" graphics update
+
+------------------------------------------------------------------------
+r783 | egmont | 2005-01-27 17:45:32 +0100 (cs, 27 jan 2005) | 2 lines
+Changed paths:
+   M /trunk/src/usr/share/uhu-installer/the_end2/the_end2-1024x768.png
+   M /trunk/src/usr/share/uhu-installer/the_end2/the_end2-640x480.png
+   M /trunk/src/usr/share/uhu-installer/the_end2/the_end2-800x600.png
+
+- new "the_end2" graphics
+
+------------------------------------------------------------------------
+r781 | egmont | 2005-01-24 14:48:15 +0100 (h, 24 jan 2005) | 2 lines
+Changed paths:
+   M /trunk/src/sbin/init
+
+- unmount /dev/shm
+
+------------------------------------------------------------------------
+r779 | egmont | 2005-01-20 19:08:54 +0100 (cs, 20 jan 2005) | 4 lines
+Changed paths:
+   M /trunk/src/sbin/init
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- drop extra debug shell before hardware detection
+- honour /etc/modules.skip
+- upgrade script updates
+
+------------------------------------------------------------------------
+r777 | egmont | 2005-01-18 17:26:59 +0100 (k, 18 jan 2005) | 2 lines
+Changed paths:
+   M /trunk/src/sbin/init
+
+- detect isa devices
+
+------------------------------------------------------------------------
+r775 | egmont | 2005-01-07 17:33:11 +0100 (p, 07 jan 2005) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- upgrade: rename python-pygresql to pygresql
+
+------------------------------------------------------------------------
+r773 | egmont | 2005-01-05 17:30:34 +0100 (sze, 05 jan 2005) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/partition-manager
+   M /trunk/src/usr/lib/uhu-installer/welcome
+
+- minor bugfix
+
+------------------------------------------------------------------------
+r771 | egmont | 2005-01-05 12:48:58 +0100 (sze, 05 jan 2005) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/partition-manager
+
+- partition manager fixes for udev
+
+------------------------------------------------------------------------
+r769 | egmont | 2004-12-17 15:20:37 +0100 (p, 17 dec 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- upgrade: rename qed to xqed
+
+------------------------------------------------------------------------
+r767 | egmont | 2004-12-13 13:51:47 +0100 (h, 13 dec 2004) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+
+- hu.po fix
+
+------------------------------------------------------------------------
+r764 | egmont | 2004-12-08 14:59:17 +0100 (sze, 08 dec 2004) | 3 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- upgrade: don't reinstall existing packages when installing new ones
+- upgrade: remove "don't use it" warning
+
+------------------------------------------------------------------------
+r762 | egmont | 2004-12-03 16:55:35 +0100 (p, 03 dec 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- fix installing new packages
+
+------------------------------------------------------------------------
+r760 | egmont | 2004-12-03 15:44:11 +0100 (p, 03 dec 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- fix installing new packages
+
+------------------------------------------------------------------------
+r758 | egmont | 2004-12-03 14:24:19 +0100 (p, 03 dec 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- upgrade: properly install new packages
+
+------------------------------------------------------------------------
+r757 | egmont | 2004-12-03 14:02:44 +0100 (p, 03 dec 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- upgrade: small cleanup
+
+------------------------------------------------------------------------
+r755 | egmont | 2004-11-26 18:48:47 +0100 (p, 26 nov 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- upgrade: keep /dev, /proc and /sys mounted, just as it is done at installation
+
+------------------------------------------------------------------------
+r753 | egmont | 2004-11-24 16:37:55 +0100 (sze, 24 nov 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- fix xorg.conf mouse section deletion
+
+------------------------------------------------------------------------
+r752 | egmont | 2004-11-24 16:26:12 +0100 (sze, 24 nov 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- more quiet
+
+------------------------------------------------------------------------
+r750 | egmont | 2004-11-24 15:47:20 +0100 (sze, 24 nov 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- fix previous commit
+
+------------------------------------------------------------------------
+r748 | egmont | 2004-11-24 15:43:00 +0100 (sze, 24 nov 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- fuck dpkg
+
+------------------------------------------------------------------------
+r747 | egmont | 2004-11-24 14:43:07 +0100 (sze, 24 nov 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- workaround a potential race condition
+
+------------------------------------------------------------------------
+r745 | egmont | 2004-11-24 14:20:52 +0100 (sze, 24 nov 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- save logfile
+
+------------------------------------------------------------------------
+r744 | egmont | 2004-11-24 14:13:11 +0100 (sze, 24 nov 2004) | 2 lines
+Changed paths:
+   M /trunk/src/sbin/init
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- upgrade script fixes
+
+------------------------------------------------------------------------
+r743 | egmont | 2004-11-24 13:54:51 +0100 (sze, 24 nov 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- remove mouse section from xorg.conf
+
+------------------------------------------------------------------------
+r741 | egmont | 2004-11-23 18:36:18 +0100 (k, 23 nov 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- upgrade fix
+
+------------------------------------------------------------------------
+r739 | egmont | 2004-11-23 18:12:15 +0100 (k, 23 nov 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- be more quiet
+
+------------------------------------------------------------------------
+r737 | egmont | 2004-11-23 17:44:51 +0100 (k, 23 nov 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- be more quiet
+
+------------------------------------------------------------------------
+r736 | egmont | 2004-11-23 17:27:07 +0100 (k, 23 nov 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- continue if upgrade was interrupted
+
+------------------------------------------------------------------------
+r735 | egmont | 2004-11-18 19:21:32 +0100 (cs, 18 nov 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- upgrade script fixes
+
+------------------------------------------------------------------------
+r733 | egmont | 2004-11-18 19:01:20 +0100 (cs, 18 nov 2004) | 2 lines
+Changed paths:
+   M /trunk/src/sbin/init
+
+- disable screen blanking
+
+------------------------------------------------------------------------
+r731 | egmont | 2004-11-18 17:24:53 +0100 (cs, 18 nov 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- upgrade script fixes
+
+------------------------------------------------------------------------
+r729 | egmont | 2004-11-18 17:20:11 +0100 (cs, 18 nov 2004) | 3 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- fasten uhu-pkg stuff
+- typo fixes
+
+------------------------------------------------------------------------
+r727 | egmont | 2004-11-18 16:24:18 +0100 (cs, 18 nov 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- upgrade: find package source
+
+------------------------------------------------------------------------
+r725 | egmont | 2004-11-17 17:47:41 +0100 (sze, 17 nov 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/share/uhu-installer/welcome/welcome.glade2
+
+- icon fix
+
+------------------------------------------------------------------------
+r723 | egmont | 2004-11-16 20:32:15 +0100 (k, 16 nov 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/sbin/uhu-upgrade
+
+- upgrade script improvements
+
+------------------------------------------------------------------------
+r721 | egmont | 2004-11-16 18:39:29 +0100 (k, 16 nov 2004) | 2 lines
+Changed paths:
+   M /trunk/src/sbin/init
+   A /trunk/src/usr/sbin/uhu-upgrade
+
+- first bits of upgrade
+
+------------------------------------------------------------------------
+r719 | egmont | 2004-11-12 17:24:04 +0100 (p, 12 nov 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/partition-manager
+
+- partition manager fixes
+
+------------------------------------------------------------------------
+r717 | egmont | 2004-11-12 16:55:49 +0100 (p, 12 nov 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/partition-manager
+
+- partition manager fixes
+
+------------------------------------------------------------------------
+r715 | egmont | 2004-11-10 15:02:21 +0100 (sze, 10 nov 2004) | 2 lines
+Changed paths:
+   M /trunk/src/sbin/init
+
+- load device mapper module
+
+------------------------------------------------------------------------
+r713 | egmont | 2004-11-09 17:19:17 +0100 (k, 09 nov 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/partition-manager
+
+- fix the ordering of partitions
+
+------------------------------------------------------------------------
+r711 | egmont | 2004-11-09 17:06:14 +0100 (k, 09 nov 2004) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/usr/lib/uhu-installer/grubinstall
+
+- floppy can be write-protected
+
+------------------------------------------------------------------------
+r709 | egmont | 2004-11-08 16:54:21 +0100 (h, 08 nov 2004) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/usr/lib/uhu-installer/partition-manager
+
+- further string fixes
+
+------------------------------------------------------------------------
+r707 | egmont | 2004-11-08 16:46:32 +0100 (h, 08 nov 2004) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+
+- hu.po fixes (t/1 -> e/3)
+
+------------------------------------------------------------------------
+r705 | egmont | 2004-11-08 15:32:51 +0100 (h, 08 nov 2004) | 2 lines
+Changed paths:
+   M /trunk/src/sbin/init
+
+- attempt to successfully unmount /usr at the end of installation
+
+------------------------------------------------------------------------
+r703 | egmont | 2004-11-05 14:33:33 +0100 (p, 05 nov 2004) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+
+- hu.po fix
+
+------------------------------------------------------------------------
+r701 | egmont | 2004-11-05 13:45:19 +0100 (p, 05 nov 2004) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/usr/share/uhu-installer/grubinstall/grubinstall.glade2
+
+- add a note about GRUB being installed to the /boot partition
+
+------------------------------------------------------------------------
+r699 | egmont | 2004-11-05 13:00:58 +0100 (p, 05 nov 2004) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+
+- small hu.po fix
+
+------------------------------------------------------------------------
+r697 | egmont | 2004-11-05 12:57:25 +0100 (p, 05 nov 2004) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/usr/sbin/uhu-installer
+
+- translate the strings of perl-uhu
+
+------------------------------------------------------------------------
+r695 | egmont | 2004-11-04 19:33:12 +0100 (cs, 04 nov 2004) | 2 lines
+Changed paths:
+   D /trunk/po/POTFILES.in
+   M /trunk/po/hu.po
+   M /trunk/po/update
+   M /trunk/src/usr/lib/uhu-installer/adduser
+   M /trunk/src/usr/lib/uhu-installer/the_end
+
+- fix pot file creation
+
+------------------------------------------------------------------------
+r693 | egmont | 2004-11-04 13:59:45 +0100 (cs, 04 nov 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/package-manager
+
+- offer cdtest
+
+------------------------------------------------------------------------
+r691 | egmont | 2004-11-02 13:25:28 +0100 (k, 02 nov 2004) | 2 lines
+Changed paths:
+   M /trunk/src/sbin/init
+
+- remove 'scrollout'
+
+------------------------------------------------------------------------
+r689 | egmont | 2004-10-26 11:42:49 +0200 (k, 26 okt 2004) | 2 lines
+Changed paths:
+   M /trunk/src/sbin/init
+
+- use pcimodules to detect hardware
+
+------------------------------------------------------------------------
+r687 | egmont | 2004-10-23 10:22:58 +0200 (szo, 23 okt 2004) | 3 lines
+Changed paths:
+   A /trunk/src/etc
+   A /trunk/src/etc/X11
+   A /trunk/src/etc/X11/xorg.conf.installer
+   M /trunk/src/sbin/init
+   D /trunk/src/usr/sbin/create-xconfig
+   D /trunk/src/usr/sbin/detect-video
+   D /trunk/src/usr/share/uhu-installer/xorg.conf.in
+
+- use fixed xorg.conf
+- drop a shell in debug mode before starting the installer
+
+------------------------------------------------------------------------
+r685 | egmont | 2004-10-12 16:40:28 +0200 (k, 12 okt 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/mouse
+
+- sleep when restarting inputattach
+
+------------------------------------------------------------------------
+r683 | egmont | 2004-10-12 16:01:11 +0200 (k, 12 okt 2004) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/usr/lib/uhu-installer/mouse
+
+- handle serial mice using inputattach
+
+------------------------------------------------------------------------
+r681 | egmont | 2004-09-28 17:24:53 +0200 (k, 28 szept 2004) | 2 lines
+Changed paths:
+   M /trunk/src/sbin/init
+
+- make sure udevd is killed
+
+------------------------------------------------------------------------
+r679 | egmont | 2004-09-24 12:03:16 +0200 (p, 24 szept 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/package-manager
+
+- mount installation medium to /media instead of /mnt, see fhs
+
+------------------------------------------------------------------------
+r677 | egmont | 2004-09-21 17:23:17 +0200 (k, 21 szept 2004) | 2 lines
+Changed paths:
+   M /trunk/src/sbin/init
+
+- make sure deallocvt doesn't launch udevd we've just killed
+
+------------------------------------------------------------------------
+r676 | egmont | 2004-09-13 16:09:31 +0200 (h, 13 szept 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/share/uhu-installer/welcome/WARNING
+
+- typo fix
+
+------------------------------------------------------------------------
+r674 | doome | 2004-09-13 11:24:19 +0200 (h, 13 szept 2004) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/usr/lib/uhu-installer/welcome
+   M /trunk/src/usr/share/uhu-installer/welcome/WARNING
+   M /trunk/src/usr/share/uhu-installer/welcome/welcome.glade2
+
+- warning updates
+
+------------------------------------------------------------------------
+r672 | egmont | 2004-09-11 21:16:43 +0200 (szo, 11 szept 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/share/uhu-installer/the_end/RELEASE_NOTES
+
+- update release notes
+
+------------------------------------------------------------------------
+r670 | pozsy | 2004-09-10 20:02:18 +0200 (p, 10 szept 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/share/uhu-installer/welcome/WARNING
+
+- update WARNING text
+
+------------------------------------------------------------------------
+r669 | doome | 2004-09-10 18:46:10 +0200 (p, 10 szept 2004) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/usr/lib/uhu-installer/welcome
+   A /trunk/src/usr/share/uhu-installer/welcome/WARNING
+
+- WARNING feature for beta releases
+
+------------------------------------------------------------------------
+r667 | pozsy | 2004-09-03 16:04:00 +0200 (p, 03 szept 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/package-manager
+
+- bind mount /sys too, grub-install needs it
+
+------------------------------------------------------------------------
+r666 | egmont | 2004-09-01 15:55:44 +0200 (sze, 01 szept 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/welcome
+
+- strftime cosmetic change
+
+------------------------------------------------------------------------
+r664 | pozsy | 2004-08-31 17:34:10 +0200 (k, 31 aug 2004) | 2 lines
+Changed paths:
+   M /trunk/src/sbin/init
+
+- X is %1 again...
+
+------------------------------------------------------------------------
+r662 | pozsy | 2004-08-31 16:50:54 +0200 (k, 31 aug 2004) | 6 lines
+Changed paths:
+   M /trunk/src/sbin/init
+   M /trunk/src/usr/lib/uhu-installer/package-manager
+
+- init:
+  - use udevinit
+  - check for "mnt" dir too on installed system
+  - proper pivot_root, chroot, umount etc sequence
+- package-manager:
+
+------------------------------------------------------------------------
+r660 | pozsy | 2004-08-26 14:04:27 +0200 (cs, 26 aug 2004) | 4 lines
+Changed paths:
+   M /trunk/src/sbin/init
+
+- fix post-install system boot (udevd is %1, X is %2)
+- umount /proc/bus/usb
+- drop usb hacks
+
+------------------------------------------------------------------------
+r658 | pozsy | 2004-08-26 12:47:35 +0200 (cs, 26 aug 2004) | 2 lines
+Changed paths:
+   M /trunk/src/sbin/init
+
+- debug job list after installers exists
+
+------------------------------------------------------------------------
+r656 | pozsy | 2004-08-19 15:49:57 +0200 (cs, 19 aug 2004) | 2 lines
+Changed paths:
+   M /trunk/src/sbin/init
+
+- better raid startup
+
+------------------------------------------------------------------------
+r655 | pozsy | 2004-08-19 15:18:33 +0200 (cs, 19 aug 2004) | 3 lines
+Changed paths:
+   M /trunk/src/sbin/init
+   M /trunk/src/usr/lib/uhu-installer/grubinstall
+   M /trunk/src/usr/lib/uhu-installer/package-manager
+
+- use modprobe -qqq
+- udev fixes
+
+------------------------------------------------------------------------
+r653 | pozsy | 2004-08-18 19:27:32 +0200 (sze, 18 aug 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/lib/uhu-installer/package-manager
+
+- match /dev/cdroms/*, not only /dev/cdroms/cdrom*
+
+------------------------------------------------------------------------
+r651 | pozsy | 2004-08-18 17:45:51 +0200 (sze, 18 aug 2004) | 2 lines
+Changed paths:
+   M /trunk/src/sbin/init
+
+- only check non-removable devices for raid
+
+------------------------------------------------------------------------
+r649 | pozsy | 2004-08-17 21:24:08 +0200 (k, 17 aug 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/share/uhu-installer/xorg.conf.in
+
+- remove unneeded mouse config from xorg.conf.in
+
+------------------------------------------------------------------------
+r648 | pozsy | 2004-08-13 16:59:09 +0200 (p, 13 aug 2004) | 2 lines
+Changed paths:
+   M /trunk/src/sbin/init
+
+- update initscript for kernel 2.6, udev etc
+
+------------------------------------------------------------------------
+r646 | egmont | 2004-08-13 16:23:17 +0200 (p, 13 aug 2004) | 2 lines
+Changed paths:
+   M /trunk/src/sbin/init
+
+- proper udev initialization
+
+------------------------------------------------------------------------
+r644 | egmont | 2004-07-20 17:00:59 +0200 (k, 20 júl 2004) | 2 lines
+Changed paths:
+   M /trunk/src/usr/share/uhu-installer/addroot/addroot.png
+   M /trunk/src/usr/share/uhu-installer/adduser/adduser.png
+   M /trunk/src/usr/share/uhu-installer/grubinstall/grubinstall.png
+   M /trunk/src/usr/share/uhu-installer/mouse/mouse.png
+   M /trunk/src/usr/share/uhu-installer/package-manager/package-manager.png
+   M /trunk/src/usr/share/uhu-installer/partition-manager/partition-manager.png
+   M /trunk/src/usr/share/uhu-installer/the_end/the_end.png
+   M /trunk/src/usr/share/uhu-installer/welcome/welcome.png
+   M /trunk/src/usr/share/uhu-installer/xorg-config/xorg-config.png
+
+- graphics: 1.1 -> 1.2
+
+------------------------------------------------------------------------
+r642 | egmont | 2004-07-13 17:12:47 +0200 (k, 13 júl 2004) | 4 lines
+Changed paths:
+   D /trunk/src/linuxrc
+   A /trunk/src/sbin
+   A /trunk/src/sbin/init (from /trunk/src/linuxrc:640)
+
+- /linuxrc -> /sbin/init
+- set language
+- other minor improvements
+
+------------------------------------------------------------------------
+r640 | egmont | 2004-07-12 19:25:48 +0200 (h, 12 júl 2004) | 2 lines
+Changed paths:
+   M /trunk/src/linuxrc
+   M /trunk/src/usr/sbin/create-xconfig
+
+- small cleanup+fix
+
+------------------------------------------------------------------------
+r638 | egmont | 2004-07-12 18:52:33 +0200 (h, 12 júl 2004) | 2 lines
+Changed paths:
+   A /trunk/Makefile
+   A /trunk/po/Makefile
+
+- add Makefiles
+
+------------------------------------------------------------------------
+r636 | egmont | 2004-07-12 18:48:38 +0200 (h, 12 júl 2004) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/linuxrc
+   A /trunk/src/usr/lib/perl5
+   A /trunk/src/usr/lib/perl5/vendor_perl
+   A /trunk/src/usr/lib/perl5/vendor_perl/UHU
+   A /trunk/src/usr/lib/perl5/vendor_perl/UHU/steps.pm
+   A /trunk/src/usr/sbin/create-xconfig
+   M /trunk/src/usr/sbin/detect-video
+   A /trunk/src/usr/share/uhu-installer/addroot/addroot.png
+   A /trunk/src/usr/share/uhu-installer/adduser/adduser.png
+   A /trunk/src/usr/share/uhu-installer/grubinstall/grubinstall.png
+   A /trunk/src/usr/share/uhu-installer/mouse/mouse.png
+   A /trunk/src/usr/share/uhu-installer/package-manager/package-manager.png
+   A /trunk/src/usr/share/uhu-installer/partition-manager/partition-manager.png
+   A /trunk/src/usr/share/uhu-installer/the_end/RELEASE_NOTES
+   A /trunk/src/usr/share/uhu-installer/the_end/the_end.png
+   A /trunk/src/usr/share/uhu-installer/the_end2/the_end2-1024x768.png
+   A /trunk/src/usr/share/uhu-installer/the_end2/the_end2-640x480.png
+   A /trunk/src/usr/share/uhu-installer/the_end2/the_end2-800x600.png
+   A /trunk/src/usr/share/uhu-installer/welcome/LICENSE
+   A /trunk/src/usr/share/uhu-installer/welcome/welcome.png
+   A /trunk/src/usr/share/uhu-installer/xorg-config
+   A /trunk/src/usr/share/uhu-installer/xorg-config/xorg-config.png
+   M /trunk/src/usr/share/uhu-installer/xorg.conf.in
+
+- first big step towards 1.2
+
+------------------------------------------------------------------------
+r635 | egmont | 2004-07-12 18:36:53 +0200 (h, 12 júl 2004) | 2 lines
+Changed paths:
+   D /trunk/data
+   M /trunk/po/POTFILES.in
+   M /trunk/po/hu.po
+   A /trunk/po/update
+   D /trunk/src/detect-video
+   D /trunk/src/modules
+   D /trunk/src/uhu-installer
+   A /trunk/src/usr
+   A /trunk/src/usr/lib
+   A /trunk/src/usr/lib/uhu-installer (from /trunk/src/modules:634)
+   A /trunk/src/usr/sbin
+   A /trunk/src/usr/sbin/detect-video (from /trunk/src/detect-video:634)
+   A /trunk/src/usr/sbin/uhu-installer (from /trunk/src/uhu-installer:634)
+   A /trunk/src/usr/share
+   A /trunk/src/usr/share/uhu-installer
+   A /trunk/src/usr/share/uhu-installer/addroot
+   A /trunk/src/usr/share/uhu-installer/addroot/addroot.glade2 (from /trunk/ui/modules/addroot.glade2:634)
+   A /trunk/src/usr/share/uhu-installer/adduser
+   A /trunk/src/usr/share/uhu-installer/adduser/adduser.glade2 (from /trunk/ui/modules/adduser.glade2:634)
+   A /trunk/src/usr/share/uhu-installer/grubinstall
+   A /trunk/src/usr/share/uhu-installer/grubinstall/grubinstall.glade2 (from /trunk/ui/modules/grubinstall.glade2:634)
+   A /trunk/src/usr/share/uhu-installer/mouse
+   A /trunk/src/usr/share/uhu-installer/mouse/mouse.glade2 (from /trunk/ui/modules/mouse.glade2:634)
+   A /trunk/src/usr/share/uhu-installer/package-manager
+   A /trunk/src/usr/share/uhu-installer/package-manager/package-manager.glade2 (from /trunk/ui/modules/package-manager.glade2:634)
+   A /trunk/src/usr/share/uhu-installer/partition-manager
+   A /trunk/src/usr/share/uhu-installer/partition-manager/partition-manager.glade2 (from /trunk/ui/modules/partition-manager.glade2:634)
+   A /trunk/src/usr/share/uhu-installer/the_end
+   A /trunk/src/usr/share/uhu-installer/the_end/the_end.glade2 (from /trunk/ui/modules/the_end.glade2:634)
+   A /trunk/src/usr/share/uhu-installer/the_end2
+   A /trunk/src/usr/share/uhu-installer/the_end2/the_end2.glade2 (from /trunk/ui/modules/the_end2.glade2:634)
+   A /trunk/src/usr/share/uhu-installer/uhu-installer.glade2 (from /trunk/ui/uhu-installer.glade2:634)
+   A /trunk/src/usr/share/uhu-installer/welcome
+   A /trunk/src/usr/share/uhu-installer/welcome/welcome.glade2 (from /trunk/ui/modules/welcome.glade2:634)
+   A /trunk/src/usr/share/uhu-installer/xorg.conf.in (from /trunk/data/xorg.conf:634)
+   D /trunk/ui
+
+- reorganize source tree
+
+------------------------------------------------------------------------
+r633 | egmont | 2004-05-06 20:58:04 +0200 (cs, 06 máj 2004) | 2 lines
+Changed paths:
+   D /trunk/data/XF86Config
+   A /trunk/data/xorg.conf (from /trunk/data/XF86Config:632)
+   M /trunk/src/detect-video
+   M /trunk/src/linuxrc
+
+XFree86 -> X.org
+
+------------------------------------------------------------------------
+r629 | doome | 2004-03-03 19:10:53 +0100 (sze, 03 márc 2004) | 2 lines
+Changed paths:
+   M /trunk/src/uhu-installer
+
+calculate the filling banner's color from the first column of the real image
+
+------------------------------------------------------------------------
+r627 | doome | 2004-03-02 11:14:29 +0100 (k, 02 márc 2004) | 2 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+
+ldir -> lroor for postinst
+
+------------------------------------------------------------------------
+r625 | doome | 2004-03-01 17:35:10 +0100 (h, 01 márc 2004) | 2 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+
+allow run postinst script
+
+------------------------------------------------------------------------
+r623 | doome | 2004-02-29 23:07:11 +0100 (v, 29 febr 2004) | 2 lines
+Changed paths:
+   M /trunk/src/uhu-installer
+
+kill border
+
+------------------------------------------------------------------------
+r621 | doome | 2004-02-29 22:54:23 +0100 (v, 29 febr 2004) | 3 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/ui/modules/the_end.glade2
+   M /trunk/ui/modules/the_end2.glade2
+
+-no border for the last picture
+-signature
+
+------------------------------------------------------------------------
+r619 | doome | 2004-02-29 22:42:07 +0100 (v, 29 febr 2004) | 2 lines
+Changed paths:
+   M /trunk/src/uhu-installer
+
+fix
+
+------------------------------------------------------------------------
+r617 | doome | 2004-02-29 20:47:10 +0100 (v, 29 febr 2004) | 3 lines
+Changed paths:
+   M /trunk/src/modules/the_end2
+   M /trunk/src/uhu-installer
+
+hide banner if it doesn't exists
+the end2 ddir fix
+
+------------------------------------------------------------------------
+r616 | pozsy | 2004-02-29 19:49:28 +0100 (v, 29 febr 2004) | 2 lines
+Changed paths:
+   M /trunk/src/modules/the_end
+
+- fix the_end/releasenotes encoding
+
+------------------------------------------------------------------------
+r614 | doome | 2004-02-29 19:13:17 +0100 (v, 29 febr 2004) | 3 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/modules/adduser
+   M /trunk/ui/modules/adduser.glade2
+
+text update
+dirs checkbutton is active for every user by default
+
+------------------------------------------------------------------------
+r613 | pozsy | 2004-02-29 17:27:15 +0100 (v, 29 febr 2004) | 2 lines
+Changed paths:
+   M /trunk/src/modules/adduser
+
+- username can be up to 32 characters long
+
+------------------------------------------------------------------------
+r611 | doome | 2004-02-29 16:16:55 +0100 (v, 29 febr 2004) | 2 lines
+Changed paths:
+   A /trunk/src/modules/the_end2
+   A /trunk/ui/modules/the_end2.glade2
+
+bye-bye screen
+
+------------------------------------------------------------------------
+r609 | egmont | 2004-02-29 01:45:31 +0100 (v, 29 febr 2004) | 2 lines
+Changed paths:
+   M /trunk/src/linuxrc
+
+better removal of usb modules
+
+------------------------------------------------------------------------
+r607 | pozsy | 2004-02-28 13:30:54 +0100 (szo, 28 febr 2004) | 2 lines
+Changed paths:
+   M /trunk/src/modules/welcome
+
+- open LICENSE as utf8
+
+------------------------------------------------------------------------
+r605 | pozsy | 2004-02-25 18:42:03 +0100 (sze, 25 febr 2004) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+
+- tiny hu.po fixes
+
+------------------------------------------------------------------------
+r604 | pozsy | 2004-02-25 18:04:55 +0100 (sze, 25 febr 2004) | 2 lines
+Changed paths:
+   M /trunk/src/modules/partition-manager
+
+- order partitions numerically not alphabetically
+
+------------------------------------------------------------------------
+r602 | egmont | 2004-02-20 21:49:02 +0100 (p, 20 febr 2004) | 2 lines
+Changed paths:
+   M /trunk/src/linuxrc
+
+ugly hack to make usb hotplug devices work right after installation
+
+------------------------------------------------------------------------
+r600 | egmont | 2004-02-20 19:51:01 +0100 (p, 20 febr 2004) | 2 lines
+Changed paths:
+   M /trunk/src/modules/mouse
+
+serial mouse fix
+
+------------------------------------------------------------------------
+r598 | egmont | 2004-02-18 18:45:30 +0100 (sze, 18 febr 2004) | 2 lines
+Changed paths:
+   M /trunk/src/modules/mouse
+
+serial mouse fix
+
+------------------------------------------------------------------------
+r596 | doome | 2004-02-09 09:30:42 +0100 (h, 09 febr 2004) | 2 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+   M /trunk/src/modules/partition-manager
+
+various fixes
+
+------------------------------------------------------------------------
+r594 | egmont | 2004-01-30 00:32:20 +0100 (p, 30 jan 2004) | 2 lines
+Changed paths:
+   M /trunk/src/linuxrc
+   M /trunk/src/modules/package-manager
+
+copy mouse settings (and the whole target+) to the installed system
+
+------------------------------------------------------------------------
+r592 | egmont | 2004-01-24 22:38:14 +0100 (szo, 24 jan 2004) | 2 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+
+increase multiplier once again
+
+------------------------------------------------------------------------
+r590 | doome | 2004-01-24 18:04:42 +0100 (szo, 24 jan 2004) | 3 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+
+Tree build code completely rewritten. Now it is sorted, and sections at
+different branches can have the same name (was buggy before).
+
+------------------------------------------------------------------------
+r588 | egmont | 2004-01-23 23:34:47 +0100 (p, 23 jan 2004) | 2 lines
+Changed paths:
+   M /trunk/src/linuxrc
+
+remove hack for vmware
+
+------------------------------------------------------------------------
+r586 | egmont | 2004-01-23 19:19:33 +0100 (p, 23 jan 2004) | 2 lines
+Changed paths:
+   M /trunk/src/linuxrc
+
+/linuxrc hwdetect: sync with /etc/rc.boot/12-detect
+
+------------------------------------------------------------------------
+r585 | egmont | 2004-01-23 16:49:02 +0100 (p, 23 jan 2004) | 2 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+
+package-manager: magic multiplier increased to 1.16
+
+------------------------------------------------------------------------
+r583 | egmont | 2004-01-21 22:26:46 +0100 (sze, 21 jan 2004) | 2 lines
+Changed paths:
+   M /trunk/src/modules/grubinstall
+
+XFS esetén nem rakunk GRUB-ot a partícióba
+
+------------------------------------------------------------------------
+r581 | egmont | 2004-01-21 20:57:16 +0100 (sze, 21 jan 2004) | 3 lines
+Changed paths:
+   M /trunk/src/linuxrc
+   M /trunk/src/uhu-installer
+
+- run aewm
+- export DISPLAY=:0 for the debug shells
+
+------------------------------------------------------------------------
+r579 | egmont | 2004-01-21 19:10:33 +0100 (sze, 21 jan 2004) | 2 lines
+Changed paths:
+   M /trunk/src/modules/partition-manager
+
+xfs fix
+
+------------------------------------------------------------------------
+r577 | egmont | 2004-01-21 18:24:34 +0100 (sze, 21 jan 2004) | 2 lines
+Changed paths:
+   M /trunk/src/linuxrc
+
+linuxrc: gyerek processzek megvárásáról ne értesítsen
+
+------------------------------------------------------------------------
+r576 | egmont | 2004-01-21 17:36:22 +0100 (sze, 21 jan 2004) | 2 lines
+Changed paths:
+   M /trunk/src/linuxrc
+
+log fix
+
+------------------------------------------------------------------------
+r575 | egmont | 2004-01-21 16:39:02 +0100 (sze, 21 jan 2004) | 3 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/modules/partition-manager
+   M /trunk/ui/modules/grubinstall.glade2
+   M /trunk/ui/modules/mouse.glade2
+
+- xfs support
+- minor spell corrections
+
+------------------------------------------------------------------------
+r572 | pozsy | 2004-01-20 14:30:13 +0100 (k, 20 jan 2004) | 4 lines
+Changed paths:
+   M /trunk/src/linuxrc
+
+- detect videocard only once, not twice
+- fix multiple modules for one pci device cases
+- cleanup
+
+------------------------------------------------------------------------
+r571 | doome | 2004-01-20 11:24:46 +0100 (k, 20 jan 2004) | 2 lines
+Changed paths:
+   M /trunk/ui/modules/package-manager.glade2
+
+don't show tabs
+
+------------------------------------------------------------------------
+r570 | egmont | 2004-01-18 21:52:10 +0100 (v, 18 jan 2004) | 2 lines
+Changed paths:
+   D /trunk/data/pixmaps
+
+drop ancient logo
+
+------------------------------------------------------------------------
+r568 | doome | 2004-01-18 17:49:08 +0100 (v, 18 jan 2004) | 3 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/modules/welcome
+   M /trunk/ui/modules/package-manager.glade2
+
+- grammar fixes
+- package-manager ui fix
+
+------------------------------------------------------------------------
+r566 | doome | 2004-01-18 10:45:24 +0100 (v, 18 jan 2004) | 3 lines
+Changed paths:
+   M /trunk/src/modules/partition-manager
+
+- toformat state is inconsistent if filesystem is auto
+- don't format if filesystem is auto
+
+------------------------------------------------------------------------
+r565 | doome | 2004-01-18 10:01:05 +0100 (v, 18 jan 2004) | 4 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/modules/adduser
+   M /trunk/src/modules/package-manager
+   M /trunk/ui/modules/adduser.glade2
+
+- grammar fixes
+- create dirs is default
+- create 'Egyebek' dir
+
+------------------------------------------------------------------------
+r563 | doome | 2004-01-17 23:55:13 +0100 (szo, 17 jan 2004) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+
+po fix
+
+------------------------------------------------------------------------
+r561 | doome | 2004-01-17 17:09:00 +0100 (szo, 17 jan 2004) | 2 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+
+pm fix
+
+------------------------------------------------------------------------
+r560 | doome | 2004-01-17 14:59:59 +0100 (szo, 17 jan 2004) | 3 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/ui/modules/package-manager.glade2
+
+po update
+package manager ui fix
+
+------------------------------------------------------------------------
+r559 | doome | 2004-01-17 14:00:28 +0100 (szo, 17 jan 2004) | 2 lines
+Changed paths:
+   M /trunk/src/modules/grubinstall
+   M /trunk/src/modules/partition-manager
+
+grubinstall, pm bugfixes
+
+------------------------------------------------------------------------
+r558 | doome | 2004-01-17 12:36:33 +0100 (szo, 17 jan 2004) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/modules/partition-manager
+   M /trunk/src/modules/welcome
+   M /trunk/ui/modules/partition-manager.glade2
+
+grammar fixes
+
+------------------------------------------------------------------------
+r556 | pozsy | 2004-01-14 01:48:22 +0100 (sze, 14 jan 2004) | 2 lines
+Changed paths:
+   M /trunk/src/modules/mouse
+
+- fix gpm reloading, should use imps2 protocol to repeat
+
+------------------------------------------------------------------------
+r554 | egmont | 2004-01-13 23:15:45 +0100 (k, 13 jan 2004) | 2 lines
+Changed paths:
+   M /trunk/src/modules/grubinstall
+
+call grub-install with --no-floppy
+
+------------------------------------------------------------------------
+r552 | doome | 2004-01-13 21:56:20 +0100 (k, 13 jan 2004) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+
+po fix
+
+------------------------------------------------------------------------
+r550 | doome | 2004-01-12 19:42:09 +0100 (h, 12 jan 2004) | 2 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+
+don't show required packages list if there is none
+
+------------------------------------------------------------------------
+r549 | egmont | 2004-01-12 19:21:13 +0100 (h, 12 jan 2004) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+
+hu.po update
+
+------------------------------------------------------------------------
+r547 | egmont | 2004-01-12 15:09:41 +0100 (h, 12 jan 2004) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+
+hu.po update
+
+------------------------------------------------------------------------
+r546 | egmont | 2004-01-12 13:25:22 +0100 (h, 12 jan 2004) | 2 lines
+Changed paths:
+   M /trunk/src/modules/welcome
+
+typo fix
+
+------------------------------------------------------------------------
+r544 | egmont | 2004-01-12 01:57:11 +0100 (h, 12 jan 2004) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/ui/modules/grubinstall.glade2
+
+duplicate options for grub install removed
+
+------------------------------------------------------------------------
+r542 | pozsy | 2004-01-11 14:46:57 +0100 (v, 11 jan 2004) | 2 lines
+Changed paths:
+   M /trunk/src/linuxrc
+
+- more quiet modprobe
+
+------------------------------------------------------------------------
+r540 | egmont | 2004-01-10 15:03:12 +0100 (szo, 10 jan 2004) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/ui/modules/addroot.glade2
+
+don't suggest y in password
+
+------------------------------------------------------------------------
+r539 | egmont | 2004-01-09 14:54:48 +0100 (p, 09 jan 2004) | 2 lines
+Changed paths:
+   M /trunk/src/linuxrc
+
+deallocvt
+
+------------------------------------------------------------------------
+r538 | doome | 2004-01-08 14:52:43 +0100 (cs, 08 jan 2004) | 2 lines
+Changed paths:
+   M /trunk/src/modules/adduser
+
+be quiet if just "OK" was clicked
+
+------------------------------------------------------------------------
+r537 | doome | 2004-01-08 14:47:59 +0100 (cs, 08 jan 2004) | 2 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+
+show just one popup if more packages are required
+
+------------------------------------------------------------------------
+r535 | egmont | 2004-01-08 03:37:04 +0100 (cs, 08 jan 2004) | 2 lines
+Changed paths:
+   M /trunk/src/linuxrc
+
+/mnt a telepítés után is jól használható
+
+------------------------------------------------------------------------
+r533 | doome | 2004-01-06 23:05:17 +0100 (k, 06 jan 2004) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+
+po update
+
+------------------------------------------------------------------------
+r530 | egmont | 2004-01-06 13:08:21 +0100 (k, 06 jan 2004) | 2 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+
+mkinitrd-t nem kell futtatni, a kernel csomag megteszi
+
+------------------------------------------------------------------------
+r528 | pozsy | 2003-12-23 15:09:12 +0100 (k, 23 dec 2003) | 2 lines
+Changed paths:
+   M /trunk/src/linuxrc
+
+- do not show module names in quiet mode while trying to load them
+
+------------------------------------------------------------------------
+r526 | pozsy | 2003-12-23 12:37:43 +0100 (k, 23 dec 2003) | 2 lines
+Changed paths:
+   M /trunk/src/linuxrc
+
+- use log, instead of echo in linuxrc
+
+------------------------------------------------------------------------
+r524 | doome | 2003-12-20 14:33:38 +0100 (szo, 20 dec 2003) | 3 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/modules/adduser
+
+- adduser fix
+- hu.po update
+
+------------------------------------------------------------------------
+r523 | doome | 2003-12-20 12:28:42 +0100 (szo, 20 dec 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/adduser
+
+- adduser fix
+
+------------------------------------------------------------------------
+r521 | doome | 2003-12-17 15:52:18 +0100 (sze, 17 dec 2003) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/modules/welcome
+
+- warning if computer date is probably wrong
+
+------------------------------------------------------------------------
+r519 | doome | 2003-12-17 14:59:22 +0100 (sze, 17 dec 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+
+- random selection in package-manager for testing 
+
+------------------------------------------------------------------------
+r518 | doome | 2003-12-17 14:39:57 +0100 (sze, 17 dec 2003) | 2 lines
+Changed paths:
+   M /trunk/ui/modules/the_end.glade2
+
+- new the_end ui
+
+------------------------------------------------------------------------
+r517 | doome | 2003-12-17 14:39:45 +0100 (sze, 17 dec 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/the_end
+
+- RELEASE_NOTES comes from POD
+
+------------------------------------------------------------------------
+r515 | doome | 2003-12-15 11:28:33 +0100 (h, 15 dec 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/adduser
+
+chown fix
+
+------------------------------------------------------------------------
+r513 | doome | 2003-12-14 20:00:21 +0100 (v, 14 dec 2003) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/modules/package-manager
+
+- po fixes
+
+------------------------------------------------------------------------
+r512 | doome | 2003-12-14 19:38:15 +0100 (v, 14 dec 2003) | 2 lines
+Changed paths:
+   M /trunk/src/linuxrc
+
+- try to load more modules
+
+------------------------------------------------------------------------
+r510 | egmont | 2003-12-13 02:03:52 +0100 (szo, 13 dec 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+
+run mkinitrd
+
+------------------------------------------------------------------------
+r508 | doome | 2003-12-11 08:59:34 +0100 (cs, 11 dec 2003) | 3 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/modules/grubinstall
+
+-po update
+-showmsg at oem_install
+
+------------------------------------------------------------------------
+r507 | doome | 2003-12-11 08:48:47 +0100 (cs, 11 dec 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+
+- put tar/dpkg log in a separate file
+
+------------------------------------------------------------------------
+r505 | doome | 2003-12-11 00:14:54 +0100 (cs, 11 dec 2003) | 2 lines
+Changed paths:
+   M /trunk/src/linuxrc
+
+use poweroff instead of halt
+
+------------------------------------------------------------------------
+r503 | doome | 2003-12-11 00:01:00 +0100 (cs, 11 dec 2003) | 4 lines
+Changed paths:
+   M /trunk/src/linuxrc
+   M /trunk/src/modules/package-manager
+   M /trunk/ui/modules/package-manager.glade2
+
+- halt after OEM_INSTALL
+- pm not "shaking"
+- mount dev and proc, for grubinstall
+
+------------------------------------------------------------------------
+r501 | doome | 2003-12-10 22:51:27 +0100 (sze, 10 dec 2003) | 4 lines
+Changed paths:
+   M /trunk/src/modules/grubinstall
+   M /trunk/src/modules/package-manager
+
+- don't install to a partition's bootsector... probalbly an other operating 
+  system is there
+- package manager cleans up
+
+------------------------------------------------------------------------
+r499 | doome | 2003-12-10 21:46:48 +0100 (sze, 10 dec 2003) | 3 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/modules/adduser
+
+- add the default user before changing his password
+- po update
+
+------------------------------------------------------------------------
+r497 | doome | 2003-12-10 21:33:18 +0100 (sze, 10 dec 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+
+- tar writes to STDOUT !!
+
+------------------------------------------------------------------------
+r495 | doome | 2003-12-10 20:31:58 +0100 (sze, 10 dec 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+
+- new tar writes to stderr instead of stdout
+
+------------------------------------------------------------------------
+r493 | doome | 2003-12-10 19:38:22 +0100 (sze, 10 dec 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/grubinstall
+   M /trunk/src/modules/package-manager
+
+- listen to tar's stderr
+
+------------------------------------------------------------------------
+r491 | doome | 2003-12-10 17:14:35 +0100 (sze, 10 dec 2003) | 2 lines
+Changed paths:
+   M /trunk/src/linuxrc
+   M /trunk/src/modules/addroot
+   M /trunk/src/modules/adduser
+   M /trunk/src/modules/grubinstall
+   M /trunk/src/modules/partition-manager
+   M /trunk/src/modules/the_end
+
+- install from config files
+
+------------------------------------------------------------------------
+r490 | pozsy | 2003-12-09 22:02:06 +0100 (k, 09 dec 2003) | 2 lines
+Changed paths:
+   M /trunk/src/linuxrc
+
+- load serial module too
+
+------------------------------------------------------------------------
+r488 | doome | 2003-12-05 09:11:04 +0100 (p, 05 dec 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/welcome
+   M /trunk/ui/modules/welcome.glade2
+
+LICENSE is in an external file
+
+------------------------------------------------------------------------
+r486 | egmont | 2003-12-04 21:30:59 +0100 (cs, 04 dec 2003) | 5 lines
+Changed paths:
+   M /trunk/src/linuxrc
+
+- debug opció jól működik
+- debug shellt mindig kapunk
+- rescue mód
+- rendszeróra beállítása cmos-t helyi időként értelmezve
+
+------------------------------------------------------------------------
+r484 | doome | 2003-12-03 17:43:52 +0100 (sze, 03 dec 2003) | 4 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/modules/adduser
+   M /trunk/src/modules/partition-manager
+
+- cfdisk shows in textmode (probably won't work
+- chown userdirs
+- break long lines
+
+------------------------------------------------------------------------
+r482 | doome | 2003-12-02 23:24:00 +0100 (k, 02 dec 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/adduser
+
+- new names
+
+------------------------------------------------------------------------
+r480 | doome | 2003-12-02 22:40:13 +0100 (k, 02 dec 2003) | 3 lines
+Changed paths:
+   M /trunk/src/modules/adduser
+   M /trunk/ui/modules/adduser.glade2
+
+- add comment field (encoded in utf8) to passwd file
+- added possibility to create "user friendly" directories
+
+------------------------------------------------------------------------
+r478 | doome | 2003-12-01 19:52:27 +0100 (h, 01 dec 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+
+- hide tree until it is ready
+
+------------------------------------------------------------------------
+r476 | egmont | 2003-12-01 19:30:42 +0100 (h, 01 dec 2003) | 2 lines
+Changed paths:
+   M /trunk/ui/modules/the_end.glade2
+
+the_end update
+
+------------------------------------------------------------------------
+r474 | doome | 2003-12-01 18:41:56 +0100 (h, 01 dec 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+
+- gtk iteration while parsing the packages file, so the ui not appears "frozen"
+
+------------------------------------------------------------------------
+r473 | egmont | 2003-12-01 18:30:21 +0100 (h, 01 dec 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/grubinstall
+
+grub telepítése a / helyett a /boot partíciójába
+
+------------------------------------------------------------------------
+r471 | doome | 2003-12-01 18:06:57 +0100 (h, 01 dec 2003) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/modules/package-manager
+
+- testing works (now with blocking popup function)
+
+------------------------------------------------------------------------
+r469 | doome | 2003-12-01 10:09:13 +0100 (h, 01 dec 2003) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/modules/package-manager
+   M /trunk/ui/modules/package-manager.glade2
+
+- possibility to test the CD before the install
+
+------------------------------------------------------------------------
+r467 | doome | 2003-11-29 17:45:37 +0100 (szo, 29 nov 2003) | 3 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+   M /trunk/ui/modules/package-manager.glade2
+
+- obtain package infos by pressing F1 button...
+- unusuable Gtk2::HPaned thrown out from the UI
+
+------------------------------------------------------------------------
+r465 | doome | 2003-11-28 22:58:39 +0100 (p, 28 nov 2003) | 4 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+   M /trunk/ui/modules/package-manager.glade2
+
+-added row-activated, so pressing "Enter", or double click on a row
+ selects/unselects it
+-blackmagic to workaround the package install by keyboard issue
+
+------------------------------------------------------------------------
+r462 | doome | 2003-11-27 19:12:47 +0100 (cs, 27 nov 2003) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+
+fixes
+
+------------------------------------------------------------------------
+r461 | doome | 2003-11-27 16:58:25 +0100 (cs, 27 nov 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/welcome
+
+reboot works again
+
+------------------------------------------------------------------------
+r460 | egmont | 2003-11-26 19:25:25 +0100 (sze, 26 nov 2003) | 2 lines
+Changed paths:
+   M /trunk/src/linuxrc
+
+LANG kívülről belülbírálható
+
+------------------------------------------------------------------------
+r458 | egmont | 2003-11-25 01:46:12 +0100 (k, 25 nov 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+
+package manager ő ű fix
+
+------------------------------------------------------------------------
+r457 | pozsy | 2003-11-24 22:02:42 +0100 (h, 24 nov 2003) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+
+- tiny hu.po fix
+
+------------------------------------------------------------------------
+r456 | egmont | 2003-11-22 21:24:46 +0100 (szo, 22 nov 2003) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+
+hu.po fixes
+
+------------------------------------------------------------------------
+r454 | doome | 2003-11-21 14:21:45 +0100 (p, 21 nov 2003) | 2 lines
+Changed paths:
+   M /trunk/ui/modules/package-manager.glade2
+
+don't show tabs
+
+------------------------------------------------------------------------
+r453 | doome | 2003-11-21 13:22:44 +0100 (p, 21 nov 2003) | 2 lines
+Changed paths:
+   M /trunk/ui/modules/package-manager.glade2
+
+eliminate "shaking" in package-manager
+
+------------------------------------------------------------------------
+r451 | doome | 2003-11-21 12:13:16 +0100 (p, 21 nov 2003) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+
+po fix
+
+------------------------------------------------------------------------
+r449 | doome | 2003-11-21 11:35:02 +0100 (p, 21 nov 2003) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+
+po update
+
+------------------------------------------------------------------------
+r448 | doome | 2003-11-21 10:57:08 +0100 (p, 21 nov 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/grubinstall
+
+run update-grubmenu when user selects partition install
+
+------------------------------------------------------------------------
+r447 | doome | 2003-11-21 10:44:41 +0100 (p, 21 nov 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/grubinstall
+
+make-bootfloppy fix
+
+------------------------------------------------------------------------
+r445 | doome | 2003-11-20 13:15:54 +0100 (cs, 20 nov 2003) | 2 lines
+Changed paths:
+   M /trunk/src/linuxrc
+
+/var/log/install
+
+------------------------------------------------------------------------
+r444 | doome | 2003-11-20 09:42:32 +0100 (cs, 20 nov 2003) | 2 lines
+Changed paths:
+   M /trunk/src/linuxrc
+
+cosmetics
+
+------------------------------------------------------------------------
+r443 | doome | 2003-11-20 09:04:51 +0100 (cs, 20 nov 2003) | 2 lines
+Changed paths:
+   M /trunk/src/linuxrc
+
+move log exports near log function
+
+------------------------------------------------------------------------
+r441 | doome | 2003-11-20 08:41:01 +0100 (cs, 20 nov 2003) | 2 lines
+Changed paths:
+   M /trunk/src/linuxrc
+
+sane logging to /var/log/install
+
+------------------------------------------------------------------------
+r440 | pozsy | 2003-11-20 02:00:53 +0100 (cs, 20 nov 2003) | 2 lines
+Changed paths:
+   M /trunk/src/linuxrc
+
+- fix logfile generation
+
+------------------------------------------------------------------------
+r438 | doome | 2003-11-19 12:37:30 +0100 (sze, 19 nov 2003) | 2 lines
+Changed paths:
+   M /trunk/src/linuxrc
+   M /trunk/src/modules/adduser
+   M /trunk/src/modules/package-manager
+   M /trunk/src/modules/partition-manager
+   M /trunk/src/modules/the_end
+   M /trunk/src/uhu-installer
+
+use coderefs instead of names at popup (no ipc)
+
+------------------------------------------------------------------------
+r437 | egmont | 2003-11-18 21:07:33 +0100 (k, 18 nov 2003) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+
+hu.po fix
+
+------------------------------------------------------------------------
+r435 | doome | 2003-11-18 13:31:41 +0100 (k, 18 nov 2003) | 4 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/modules/package-manager
+   M /trunk/src/uhu-installer
+   M /trunk/ui/modules/the_end.glade2
+
+po update
+src update for xgettext (end C comments) 
+website: http://uhulinux.hu/
+
+------------------------------------------------------------------------
+r433 | doome | 2003-11-18 11:52:19 +0100 (k, 18 nov 2003) | 7 lines
+Changed paths:
+   M /trunk/src/modules/grubinstall
+   M /trunk/src/modules/package-manager
+   M /trunk/src/modules/partition-manager
+   M /trunk/src/modules/welcome
+
+grubinstall: install grub in the root partition's boot sector everytime
+partition-manager: more informative messages through showmsg
+package-manager: - install from Packages.gz
+                 - targz intsall from a packages.tgz placed where the Packages 
+				   file should be
+welcome: removed very old and not working Easter Egg
+
+------------------------------------------------------------------------
+r432 | doome | 2003-11-18 11:12:21 +0100 (k, 18 nov 2003) | 5 lines
+Changed paths:
+   M /trunk/ui/modules/package-manager.glade2
+   M /trunk/ui/modules/partition-manager.glade2
+   M /trunk/ui/modules/welcome.glade2
+
+package-manager: new tab for tgz install
+partition-manager: remove filesystem creation messages (showmsg)
+welcome: licence fits in a 640 wide window without horizontal scrollbar
+
+
+------------------------------------------------------------------------
+r431 | pozsy | 2003-11-17 20:25:54 +0100 (h, 17 nov 2003) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+
+- hu.po: fit beta warning in 640 pixels
+
+------------------------------------------------------------------------
+r430 | doome | 2003-11-12 16:20:23 +0100 (sze, 12 nov 2003) | 2 lines
+Changed paths:
+   M /trunk/src/uhu-installer
+
+fill the left side of the banner with a proper sized 'uhu-blue' rectangle
+
+------------------------------------------------------------------------
+r429 | doome | 2003-11-03 19:21:49 +0100 (h, 03 nov 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/adduser
+   M /trunk/src/modules/grubinstall
+   M /trunk/src/modules/package-manager
+   M /trunk/src/modules/partition-manager
+   M /trunk/src/modules/the_end
+   M /trunk/src/modules/welcome
+   M /trunk/src/uhu-installer
+
+use function names instead of coderefs in popup functions
+
+------------------------------------------------------------------------
+r428 | doome | 2003-10-22 16:26:22 +0200 (sze, 22 okt 2003) | 3 lines
+Changed paths:
+   M /trunk/src/modules/partition-manager
+
+do not toggle toformat state, when button is inconsistent
+toformat fix
+
+------------------------------------------------------------------------
+r426 | doome | 2003-10-20 14:09:51 +0200 (h, 20 okt 2003) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/modules/partition-manager
+
+toformat bugfix
+
+------------------------------------------------------------------------
+r424 | doome | 2003-10-18 07:48:04 +0200 (szo, 18 okt 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/addroot
+   M /trunk/src/modules/adduser
+
+check_password moved to uhu-perl
+
+------------------------------------------------------------------------
+r422 | doome | 2003-10-16 10:20:12 +0200 (cs, 16 okt 2003) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+
+"Please wait" translation moved here
+
+------------------------------------------------------------------------
+r421 | doome | 2003-10-13 17:36:17 +0200 (h, 13 okt 2003) | 3 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/modules/partition-manager
+   M /trunk/ui/modules/partition-manager.glade2
+
+PO update
+ui update and bugfixes
+
+------------------------------------------------------------------------
+r420 | doome | 2003-10-08 12:38:02 +0200 (sze, 08 okt 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/partition-manager
+   M /trunk/src/uhu-installer
+   M /trunk/ui/modules/grubinstall.glade2
+   M /trunk/ui/modules/mouse.glade2
+   M /trunk/ui/modules/package-manager.glade2
+   M /trunk/ui/modules/partition-manager.glade2
+   M /trunk/ui/modules/the_end.glade2
+
+minor bugfixes
+
+------------------------------------------------------------------------
+r418 | pozsy | 2003-10-07 09:17:53 +0200 (k, 07 okt 2003) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+
+- po update
+
+------------------------------------------------------------------------
+r417 | doome | 2003-10-06 11:15:16 +0200 (h, 06 okt 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+   M /trunk/ui/modules/package-manager.glade2
+
+package-manager may fit in 640x480  (part1)
+
+------------------------------------------------------------------------
+r415 | doome | 2003-10-05 16:12:12 +0200 (v, 05 okt 2003) | 8 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+
+listen to 'why' hash during tree refill (fixes the modifying pixmaps
+during search)
+
+delete or set toinstall of nodes when updating (fixes the 'two click first' 
+bug, when the tree is filled')
+
+Egmont... is a good workerman.. sure... sure Egmont is a good workerman :-)
+
+------------------------------------------------------------------------
+r413 | doome | 2003-10-03 22:41:01 +0200 (p, 03 okt 2003) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/modules/welcome
+
+beta sztring reformatted (now it is good for _(), too)
+
+------------------------------------------------------------------------
+r411 | doome | 2003-10-03 21:36:09 +0200 (p, 03 okt 2003) | 2 lines
+Changed paths:
+   M /trunk/ui/modules/the_end.glade2
+
+minor release notes updte (removed already done lines)
+
+------------------------------------------------------------------------
+r409 | doome | 2003-10-03 11:07:03 +0200 (p, 03 okt 2003) | 4 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/modules/grubinstall
+   M /trunk/src/modules/package-manager
+   M /trunk/src/modules/partition-manager
+
+hu.po update
+package-manager sections update
+select first harddisk if that is the only one
+
+------------------------------------------------------------------------
+r408 | doome | 2003-10-02 10:21:24 +0200 (cs, 02 okt 2003) | 3 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+
+don't hold unworkable row iterators when tree is refilled
+don't parse regexp when category is selected
+
+------------------------------------------------------------------------
+r406 | doome | 2003-09-25 11:31:41 +0200 (cs, 25 szept 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+
+compatible with 1.0 package set
+
+------------------------------------------------------------------------
+r404 | egmont | 2003-09-19 02:22:10 +0200 (p, 19 szept 2003) | 2 lines
+Changed paths:
+   M /trunk/ui/modules/the_end.glade2
+
+sysvinit bug fixed
+
+------------------------------------------------------------------------
+r402 | pozsy | 2003-09-19 01:37:20 +0200 (p, 19 szept 2003) | 3 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/modules/package-manager
+
+- two bugfixes for configure phase
+- hu.po fix
+
+------------------------------------------------------------------------
+r400 | pozsy | 2003-09-18 23:02:13 +0200 (cs, 18 szept 2003) | 4 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/src/modules/welcome
+   M /trunk/ui/modules/the_end.glade2
+
+- release notes (known bugs)
+- startup beta warning translation fix (intltool is buggy)
+- ask before reboot if exit is chosen on welcome screen
+
+------------------------------------------------------------------------
+r398 | pozsy | 2003-09-18 22:03:31 +0200 (cs, 18 szept 2003) | 2 lines
+Changed paths:
+   M /trunk/src/linuxrc
+
+debug shells are only for debug mode
+
+------------------------------------------------------------------------
+r396 | doome | 2003-09-18 18:26:02 +0200 (cs, 18 szept 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+   M /trunk/ui/modules/package-manager.glade2
+
+'all packages' selected by default
+
+------------------------------------------------------------------------
+r394 | doome | 2003-09-18 17:53:03 +0200 (cs, 18 szept 2003) | 3 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/ui/modules/addroot.glade2
+   M /trunk/ui/modules/adduser.glade2
+   M /trunk/ui/modules/grubinstall.glade2
+   M /trunk/ui/modules/mouse.glade2
+   M /trunk/ui/modules/package-manager.glade2
+   M /trunk/ui/modules/partition-manager.glade2
+   M /trunk/ui/modules/the_end.glade2
+   M /trunk/ui/modules/welcome.glade2
+
+massive ui update
+hu.po update
+
+------------------------------------------------------------------------
+r392 | doome | 2003-09-17 19:14:00 +0200 (sze, 17 szept 2003) | 3 lines
+Changed paths:
+   M /trunk/src/modules/addroot
+   M /trunk/src/modules/adduser
+
+use our focus wrapper instead of the grab_focus
+add more users bugfix
+
+------------------------------------------------------------------------
+r391 | doome | 2003-09-17 12:58:41 +0200 (sze, 17 szept 2003) | 3 lines
+Changed paths:
+   M /trunk/ui/modules/addroot.glade2
+   M /trunk/ui/modules/adduser.glade2
+   M /trunk/ui/modules/grubinstall.glade2
+   M /trunk/ui/modules/mouse.glade2
+   M /trunk/ui/modules/package-manager.glade2
+   M /trunk/ui/modules/partition-manager.glade2
+   M /trunk/ui/modules/the_end.glade2
+   M /trunk/ui/modules/welcome.glade2
+
+ui updates
+fix 620 wide labels (workaround for the gtk2 label auto-grow bug)
+
+------------------------------------------------------------------------
+r389 | doome | 2003-09-15 14:09:08 +0200 (h, 15 szept 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/partition-manager
+
+nice alignment
+
+------------------------------------------------------------------------
+r387 | doome | 2003-09-14 12:04:54 +0200 (v, 14 szept 2003) | 2 lines
+Changed paths:
+   M /trunk/ui/modules/the_end.glade2
+
+ui update
+
+------------------------------------------------------------------------
+r386 | doome | 2003-09-14 11:24:32 +0200 (v, 14 szept 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+
+$gtktree declared instantly after module load
+
+------------------------------------------------------------------------
+r384 | pozsy | 2003-09-14 09:45:38 +0200 (v, 14 szept 2003) | 4 lines
+Changed paths:
+   M /trunk/src/linuxrc
+   M /trunk/src/modules/package-manager
+   M /trunk/src/modules/partition-manager
+
+- kill -9, "ps ax" for debugging
+- cleanup debug messages
+- multi-stage configure to work around dpkg braindamage
+
+------------------------------------------------------------------------
+r382 | pozsy | 2003-09-13 18:46:44 +0200 (szo, 13 szept 2003) | 7 lines
+Changed paths:
+   M /trunk/src/linuxrc
+   M /trunk/src/modules/package-manager
+
+- rename install..xinit-errors to install.xinit-errors
+- fixes for previous commit
+- remove hardcoded hungarian string
+- separate unpack and configure phases
+- kill post_install_done
+- cleanups :)
+
+------------------------------------------------------------------------
+r381 | doome | 2003-09-13 17:43:20 +0200 (szo, 13 szept 2003) | 3 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+
+-uc fix
+-category fix
+
+------------------------------------------------------------------------
+r379 | pozsy | 2003-09-13 16:36:02 +0200 (szo, 13 szept 2003) | 8 lines
+Changed paths:
+   M /trunk/data/XF86Config
+   D /trunk/data/postinstall
+   D /trunk/data/preinstall
+   M /trunk/src/linuxrc
+   M /trunk/src/modules/package-manager
+   M /trunk/src/uhu-installer
+
+- assume 88x88 dpi
+- do not uc category names
+- kill preinstall and postinstall scripts
+- do not use xrandr
+- use xfree86 ddc
+- default resolution is 1024x768 from now on
+- usual cleanups
+
+------------------------------------------------------------------------
+r377 | doome | 2003-09-12 21:25:54 +0200 (p, 12 szept 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+
+Don't hardcode KDE and GNOME categories in treeroot names
+
+------------------------------------------------------------------------
+r376 | doome | 2003-09-12 21:10:17 +0200 (p, 12 szept 2003) | 3 lines
+Changed paths:
+   M /trunk/src/modules/adduser
+   M /trunk/src/modules/package-manager
+
+priority extra cleanup
+useradd: error if the user tries to add the same user twice
+
+------------------------------------------------------------------------
+r375 | doome | 2003-09-12 15:05:58 +0200 (p, 12 szept 2003) | 4 lines
+Changed paths:
+   M /trunk/src/uhu-installer
+
+don't try to load pixmaps when testing
+don't resize X and start aewm when testing
+more informative debug when starting a child 
+
+------------------------------------------------------------------------
+r373 | pozsy | 2003-09-12 10:33:23 +0200 (p, 12 szept 2003) | 3 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+
+- prepare for multiple dpkg invocation
+- cleanup
+
+------------------------------------------------------------------------
+r372 | pozsy | 2003-09-12 00:11:42 +0200 (p, 12 szept 2003) | 3 lines
+Changed paths:
+   M /trunk/src/modules/adduser
+   M /trunk/src/modules/grubinstall
+   M /trunk/src/modules/package-manager
+   M /trunk/src/modules/partition-manager
+   M /trunk/src/modules/the_end
+   M /trunk/src/modules/welcome
+   M /trunk/ui/modules/welcome.glade2
+
+- alpha/beta/pre/rc warning
+- popup cleanups
+
+------------------------------------------------------------------------
+r370 | doome | 2003-09-09 23:52:54 +0200 (k, 09 szept 2003) | 2 lines
+Changed paths:
+   M /trunk/src/detect-video
+
+_ bugfix
+
+------------------------------------------------------------------------
+r368 | doome | 2003-09-09 23:28:41 +0200 (k, 09 szept 2003) | 4 lines
+Changed paths:
+   M /trunk/src/modules/mouse
+   M /trunk/src/modules/package-manager
+
+dry_run fixes
+_put fixes
+__mkdir fixes
+
+------------------------------------------------------------------------
+r367 | doome | 2003-09-09 22:10:01 +0200 (k, 09 szept 2003) | 3 lines
+Changed paths:
+   M /trunk/src/modules/mouse
+   M /trunk/src/modules/package-manager
+   M /trunk/src/modules/partition-manager
+   M /trunk/ui/modules/package-manager.glade2
+
+more more _ updates
+package_manager: don't use buggy reorderable tree
+
+------------------------------------------------------------------------
+r366 | doome | 2003-09-09 20:29:42 +0200 (k, 09 szept 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+
+priority=extra bugfix
+
+------------------------------------------------------------------------
+r365 | doome | 2003-09-09 19:22:13 +0200 (k, 09 szept 2003) | 4 lines
+Changed paths:
+   M /trunk/src/modules/adduser
+   M /trunk/src/modules/grubinstall
+   M /trunk/src/modules/partition-manager
+
+sane _ (part 2)
+cfdisk fisk
+insensitive filesystem, when a drive is selected
+
+------------------------------------------------------------------------
+r364 | doome | 2003-09-09 18:13:37 +0200 (k, 09 szept 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/grubinstall
+   M /trunk/src/modules/mouse
+   M /trunk/src/modules/package-manager
+   M /trunk/src/modules/partition-manager
+
+sane _
+
+------------------------------------------------------------------------
+r362 | doome | 2003-09-09 17:33:02 +0200 (k, 09 szept 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/addroot
+   M /trunk/src/modules/adduser
+   M /trunk/ui/modules/addroot.glade2
+   M /trunk/ui/modules/adduser.glade2
+
+focus fixes
+
+------------------------------------------------------------------------
+r361 | doome | 2003-09-09 11:43:41 +0200 (k, 09 szept 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/grubinstall
+
+nice return
+
+------------------------------------------------------------------------
+r360 | doome | 2003-09-09 10:51:57 +0200 (k, 09 szept 2003) | 8 lines
+Changed paths:
+   M /trunk/src/modules/addroot
+   M /trunk/src/modules/adduser
+   M /trunk/src/modules/grubinstall
+   M /trunk/src/modules/mouse
+   M /trunk/src/modules/package-manager
+   M /trunk/src/modules/partition-manager
+   M /trunk/ui/modules/addroot.glade2
+   M /trunk/ui/modules/adduser.glade2
+
+DRY_RUN
+focus() behaviour change: second parameter is a widget who gets the focus after
+	an activate or keypress(Tab) event
+use system__ instead of system calls
+use pipein, pipein_
+use put, put_
+
+
+------------------------------------------------------------------------
+r358 | doome | 2003-09-08 19:10:32 +0200 (h, 08 szept 2003) | 3 lines
+Changed paths:
+   M /trunk/src/modules/addroot
+   M /trunk/src/modules/adduser
+   M /trunk/src/modules/partition-manager
+   M /trunk/ui/modules/addroot.glade2
+   M /trunk/ui/modules/welcome.glade2
+
+focus fix
+partition-manager expand_rows fix
+
+------------------------------------------------------------------------
+r357 | pozsy | 2003-09-07 20:37:23 +0200 (v, 07 szept 2003) | 2 lines
+Changed paths:
+   D /trunk/data/pixmaps/package-manager
+   M /trunk/src/modules/adduser
+   M /trunk/src/modules/grubinstall
+   M /trunk/src/modules/package-manager
+   M /trunk/src/modules/partition-manager
+   M /trunk/ui/modules/package-manager.glade2
+   M /trunk/ui/modules/partition-manager.glade2
+
+cleanup
+
+------------------------------------------------------------------------
+r355 | pozsy | 2003-09-07 18:47:25 +0200 (v, 07 szept 2003) | 8 lines
+Changed paths:
+   M /trunk/src/linuxrc
+   M /trunk/src/modules/package-manager
+   M /trunk/ui/modules/addroot.glade2
+   M /trunk/ui/modules/adduser.glade2
+   M /trunk/ui/modules/grubinstall.glade2
+   M /trunk/ui/modules/mouse.glade2
+   M /trunk/ui/modules/partition-manager.glade2
+   M /trunk/ui/modules/the_end.glade2
+   M /trunk/ui/modules/welcome.glade2
+
+- free up ramdisk memory after install
+- kill debug messages during chroot/pivot_root
+- package-manager:
+  - better support multi-source parse_packages($)
+  - remove old search code
+  - cdrom umount/eject fix
+- ui cleanups, icons for most buttons
+
+------------------------------------------------------------------------
+r353 | pozsy | 2003-09-06 16:24:36 +0200 (szo, 06 szept 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+
+cdrom mount fix
+
+------------------------------------------------------------------------
+r351 | pozsy | 2003-09-06 15:00:21 +0200 (szo, 06 szept 2003) | 4 lines
+Changed paths:
+   M /trunk/data/postinstall
+   M /trunk/src/linuxrc
+   M /trunk/src/modules/package-manager
+
+- use bluecurve icons
+- kill processes before chroot/pivot_root
+- apt-cdrom needs fixing, disable for now
+
+------------------------------------------------------------------------
+r349 | pozsy | 2003-09-06 00:28:02 +0200 (szo, 06 szept 2003) | 2 lines
+Changed paths:
+   M /trunk/src/linuxrc
+
+workaround in the trivial hw detect for modprobe
+
+------------------------------------------------------------------------
+r348 | pozsy | 2003-09-06 00:14:45 +0200 (szo, 06 szept 2003) | 3 lines
+Changed paths:
+   M /trunk/src/linuxrc
+   M /trunk/src/modules/package-manager
+   M /trunk/ui/modules/package-manager.glade2
+
+quiet modprobe
+revert ui "cleanup" :)
+
+------------------------------------------------------------------------
+r347 | pozsy | 2003-09-05 22:06:36 +0200 (p, 05 szept 2003) | 6 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+
+package-manager:
+ - net kell ftp esetén is
+ - ha nincs egy kategória sem, akkor inkább hideoljuk a választási lehetőséget
+   egyrészt ez userfriedlybb, másrészt pedig bugos a gtk, és az üres combobox
+   örökre fogva tarthatja a focus-t
+
+------------------------------------------------------------------------
+r345 | pozsy | 2003-09-05 20:44:16 +0200 (p, 05 szept 2003) | 5 lines
+Changed paths:
+   M /trunk/src/detect-video
+   M /trunk/src/linuxrc
+   M /trunk/src/modules/package-manager
+   M /trunk/ui/modules/package-manager.glade2
+
+800x600 by default, 80x80 dpi
+package-manager:
+ - code cleanup
+ - massive ui cleanup
+
+------------------------------------------------------------------------
+r344 | doome | 2003-09-05 19:12:46 +0200 (p, 05 szept 2003) | 2 lines
+Changed paths:
+   M /trunk/ui/modules/package-manager.glade2
+
+- notebook fülek elrejtve
+
+------------------------------------------------------------------------
+r343 | doome | 2003-09-05 19:09:04 +0200 (p, 05 szept 2003) | 6 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+   M /trunk/ui/modules/package-manager.glade2
+
+- warning majd parancsmegtagadás requried csomag leszedési kisérlet esetén
+- extra csomagokat még megjelenítés előtt töröljük a struktúrából
+- a telepítés elindítható nem elég szabad hely esetén is
+- regexp bugfixes
+- csak azon kategóriák megjelenítése, amik szerepelnek a Packages fájlban
+
+------------------------------------------------------------------------
+r342 | pozsy | 2003-09-05 18:47:47 +0200 (p, 05 szept 2003) | 2 lines
+Changed paths:
+   M /trunk/src/linuxrc
+
+fix for the fix
+
+------------------------------------------------------------------------
+r341 | pozsy | 2003-09-05 18:36:08 +0200 (p, 05 szept 2003) | 2 lines
+Changed paths:
+   M /trunk/src/linuxrc
+
+force X resolution
+
+------------------------------------------------------------------------
+r339 | pozsy | 2003-09-05 16:38:14 +0200 (p, 05 szept 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+
+reorganization bugfix
+
+------------------------------------------------------------------------
+r338 | pozsy | 2003-09-05 16:37:48 +0200 (p, 05 szept 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/addroot
+
+addroot: cleanup bugfix
+
+------------------------------------------------------------------------
+r336 | pozsy | 2003-09-05 15:00:23 +0200 (p, 05 szept 2003) | 2 lines
+Changed paths:
+   M /trunk/src/linuxrc
+   M /trunk/src/modules/package-manager
+
+cleanup
+
+------------------------------------------------------------------------
+r335 | pozsy | 2003-09-05 13:33:30 +0200 (p, 05 szept 2003) | 3 lines
+Changed paths:
+   M /trunk/src/modules/addroot
+   M /trunk/src/modules/adduser
+   M /trunk/src/modules/package-manager
+
+package-manager: more intelligent media search
+addroot, adduser: cleanup
+
+------------------------------------------------------------------------
+r334 | pozsy | 2003-09-05 11:44:54 +0200 (p, 05 szept 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+
+cleanup
+
+------------------------------------------------------------------------
+r333 | pozsy | 2003-09-05 00:32:03 +0200 (p, 05 szept 2003) | 9 lines
+Changed paths:
+   M /trunk/src/linuxrc
+   M /trunk/src/modules/package-manager
+   M /trunk/src/uhu-installer
+
+package-manager:
+ - ftpfs support
+ - better src url handling
+ - cleanup
+linuxrc:
+ - cleanup
+uhu-installer:
+ - 800x600 (not yet working)
+
+------------------------------------------------------------------------
+r332 | doome | 2003-09-04 18:35:08 +0200 (cs, 04 szept 2003) | 3 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+
+categories parseolas
+cleanup
+
+------------------------------------------------------------------------
+r331 | doome | 2003-09-03 20:25:07 +0200 (sze, 03 szept 2003) | 8 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+   M /trunk/ui/modules/package-manager.glade2
+
+Categories mező felvétele
+cleanup
+Filter
+Keresés átdolgozva
+Modellek újragenerálása valós időben
+Priority figyelembevétele
+Bolognai spagetti
+
+------------------------------------------------------------------------
+r329 | doome | 2003-09-01 19:43:39 +0200 (h, 01 szept 2003) | 2 lines
+Changed paths:
+   M /trunk/ui/modules/package-manager.glade2
+
+Checkbutton lapra nem váltunk, helyette a módosított "fás" lap az alap.
+
+------------------------------------------------------------------------
+r328 | doome | 2003-09-01 19:42:31 +0200 (h, 01 szept 2003) | 4 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+
+Priority = required csomagok leszedésekor egyelőre látatlanban abbahagyjuk a 
+leszedést.
+checkbuttonos oldal kivágva, helyette sectionoket lehet választani külön.
+
+------------------------------------------------------------------------
+r327 | pozsy | 2003-09-01 16:24:59 +0200 (h, 01 szept 2003) | 3 lines
+Changed paths:
+   M /trunk/src/linuxrc
+   M /trunk/ui/modules/adduser.glade2
+
+adduser ui design fix
+vmware scsi "detect"
+
+------------------------------------------------------------------------
+r326 | pozsy | 2003-09-01 16:00:52 +0200 (h, 01 szept 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/grubinstall
+
+grubinstall bugfix több hdd esetére
+
+------------------------------------------------------------------------
+r325 | egmont | 2003-09-01 15:53:42 +0200 (h, 01 szept 2003) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+
+po fix
+
+------------------------------------------------------------------------
+r323 | pozsy | 2003-09-01 15:22:30 +0200 (h, 01 szept 2003) | 3 lines
+Changed paths:
+   M /trunk/src/linuxrc
+   M /trunk/src/modules/package-manager
+
+hw detect
+framework mindenféle telepítési forráshoz, már működik: cdrom, dev, nfs
+
+------------------------------------------------------------------------
+r321 | pozsy | 2003-08-31 19:07:05 +0200 (v, 31 aug 2003) | 7 lines
+Changed paths:
+   M /trunk/data/XF86Config
+   M /trunk/data/postinstall
+   M /trunk/src/linuxrc
+   M /trunk/src/modules/package-manager
+   M /trunk/src/uhu-installer
+
+fix a gpm initscrip új helyéhez
+xf86config/layout cleanup
+retry opció ha nincs meg a Packages fájl
+nfs support
+bugfix az új perl-gtk2-höz
+apt-cdrom bugfix az initrd-hez 
+
+------------------------------------------------------------------------
+r319 | pozsy | 2003-08-28 02:26:03 +0200 (cs, 28 aug 2003) | 4 lines
+Changed paths:
+   M /trunk/src/modules/grubinstall
+   M /trunk/src/modules/package-manager
+   M /trunk/src/modules/welcome
+
+grubinstall fix
+package manager: use eject from perl-uhu instead of cdctl
+welcome: reboot subroutine moved to perl-uhu
+
+------------------------------------------------------------------------
+r317 | pozsy | 2003-08-27 18:11:33 +0200 (sze, 27 aug 2003) | 3 lines
+Changed paths:
+   M /trunk/src/modules/grubinstall
+   M /trunk/src/modules/welcome
+
+builtin hardreboot
+grubinstall cleanup
+
+------------------------------------------------------------------------
+r315 | pozsy | 2003-08-27 13:28:27 +0200 (sze, 27 aug 2003) | 2 lines
+Changed paths:
+   M /trunk/src/linuxrc
+
+always give debug shells
+
+------------------------------------------------------------------------
+r314 | pozsy | 2003-08-26 14:01:53 +0200 (k, 26 aug 2003) | 4 lines
+Changed paths:
+   M /trunk/src/linuxrc
+   M /trunk/src/modules/mouse
+   M /trunk/src/modules/package-manager
+   M /trunk/src/modules/the_end
+   M /trunk/src/modules/welcome
+
+kernel check fix
+cd umount fix
+cleanup
+
+------------------------------------------------------------------------
+r313 | pozsy | 2003-08-26 11:26:10 +0200 (k, 26 aug 2003) | 6 lines
+Changed paths:
+   M /trunk/src/linuxrc
+   M /trunk/src/modules/package-manager
+
+raid atmenetileg kikapcsolva
+awk helyett cut hasznalata
+cleanup
+kernel verzio ellenorzes pivot_root/chroot elott
+cd kezeles a package-managerbol
+
+------------------------------------------------------------------------
+r311 | pozsy | 2003-08-26 08:41:08 +0200 (k, 26 aug 2003) | 3 lines
+Changed paths:
+   M /trunk/src/linuxrc
+   M /trunk/src/modules/partition-manager
+
+full hdd partition fix
+cleanup
+
+------------------------------------------------------------------------
+r309 | pozsy | 2003-08-25 12:06:32 +0200 (h, 25 aug 2003) | 2 lines
+Changed paths:
+   M /trunk/src/linuxrc
+
+cleanup (PATH, LOGFILE, mount, sysinfo, usb-modprobe, pivot_root, stb...)
+
+------------------------------------------------------------------------
+r307 | doome | 2003-08-18 18:49:11 +0200 (h, 18 aug 2003) | 3 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+
+függőségtáblázat újra működik
+dependeneket is feltesszük rendesen, csoportos kiválasztás után is
+
+------------------------------------------------------------------------
+r305 | doome | 2003-08-18 10:16:05 +0200 (h, 18 aug 2003) | 2 lines
+Changed paths:
+   M /trunk/ui/modules/adduser.glade2
+   M /trunk/ui/modules/grubinstall.glade2
+   M /trunk/ui/modules/mouse.glade2
+   M /trunk/ui/modules/package-manager.glade2
+   M /trunk/ui/modules/partition-manager.glade2
+   M /trunk/ui/modules/the_end.glade2
+
+Sortörés bugfix part2
+
+------------------------------------------------------------------------
+r304 | doome | 2003-08-18 10:02:25 +0200 (h, 18 aug 2003) | 2 lines
+Changed paths:
+   M /trunk/po/hu.po
+
+hu.po bugfix
+
+------------------------------------------------------------------------
+r303 | doome | 2003-08-18 10:00:12 +0200 (h, 18 aug 2003) | 2 lines
+Changed paths:
+   M /trunk/ui/modules/addroot.glade2
+   M /trunk/ui/modules/adduser.glade2
+   M /trunk/ui/modules/grubinstall.glade2
+   M /trunk/ui/modules/mouse.glade2
+   M /trunk/ui/modules/package-manager.glade2
+   M /trunk/ui/modules/partition-manager.glade2
+   M /trunk/ui/modules/the_end.glade2
+   M /trunk/ui/modules/welcome.glade2
+
+Sortörést a Glade2-re bízzuk
+
+------------------------------------------------------------------------
+r302 | doome | 2003-08-18 09:31:43 +0200 (h, 18 aug 2003) | 2 lines
+Changed paths:
+   M /trunk/data/XF86Config
+
+fonts bugfix
+
+------------------------------------------------------------------------
+r300 | doome | 2003-08-16 12:36:22 +0200 (szo, 16 aug 2003) | 3 lines
+Changed paths:
+   M /trunk/data/XF86Config
+   M /trunk/src/linuxrc
+
+XF86Config átállítva az X új helyére
+.id compare bugfix
+
+------------------------------------------------------------------------
+r298 | doome | 2003-08-14 18:31:57 +0200 (cs, 14 aug 2003) | 2 lines
+Changed paths:
+   D /trunk/src/init
+   A /trunk/src/linuxrc (from /trunk/src/init:294)
+
+init -> linuxrc
+
+------------------------------------------------------------------------
+r294 | doome | 2003-08-14 18:15:57 +0200 (cs, 14 aug 2003) | 3 lines
+Changed paths:
+   M /trunk/src/init
+   M /trunk/src/modules/package-manager
+
+CD bemountolása, mert már initrdből indul a telepítés.
+Csomagok főkönyvtára átment a /mnt/ alá.
+
+------------------------------------------------------------------------
+r292 | doome | 2003-08-12 12:44:33 +0200 (k, 12 aug 2003) | 2 lines
+Changed paths:
+   D /trunk/data/pixmaps/banners
+   M /trunk/src/uhu-installer
+
+Bannerek átkerültek a CDscriptsbe, mert oda valók
+
+------------------------------------------------------------------------
+r291 | doome | 2003-08-01 07:18:34 +0200 (p, 01 aug 2003) | 3 lines
+Changed paths:
+   M /trunk/po/hu.po
+   M /trunk/ui/modules/adduser.glade2
+   M /trunk/ui/modules/grubinstall.glade2
+   M /trunk/ui/modules/mouse.glade2
+   M /trunk/ui/modules/package-manager.glade2
+   M /trunk/ui/modules/partition-manager.glade2
+
+\n bugfixek a glade2 fájlokban
+Frissített hu.po
+
+------------------------------------------------------------------------
+r289 | doome | 2003-07-30 09:57:11 +0200 (sze, 30 júl 2003) | 2 lines
+Changed paths:
+   A /trunk/po/hu.po
+
+Janusz féle magyar fordítás pár korrekcióval, és a mostani kódhoz beállítva.
+
+------------------------------------------------------------------------
+r288 | doome | 2003-07-30 07:26:13 +0200 (sze, 30 júl 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/mouse
+
+Angol sztring javítás
+
+------------------------------------------------------------------------
+r285 | pozsy | 2003-07-28 20:45:32 +0200 (h, 28 júl 2003) | 3 lines
+Changed paths:
+   A /trunk/po
+   A /trunk/po/POTFILES.in
+   D /trunk/ui/addroot.glade2
+   D /trunk/ui/adduser.glade2
+   D /trunk/ui/grubinstall.glade2
+   A /trunk/ui/modules
+   A /trunk/ui/modules/addroot.glade2 (from /trunk/ui/addroot.glade2:284)
+   A /trunk/ui/modules/adduser.glade2 (from /trunk/ui/adduser.glade2:284)
+   A /trunk/ui/modules/grubinstall.glade2 (from /trunk/ui/grubinstall.glade2:284)
+   A /trunk/ui/modules/mouse.glade2 (from /trunk/ui/mouse.glade2:284)
+   A /trunk/ui/modules/package-manager.glade2 (from /trunk/ui/package-manager.glade2:284)
+   A /trunk/ui/modules/partition-manager.glade2 (from /trunk/ui/partition-manager.glade2:284)
+   A /trunk/ui/modules/the_end.glade2 (from /trunk/ui/the_end.glade2:284)
+   A /trunk/ui/modules/welcome.glade2 (from /trunk/ui/welcome.glade2:284)
+   D /trunk/ui/mouse.glade2
+   D /trunk/ui/package-manager.glade2
+   D /trunk/ui/partition-manager.glade2
+   D /trunk/ui/the_end.glade2
+   D /trunk/ui/welcome.glade2
+
+ui/modules
+potfiles.in
+
+------------------------------------------------------------------------
+r284 | doome | 2003-07-28 20:05:17 +0200 (h, 28 júl 2003) | 3 lines
+Changed paths:
+   M /trunk/src/modules/package-manager
+   M /trunk/src/modules/partition-manager
+   M /trunk/src/uhu-installer
+   M /trunk/ui/package-manager.glade2
+
+Package-manager teljesítmény fixek
+I18N javítások
+
+------------------------------------------------------------------------
+r283 | doome | 2003-07-22 22:18:52 +0200 (k, 22 júl 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/addroot
+   M /trunk/src/modules/adduser
+   M /trunk/src/modules/grubinstall
+   M /trunk/src/modules/mouse
+   M /trunk/src/modules/package-manager
+   M /trunk/src/modules/partition-manager
+   M /trunk/src/modules/the_end
+   M /trunk/src/modules/welcome
+   M /trunk/src/uhu-installer
+
+i18n - első epizód
+
+------------------------------------------------------------------------
+r282 | pozsy | 2003-07-21 20:13:48 +0200 (h, 21 júl 2003) | 2 lines
+Changed paths:
+   M /trunk/src/modules/addroot
+   M /trunk/src/modules/adduser
+   M /trunk/src/modules/grubinstall
+   M /trunk/src/modules/mouse
+   M /trunk/src/modules/package-manager
+   M /trunk/src/modules/partition-manager
+   M /trunk/src/modules/the_end
+   M /trunk/src/modules/welcome
+   M /trunk/src/uhu-installer
+
+gtk2 port
+
+------------------------------------------------------------------------
+r281 | pozsy | 2003-07-21 20:11:17 +0200 (h, 21 júl 2003) | 2 lines
+Changed paths:
+   D /trunk/data/pixmaps/banners/firewall/addroot-fe.png
+   A /trunk/data/pixmaps/banners/firewall/addroot.png (from /trunk/data/pixmaps/banners/firewall/addroot-fe.png:280)
+   D /trunk/data/pixmaps/banners/firewall/adduser-fe.png
+   A /trunk/data/pixmaps/banners/firewall/adduser.png (from /trunk/data/pixmaps/banners/firewall/adduser-fe.png:280)
+   D /trunk/data/pixmaps/banners/firewall/dns-config-fe.png
+   A /trunk/data/pixmaps/banners/firewall/dns-config.png (from /trunk/data/pixmaps/banners/firewall/dns-config-fe.png:280)
+   D /trunk/data/pixmaps/banners/firewall/ethernet-config-fe.png
+   A /trunk/data/pixmaps/banners/firewall/ethernet-config.png (from /trunk/data/pixmaps/banners/firewall/ethernet-config-fe.png:280)
+   D /trunk/data/pixmaps/banners/firewall/grubinstall-fe.png
+   A /trunk/data/pixmaps/banners/firewall/grubinstall.png (from /trunk/data/pixmaps/banners/firewall/grubinstall-fe.png:280)
+   D /trunk/data/pixmaps/banners/firewall/mouse-fe.png
+   A /trunk/data/pixmaps/banners/firewall/mouse.png (from /trunk/data/pixmaps/banners/firewall/mouse-fe.png:280)
+   D /trunk/data/pixmaps/banners/firewall/package-manager-fe.png
+   A /trunk/data/pixmaps/banners/firewall/package-manager.png (from /trunk/data/pixmaps/banners/firewall/package-manager-fe.png:280)
+   D /trunk/data/pixmaps/banners/firewall/partition-manager-fe.png
+   A /trunk/data/pixmaps/banners/firewall/partition-manager.png (from /trunk/data/pixmaps/banners/firewall/partition-manager-fe.png:280)
+   D /trunk/data/pixmaps/banners/firewall/the_end-fe.png
+   A /trunk/data/pixmaps/banners/firewall/the_end.png (from /trunk/data/pixmaps/banners/firewall/the_end-fe.png:280)
+   D /trunk/data/pixmaps/banners/firewall/welcome-fe.png
+   A /trunk/data/pixmaps/banners/firewall/welcome.png (from /trunk/data/pixmaps/banners/firewall/welcome-fe.png:280)
+   D /trunk/data/pixmaps/banners/server/addroot-se.png
+   A /trunk/data/pixmaps/banners/server/addroot.png (from /trunk/data/pixmaps/banners/server/addroot-se.png:280)
+   D /trunk/data/pixmaps/banners/server/adduser-se.png
+   A /trunk/data/pixmaps/banners/server/adduser.png (from /trunk/data/pixmaps/banners/server/adduser-se.png:280)
+   D /trunk/data/pixmaps/banners/server/dns-config-se.png
+   A /trunk/data/pixmaps/banners/server/dns-config.png (from /trunk/data/pixmaps/banners/server/dns-config-se.png:280)
+   D /trunk/data/pixmaps/banners/server/ethernet-config-se.png
+   A /trunk/data/pixmaps/banners/server/ethernet-config.png (from /trunk/data/pixmaps/banners/server/ethernet-config-se.png:280)
+   D /trunk/data/pixmaps/banners/server/grubinstall-se.png
+   A /trunk/data/pixmaps/banners/server/grubinstall.png (from /trunk/data/pixmaps/banners/server/grubinstall-se.png:280)
+   D /trunk/data/pixmaps/banners/server/mouse-se.png
+   A /trunk/data/pixmaps/banners/server/mouse.png (from /trunk/data/pixmaps/banners/server/mouse-se.png:280)
+   D /trunk/data/pixmaps/banners/server/package-manager-se.png
+   A /trunk/data/pixmaps/banners/server/package-manager.png (from /trunk/data/pixmaps/banners/server/package-manager-se.png:280)
+   D /trunk/data/pixmaps/banners/server/partition-manager-se.png
+   A /trunk/data/pixmaps/banners/server/partition-manager.png (from /trunk/data/pixmaps/banners/server/partition-manager-se.png:280)
+   D /trunk/data/pixmaps/banners/server/the_end-se.png
+   A /trunk/data/pixmaps/banners/server/the_end.png (from /trunk/data/pixmaps/banners/server/the_end-se.png:280)
+   D /trunk/data/pixmaps/banners/server/welcome-se.png
+   A /trunk/data/pixmaps/banners/server/welcome.png (from /trunk/data/pixmaps/banners/server/welcome-se.png:280)
+   D /trunk/sbin
+   D /trunk/src/addroot
+   D /trunk/src/adduser
+   D /trunk/src/grubinstall
+   A /trunk/src/init
+   A /trunk/src/modules/addroot (from /trunk/src/addroot:280)
+   A /trunk/src/modules/adduser (from /trunk/src/adduser:280)
+   A /trunk/src/modules/grubinstall (from /trunk/src/grubinstall:280)
+   A /trunk/src/modules/mouse (from /trunk/src/mouse:280)
+   A /trunk/src/modules/package-manager (from /trunk/src/package-manager:280)
+   A /trunk/src/modules/partition-manager (from /trunk/src/partition-manager:280)
+   A /trunk/src/modules/the_end (from /trunk/src/the_end:280)
+   A /trunk/src/modules/welcome (from /trunk/src/welcome:280)
+   D /trunk/src/mouse
+   D /trunk/src/package-manager
+   D /trunk/src/partition-manager
+   D /trunk/src/the_end
+   D /trunk/src/welcome
+   D /trunk/usr
+
+source reorganization, part two
+
+------------------------------------------------------------------------
+r280 | pozsy | 2003-07-21 20:07:07 +0200 (h, 21 júl 2003) | 2 lines
+Changed paths:
+   A /trunk/data
+   A /trunk/data/XF86Config (from /trunk/usr/share/uhu-installer/XF86Config:278)
+   A /trunk/data/pixmaps
+   A /trunk/data/pixmaps/banners
+   A /trunk/data/pixmaps/banners/firewall
+   A /trunk/data/pixmaps/banners/firewall/addroot-fe.png (from /trunk/usr/share/uhu-installer/addroot/addroot-fe.png:278)
+   A /trunk/data/pixmaps/banners/firewall/adduser-fe.png (from /trunk/usr/share/uhu-installer/adduser/adduser-fe.png:278)
+   A /trunk/data/pixmaps/banners/firewall/dns-config-fe.png (from /trunk/usr/share/uhu-installer/dns-config/dns-config-fe.png:278)
+   A /trunk/data/pixmaps/banners/firewall/ethernet-config-fe.png (from /trunk/usr/share/uhu-installer/ethernet-config/ethernet-config-fe.png:278)
+   A /trunk/data/pixmaps/banners/firewall/grubinstall-fe.png (from /trunk/usr/share/uhu-installer/grubinstall/grubinstall-fe.png:278)
+   A /trunk/data/pixmaps/banners/firewall/mouse-fe.png (from /trunk/usr/share/uhu-installer/mouse/mouse-fe.png:278)
+   A /trunk/data/pixmaps/banners/firewall/package-manager-fe.png (from /trunk/usr/share/uhu-installer/package-manager/package-manager-fe.png:278)
+   A /trunk/data/pixmaps/banners/firewall/partition-manager-fe.png (from /trunk/usr/share/uhu-installer/partition-manager/partition-manager-fe.png:278)
+   A /trunk/data/pixmaps/banners/firewall/the_end-fe.png (from /trunk/usr/share/uhu-installer/the_end/the_end-fe.png:278)
+   A /trunk/data/pixmaps/banners/firewall/welcome-fe.png (from /trunk/usr/share/uhu-installer/welcome/welcome-fe.png:278)
+   A /trunk/data/pixmaps/banners/office
+   A /trunk/data/pixmaps/banners/office/addroot.png (from /trunk/usr/share/uhu-installer/addroot/addroot.png:278)
+   A /trunk/data/pixmaps/banners/office/adduser.png (from /trunk/usr/share/uhu-installer/adduser/adduser.png:278)
+   A /trunk/data/pixmaps/banners/office/grubinstall.png (from /trunk/usr/share/uhu-installer/grubinstall/grubinstall.png:278)
+   A /trunk/data/pixmaps/banners/office/mouse.png (from /trunk/usr/share/uhu-installer/mouse/mouse.png:278)
+   A /trunk/data/pixmaps/banners/office/package-manager.png (from /trunk/usr/share/uhu-installer/package-manager/package-manager.png:278)
+   A /trunk/data/pixmaps/banners/office/partition-manager.png (from /trunk/usr/share/uhu-installer/partition-manager/partition-manager.png:278)
+   A /trunk/data/pixmaps/banners/office/the_end.png (from /trunk/usr/share/uhu-installer/the_end/the_end.png:278)
+   A /trunk/data/pixmaps/banners/office/welcome.png (from /trunk/usr/share/uhu-installer/welcome/welcome.png:278)
+   A /trunk/data/pixmaps/banners/office/x-config.png (from /trunk/usr/share/uhu-installer/x-config/x-config.png:278)
+   A /trunk/data/pixmaps/banners/server
+   A /trunk/data/pixmaps/banners/server/addroot-se.png (from /trunk/usr/share/uhu-installer/addroot/addroot-se.png:278)
+   A /trunk/data/pixmaps/banners/server/adduser-se.png (from /trunk/usr/share/uhu-installer/adduser/adduser-se.png:278)
+   A /trunk/data/pixmaps/banners/server/dns-config-se.png (from /trunk/usr/share/uhu-installer/dns-config/dns-config-se.png:278)
+   A /trunk/data/pixmaps/banners/server/ethernet-config-se.png (from /trunk/usr/share/uhu-installer/ethernet-config/ethernet-config-se.png:278)
+   A /trunk/data/pixmaps/banners/server/grubinstall-se.png (from /trunk/usr/share/uhu-installer/grubinstall/grubinstall-se.png:278)
+   A /trunk/data/pixmaps/banners/server/mouse-se.png (from /trunk/usr/share/uhu-installer/mouse/mouse-se.png:278)
+   A /trunk/data/pixmaps/banners/server/package-manager-se.png (from /trunk/usr/share/uhu-installer/package-manager/package-manager-se.png:278)
+   A /trunk/data/pixmaps/banners/server/partition-manager-se.png (from /trunk/usr/share/uhu-installer/partition-manager/partition-manager-se.png:278)
+   A /trunk/data/pixmaps/banners/server/the_end-se.png (from /trunk/usr/share/uhu-installer/the_end/the_end-se.png:278)
+   A /trunk/data/pixmaps/banners/server/welcome-se.png (from /trunk/usr/share/uhu-installer/welcome/welcome-se.png:278)
+   A /trunk/data/pixmaps/logo.xpm (from /trunk/usr/share/uhu-installer/logo.xpm:278)
+   A /trunk/data/pixmaps/package-manager
+   A /trunk/data/pixmaps/package-manager/dep_selected.png (from /trunk/usr/share/uhu-installer/package-manager/dep_selected.png:278)
+   A /trunk/data/pixmaps/package-manager/partly_selected.png (from /trunk/usr/share/uhu-installer/package-manager/partly_selected.png:278)
+   A /trunk/data/pixmaps/package-manager/selected.png (from /trunk/usr/share/uhu-installer/package-manager/selected.png:278)
+   A /trunk/data/pixmaps/package-manager/unselected.png (from /trunk/usr/share/uhu-installer/package-manager/unselected.png:278)
+   A /trunk/data/postinstall (from /trunk/usr/share/uhu-installer/package-manager/postinstall:278)
+   A /trunk/data/preinstall (from /trunk/usr/share/uhu-installer/package-manager/preinstall:278)
+   D /trunk/etc
+   D /trunk/root
+   D /trunk/sbin/init
+   A /trunk/src
+   A /trunk/src/addroot (from /trunk/usr/lib/uhu-installer/addroot:278)
+   A /trunk/src/adduser (from /trunk/usr/lib/uhu-installer/adduser:278)
+   A /trunk/src/detect-video (from /trunk/usr/sbin/detect-video:278)
+   A /trunk/src/grubinstall (from /trunk/usr/lib/uhu-installer/grubinstall:278)
+   A /trunk/src/modules
+   A /trunk/src/mouse (from /trunk/usr/lib/uhu-installer/mouse:278)
+   A /trunk/src/package-manager (from /trunk/usr/lib/uhu-installer/package-manager:278)
+   A /trunk/src/partition-manager (from /trunk/usr/lib/uhu-installer/partition-manager:278)
+   A /trunk/src/the_end (from /trunk/usr/lib/uhu-installer/the_end:278)
+   A /trunk/src/uhu-installer (from /trunk/usr/sbin/uhu-installer:278)
+   A /trunk/src/welcome (from /trunk/usr/lib/uhu-installer/welcome:278)
+   A /trunk/ui
+   A /trunk/ui/addroot.glade2
+   A /trunk/ui/adduser.glade2
+   A /trunk/ui/grubinstall.glade2
+   A /trunk/ui/mouse.glade2
+   A /trunk/ui/package-manager.glade2
+   A /trunk/ui/partition-manager.glade2
+   A /trunk/ui/the_end.glade2
+   A /trunk/ui/uhu-installer.glade2
+   A /trunk/ui/welcome.glade2
+   D /trunk/usr/lib
+   D /trunk/usr/sbin
+   D /trunk/usr/share/uhu-installer/XF86Config
+   D /trunk/usr/share/uhu-installer/addroot/addroot-fe.png
+   D /trunk/usr/share/uhu-installer/addroot/addroot-se.png
+   D /trunk/usr/share/uhu-installer/addroot/addroot.png
+   D /trunk/usr/share/uhu-installer/adduser/adduser-fe.png
+   D /trunk/usr/share/uhu-installer/adduser/adduser-se.png
+   D /trunk/usr/share/uhu-installer/adduser/adduser.png
+   D /trunk/usr/share/uhu-installer/dns-config/dns-config-fe.png
+   D /trunk/usr/share/uhu-installer/dns-config/dns-config-se.png
+   D /trunk/usr/share/uhu-installer/ethernet-config/ethernet-config-fe.png
+   D /trunk/usr/share/uhu-installer/ethernet-config/ethernet-config-se.png
+   D /trunk/usr/share/uhu-installer/grubinstall/grubinstall-fe.png
+   D /trunk/usr/share/uhu-installer/grubinstall/grubinstall-se.png
+   D /trunk/usr/share/uhu-installer/grubinstall/grubinstall.png
+   D /trunk/usr/share/uhu-installer/logo.xpm
+   D /trunk/usr/share/uhu-installer/mouse/mouse-fe.png
+   D /trunk/usr/share/uhu-installer/mouse/mouse-se.png
+   D /trunk/usr/share/uhu-installer/mouse/mouse.png
+   D /trunk/usr/share/uhu-installer/package-manager/dep_selected.png
+   D /trunk/usr/share/uhu-installer/package-manager/package-manager-fe.png
+   D /trunk/usr/share/uhu-installer/package-manager/package-manager-se.png
+   D /trunk/usr/share/uhu-installer/package-manager/package-manager.png
+   D /trunk/usr/share/uhu-installer/package-manager/partly_selected.png
+   D /trunk/usr/share/uhu-installer/package-manager/postinstall
+   D /trunk/usr/share/uhu-installer/package-manager/preinstall
+   D /trunk/usr/share/uhu-installer/package-manager/selected.png
+   D /trunk/usr/share/uhu-installer/package-manager/unselected.png
+   D /trunk/usr/share/uhu-installer/partition-manager/partition-manager-fe.png
+   D /trunk/usr/share/uhu-installer/partition-manager/partition-manager-se.png
+   D /trunk/usr/share/uhu-installer/partition-manager/partition-manager.png
+   D /trunk/usr/share/uhu-installer/the_end/the_end-fe.png
+   D /trunk/usr/share/uhu-installer/the_end/the_end-se.png
+   D /trunk/usr/share/uhu-installer/the_end/the_end.png
+   D /trunk/usr/share/uhu-installer/welcome/welcome-fe.png
+   D /trunk/usr/share/uhu-installer/welcome/welcome-se.png
+   D /trunk/usr/share/uhu-installer/welcome/welcome.png
+   D /trunk/usr/share/uhu-installer/x-config/x-config.png
+
+source reorganization, part one
+
+------------------------------------------------------------------------
+r277 | pozsy | 2003-07-19 20:11:43 +0200 (szo, 19 júl 2003) | 1 line
+Changed paths:
+   D /trunk/VERSION
+
+remove VERSION
+------------------------------------------------------------------------
+r276 | pozsy | 2003-07-19 13:29:45 +0200 (szo, 19 júl 2003) | 1 line
+Changed paths:
+   D /VERSION
+   A /branches
+   D /etc
+   D /root
+   D /sbin
+   A /tags
+   A /trunk
+   A /trunk/VERSION (from /VERSION:275)
+   A /trunk/etc (from /etc:275)
+   A /trunk/root (from /root:275)
+   A /trunk/sbin (from /sbin:275)
+   A /trunk/usr (from /usr:275)
+   D /usr
+
+new repository layout
+------------------------------------------------------------------------

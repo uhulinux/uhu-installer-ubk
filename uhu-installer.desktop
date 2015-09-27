@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=UHU Installer
+Name[hu]=UHU Telepítő
+Exec=uhu-installer
+Terminal=false
+Icon=/usr/share/pixmaps/uhulogo.png
+Type=Application
+Categories=X-UHU-Menu/Settings;

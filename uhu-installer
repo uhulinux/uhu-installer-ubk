@@ -1,0 +1,1369 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+use locale;
+use utf8;
+
+use Data::Dumper;
+Encode::_utf8_on($_) for @ARGV;
+use POSIX;
+use Fcntl;
+
+use Gtk2 -init;
+use Gtk2::GladeXML;
+require "sys/ioctl.ph";
+require "syscall.ph";
+use Glib qw(FALSE TRUE);
+use Gtk2::SimpleList;
+use IO::Handle;
+use POSIX ":sys_wait_h";
+use IPC::Open3;
+use Symbol 'gensym';
+use I18N::Langinfo qw(langinfo CODESET);
+use Locale::gettext;
+
+my $disks;
+my $table_rows;
+my $install_type = 'easy'; # east, expertlive, expert
+my $steps = []; # install steps;
+my $childs; # gyerekek
+
+setlocale(LC_ALL, "");
+bindtextdomain('uhu-installer');
+bind_textdomain_codeset('uhu-installer', "UTF-8");
+textdomain('uhu-installer');
+
+binmode STDERR, ":encoding(utf-8)";
+
+sub debug {
+	print STDERR strftime("%T %Z: ", localtime).shift()."\n";
+}
+
+# fork stuff ############################
+sub _fork {
+    my ($func, $callback) = @_;
+    debug "fork";
+
+    my $pid;
+    unless ($pid = fork) {
+        &$func();
+        debug "exiting child";
+        exit 0;
+    }
+    $childs->{$pid} = $callback;
+    return $pid;
+}
+
+$SIG{CHLD} = \&REAPER;
+
+sub REAPER {
+    my $childpid;
+
+    while (($childpid = waitpid(-1,WNOHANG)) > 0) {
+    	debug "child: $childpid exited($?)";
+    	if (exists $childs->{$childpid}) {
+	        my $func = $childs->{$childpid};
+	        &$func($?);
+	        delete $childs->{$childpid};
+	    } else {
+	    	debug "no child info";
+		}
+    }
+    $SIG{CHLD} = \&REAPER;
+}
+#########################################
+
+my $glade = Gtk2::GladeXML->new(-f 'uhu-installer.glade' ? 'uhu-installer.glade' : '/usr/share/uhu-installer/uhu-installer.glade');
+$glade->signal_autoconnect_from_package('main');
+
+STDOUT->autoflush(1);
+STDIN->autoflush(1);
+STDERR->autoflush(1);
+
+sub w {
+	return $glade->get_widget(shift);
+}
+
+sub l { # log
+	my (@data) = @_;
+	return unless @data;
+	my $buffer = w('log')->get_buffer;
+	my $old = $buffer->get_text($buffer->get_start_iter, $buffer->get_end_iter, FALSE);
+	debug "old: [$old]";
+	my $new = $old."\nxxx".join('dd ', @data);
+	debug "new: [$new]";
+	w('log')->get_buffer->set_text($new);
+}
+
+
+sub popup($$;$$) {
+    my ($type, $str, $title, $icon) = @_;
+
+    debug "popup $type $str";
+    Gtk2::Gdk->beep if $type eq 'error';
+    my $dlg = Gtk2::MessageDialog->new_with_markup(w('window'), 'modal', $type, (($type eq 'question') ? 'yes-no' : 'ok'), $str);
+    $dlg->set_title($title or 'none');
+    $dlg->set_keep_above(1);
+    $dlg->set_default_icon_name($icon?$icon:'uhu');
+    my $ret = $dlg->run;
+    debug "popup retval: [$ret]";
+    $ret = 'no' if (($type eq 'question') and ($ret eq 'delete-event'));
+    $dlg->destroy;
+    return $ret;
+}
+
+sub _system {
+	debug "cmd: [".join(' ', @_)."]";
+	
+	#my ($in, $out, $err);
+	#$err = gensym;
+	#my $pid = open3($in, $out, $err, @_);
+	#waitpid $pid, 0;
+	#my $ret = $? >> 8;
+	#my $o = <$out>;
+	#my $e = <$err>;
+	#l($o) if $o;
+	#l($e) if $e;
+	return system @_;
+}
+
+sub _($) {
+	my ($str) = @_;
+	my $translated = Encode::decode_utf8(gettext($str));
+	return $translated
+}
+
+
+sub diskinfo {	
+	my ($disk) = @_;
+	$disk =~ /\/([^\/]+)$/;
+	my $d = $1;
+	return 0 unless ($d);
+	
+	my $x = {
+		has_partitions => 0,
+		partition => 0,
+		used => 0,
+		type => undef,
+		slink => undef
+	};
+	my $udev = {
+		DKD_PARTITION_TYPE => '',
+		ID_FS_LABEL => '',
+		ID_FS_TYPE => '',
+		DM_NAME => '',
+	};
+	my $udevinfofh;
+	open $udevinfofh, "udevinfo info --query=all --name=$disk --export |" or die ("can't get info for $disk");
+	while (<$udevinfofh>) {
+		chomp;
+		if (/^[^:]:\s*(.*)=(.*)$/) {
+			$udev->{$1} = $2;
+		} elsif (/^S:(disk\/by-id\/.*)$/) {
+			$x->{slink} = "/dev/$1";
+		}
+	}
+	
+	close $udevinfofh;
+	
+	if ($d =~ /^[vs]d/) { # hdd
+		$x->{type} = 'HDD';
+		$x->{name} = ($udev->{ID_VENDOR} // '')." ".($udev->{ID_MODEL} // '');
+		$x->{name} =~ s/^\s*//; $x->{name} =~ s/\s*$//;
+		$x->{has_partitions} = 1 if ($udev->{DKD_PARTITION_TABLE} // 0) == 1;
+		$x->{partition} = 1 if ($udev->{DKD_PARTITION} // 0) == 1;
+		if ($d =~ /(sd.)\d+/) {
+			my $parent = $1;
+			if (-e '/dev/.udev/db/block:'.$parent ) {
+				$x->{partition} = 1;
+			}
+		}
+		if ($d =~ /^(sd.)\d+/) {
+			$x->{used} = 1 if (scalar(() = glob("/sys/block/$1/$d/holders/*")) > 0);
+		} else {
+			$x->{used} = 1 if (scalar(() = glob("/sys/block/$d/holders/*")) > 0);
+		}
+	} elsif ($d =~ /^dm-/) { # device mapper
+		$x->{type} = 'LVM';
+		$x->{name} = $udev->{DM_NAME};
+		$x->{used} = 1 if (scalar(() = glob("/sys/block/$d/holders/*")) > 0);
+		
+	} elsif ($d =~ /^md/) { # raid
+		$x->{type} = 'Raid';
+		$x->{name} = $udev->{MD_LEVEL}." ".$udev->{MD_NAME};
+		$x->{used} = 1 if (scalar(() = glob("/sys/block/$d/holders/*")) > 0);
+	}
+	
+	# get size
+	my $diskfh;
+	sysopen $diskfh, $disk, O_NDELAY|O_RDONLY;
+	my $tmpsize = pack("Q", 0);
+	my $retval = ioctl($diskfh, 0x80041272, $tmpsize);
+	if ($retval == 0) {	
+		$x->{size} = unpack("Q", $tmpsize);
+	}
+	close $diskfh;
+	$x->{udev} = $udev;
+	
+	return $x;
+}
+
+
+sub vinyokeres {
+	for my $device (glob("/dev/sd* /dev/md* /dev/dm-* /dev/vd*")) {
+		next unless -b $device;
+		debug $device;
+		$disks->{$device} = diskinfo($device);
+	}
+	debug Dumper $disks;
+}
+
+sub on_window_delete_event {
+	Gtk2->main_quit;
+}
+
+
+sub convsize($) {
+	my ($s) = @_;
+	my $t;
+	my $m = {1000 => 'KB', 1000000 => 'MB', 1000000000 => 'GB', 1000000000000 => 'TB'};
+	for (reverse sort keys %$m) {
+		return sprintf("%.2f %s", $s/$_, $m->{$_}) if ($s > $_);
+	}
+}
+
+sub create_disk_combo {
+	my $combo = Gtk2::ComboBox->new;
+	my $r = Gtk2::CellRendererText->new;
+	$combo->pack_start($r, TRUE);
+	$combo->add_attribute($r, markup => TRUE);
+	$combo->set_active(0);
+	return $combo;
+}
+
+sub fill_disk_combo {
+	my ($except) = @_;
+	
+	my $model = Gtk2::ListStore->new ('Glib::String', 'Glib::String');
+	my $i;
+	for (sort keys %$disks) {
+		next if ($disks->{$_}->{udev}->{DM_NAME} =~ /^live|snapshot$/); # skip live disk
+		next if ($disks->{$_}->{has_partitions}); # skip disks which have partitions
+		next if ($disks->{$_}->{udev}->{DKD_PARTITION_TYPE} eq '0x05'); # skip extended partition
+		$model->set($model->append, 
+			0 => $_, 
+			1 => "<b> $disks->{$_}->{type} $disks->{$_}->{name}</b> ".convsize($disks->{$_}->{size})."\n$disks->{$_}->{udev}->{ID_FS_LABEL} $disks->{$_}->{udev}->{ID_FS_TYPE} ($_)");
+		$i++;
+	}
+	return $model;
+}
+
+sub create_path_combo {
+	my $combo = Gtk2::ComboBoxEntry->new_text;
+	$combo->child->set_editable(FALSE);
+	for (qw(/ /boot)) {
+		$combo->append_text($_);
+	}
+	return $combo;
+}
+
+sub remove_mount {
+	my ($i) = @_;
+	
+	my $t = w('mounts');
+	unless (defined $i) { # ha nincs index mindent torlunk
+		debug "remove all mounts";
+		for my $row (@$table_rows) {
+			for my $key (keys %$row) {
+				debug "remove $key";
+				$t->remove($row->{$key});
+				$row->{$key}->destroy;
+			}
+		}
+		$table_rows = [];
+		$t->resize(1, 5);
+		return;
+	} else {
+		debug "remove mount [$i]";
+		for (keys %{$table_rows->[$i]}) {
+			$t->remove($table_rows->[$i]->{$_});
+			$table_rows->[$i]->{$_}->destroy;
+		}
+		w('add_mount')->set_sensitive(TRUE);
+		debug "hossz: ".scalar (@$table_rows);
+		splice(@$table_rows, $i, 1);
+		debug "hossz: ".scalar (@$table_rows);
+		my $k = 0;
+		debug "move $i..".(scalar(@$table_rows)-1);
+		for my $j ($i..(scalar(@$table_rows)-1)) {
+			debug "move $j";
+			my $l = 0;
+			debug Dumper $table_rows->[$j];
+			$table_rows->[$j]->{remove}->{row}--;
+			for (qw(path disk fs format remove)) {
+				$t->remove($table_rows->[$j]->{$_});
+				$t->attach_defaults($table_rows->[$j]->{$_}, $l, $l+1, $i+$k+1, $i+$k+2);
+				$l++;
+			}
+			$k++;
+		}
+		debug "resize to ".(scalar(@$table_rows)+1)." rows";
+		$t->resize(scalar(@$table_rows)+1, 5);
+	}
+	
+	if (scalar(@$table_rows) > 1) {
+		for (@$table_rows) {
+			$_->{remove}->set_sensitive(TRUE);
+		}
+	} else {
+		$table_rows->[0]->{remove}->set_sensitive(FALSE);
+	}
+}
+
+
+sub add_mount {
+	my ($path, $disk, $fs, $format) = @_;
+	my $m = w('mounts_alignment');
+	
+	my $row;
+	my $t;
+	my $live = w('install_type')->get_active == 0;
+
+	$t = w('mounts');
+	$row = $t->get_property('n-rows')-1;
+	$t->resize($row+2, 5);
+	
+	if ($live) { # live
+		w('add_mount')->set_sensitive($row+1 != 3);
+	} else {
+		w('add_mount')->set_sensitive(TRUE);
+	}
+	
+	if ($live) { # live
+		$table_rows->[$row]->{path} = create_path_combo;
+		$table_rows->[$row]->{path}->child->set_text($path) if $path;
+	} else { # normal
+		$table_rows->[$row]->{path} = Gtk2::Entry->new_with_max_length(100);
+		$table_rows->[$row]->{path}->set_text($path) if ($path);
+	}
+	
+	$t->attach_defaults($table_rows->[$row]->{path}, 0, 1, $row+1, $row+2);
+	
+	$table_rows->[$row]->{disk} = create_disk_combo;
+	$table_rows->[$row]->{disk}->set_model(fill_disk_combo);
+	$table_rows->[$row]->{disk}->set_active($disk) if (defined $disk);
+	$t->attach_defaults($table_rows->[$row]->{disk}, 1, 2, $row+1, $row+2);
+	
+	$table_rows->[$row]->{fs} = Gtk2::ComboBox->new_text;
+	my $i = 0;
+	my @fs_types = qw(ext4 swap ext3 xfs ext2 jfs);
+	@fs_types = qw(ext4 ext2 ext3 swap) if ($live); # live mode
+	for (@fs_types) {
+		$table_rows->[$row]->{fs}->append_text($_);
+		if ($_ eq $fs) {
+			$table_rows->[$row]->{fs}->set_active($i);
+		}
+		$i++;
+	}
+	$table_rows->[$row]->{fs}->signal_connect('changed', sub { 
+		$table_rows->[$row]->{path}->set_sensitive($table_rows->[$row]->{fs}->get_active_text ne 'swap');
+		$live?$table_rows->[$row]->{path}->child->set_text(''):$table_rows->[$row]->{path}->set_text('') if ($table_rows->[$row]->{fs}->get_active_text eq 'swap');
+	});
+	$table_rows->[$row]->{path}->set_sensitive($table_rows->[$row]->{fs}->get_active_text ne 'swap');
+	$t->attach_defaults($table_rows->[$row]->{fs}, 2, 3, $row+1, $row+2);
+	
+	$table_rows->[$row]->{format} = Gtk2::CheckButton->new;
+	$table_rows->[$row]->{format}->set_active($format);
+	$table_rows->[$row]->{format}->set_sensitive((!$live));
+	$t->attach_defaults($table_rows->[$row]->{format}, 3, 4, $row+1, $row+2);
+	
+	# remove button
+	$table_rows->[$row]->{remove} = Gtk2::Button->new;
+	$table_rows->[$row]->{remove}->add(Gtk2::Image->new_from_stock('gtk-remove', 'button'));
+	$table_rows->[$row]->{remove}->{row} = $row;
+	$table_rows->[$row]->{remove}->signal_connect('clicked', sub { remove_mount($_[0]->{row}) });
+	$table_rows->[$row]->{remove}->set_tooltip_text(_('Remove'));
+	
+	$t->attach_defaults($table_rows->[$row]->{remove}, 4, 5, $row+1, $row+2);
+	$table_rows->[$row]->{remove}->set_sensitive(FALSE) if ($row == 0);
+	
+	if ($row > 0) {
+		$table_rows->[0]->{remove}->set_sensitive(TRUE);
+	}
+
+	$m->show_all;
+}
+
+sub on_add_mount_clicked {
+	add_mount('', undef, 'ext4', 1);
+}
+
+sub on_expert_clicked {
+	w('nb')->set_current_page(1);
+}
+
+sub on_gparted_clicked {
+	w('window')->set_sensitive(FALSE);
+	_fork(sub {
+		_system("gparted");
+	}, sub {
+		my ($ret) = @_;
+		debug "fisished";
+		w('window')->set_sensitive(TRUE);
+		# reload
+		&vinyokeres;
+		&create_disks_model;
+		&fill_grub_model;
+		&on_install_type_changed;
+	});
+}
+
+sub on_mount_next_clicked {
+	# path ellenorzesek
+	# mindenfele figyelmeztetesek formazasra
+	my $has_root;
+	my $diskcount;
+	my $pathcount;
+	$install_type = (w('install_type')->get_active == 0)?'expertlive':'expert';
+	my $root_disk;
+	my $boot_disk;
+	for my $rows (@$table_rows) {
+		my $path;
+		$path = $rows->{path}->child->get_text if ($install_type eq 'expertlive');
+		$path = $rows->{path}->get_text if ($install_type eq 'expert');
+		if ($install_type eq 'expertlive' and $path eq '/' and $rows->{fs}->get_active_text eq 'ext4') {
+			$has_root = 1;
+		} elsif ($install_type eq 'expert' and $path eq '/' and $rows->{fs}->get_active_text =~ /ext[234]|jfs|xfs/) {
+			$has_root = 1;
+		}
+		if ($path eq '/') {
+			$root_disk = $rows->{disk}->get_model->get($rows->{disk}->get_active_iter, 0);
+		}
+		
+		if ($path eq '/boot') {
+			$boot_disk = $rows->{disk}->get_model->get($rows->{disk}->get_active_iter, 0);
+		}
+		
+		my $disk = $rows->{disk}->get_model->get($rows->{disk}->get_active_iter, 0);
+		my $used = 0;
+		debug "CHECK ACCESS [$disk]";
+		unless ($disks->{$disk}->{'used'}) {
+			if ($disks->{$disk}->{'has_partitions'}) {
+				for (keys %$disks) {
+					if (/^$disk/ && !/^$disk$/) {
+						if ($disks->{$_}->{'used'}) {
+							$used = 1;
+						}							
+					}
+				}
+			}
+		} else {
+			$used = 1;
+		}
+			
+		if ($used) {
+			if (popup('question', sprintf(_("Selected disk [%s] is in use!"), $disk), _('Disk access error')) eq 'no') {
+				return;
+			}
+		}
+		$disk = $rows->{disk}->get_model->get($rows->{disk}->get_active_iter, 1);
+		$diskcount->{$disk}++;
+		$pathcount->{($install_type eq 'expertlive')?$rows->{path}->child->get_text:$rows->{path}->get_text}++;
+		if ($path !~ /^\/.*/ and $rows->{fs}->get_active_text ne 'swap') { # wrong mount point for non swap partition
+			popup('error', _("Wrong mount path for:")."\n".$disk."!", _('Error'));
+			return;
+		}
+	}
+	unless ($has_root) {
+		my $fs = "ext4";
+		$fs = "ext(2,3,4), jfs, xfs" if ($install_type eq 'expert');
+		popup('error', _(sprintf("You must have a / mount point with %s filesystem!", $fs)), _('Error'));
+		return;
+	}
+	my $msg = [];
+	for (keys %$diskcount) {
+		if ($diskcount->{$_} > 1) {
+			push @$msg, $_;
+		}
+	}
+	if (scalar @$msg > 0) {	
+		popup('error', _("The following disks used more than once:")."\n".join("\n",@$msg), _('Error'));
+		return;
+	}
+		
+	for (keys %$pathcount) {
+		if ($pathcount->{$_} > 1) {
+			push @$msg, $_;
+		}
+	}
+	if (scalar @$msg > 0) {	
+		popup('error', _("The following mount points used more than once:")."\n".join("\n",@$msg), _('Error'));
+		return;
+	}
+	
+	# check disk size
+	my $buf = "\0"x64;
+	my $path = "/";
+	Encode::_utf8_off($buf);
+    syscall(&SYS_statfs, $path, $buf) == 0 or die;
+    my ($bsize, $blocks, $bfree, $bavail, $files, $ffree, $namelen) = unpack  "x4 L6 x8 L", $buf;
+    debug "free space: [$disks->{$root_disk}->{size}] [".($blocks*$bsize)."]";
+    if ($disks->{$root_disk}->{size} < $blocks*$bsize*1.05) { # +5%
+    	if (popup('question', _("The selected root device has insufficent free space, do you really want to continue?"), _('Error')) eq 'no') {
+    		return;
+    	}
+    }
+
+	# warning
+	for (keys %$diskcount) {
+		push @$msg, $_;
+	}
+	my $warnmsg = _("The following disks will be ereased, do you really want to continue?");
+	$warnmsg = _("The following disks will be ereased or some files on it may be overwritten, do you really want to continue?") if (w('install_type')->get_active == 1);
+	if (popup('question', $warnmsg."\n".join("\n", @$msg), _('Warning')) eq 'no') {
+		return;
+	}
+	
+	my $grub_disk = $boot_disk?$boot_disk:$root_disk;
+	debug "grub disk: $grub_disk [".$disks->{$grub_disk}->{udev}->{DKD_PARTITION_TYPE}."]";
+	if ($disks->{$grub_disk}->{udev}->{DKD_PARTITION_TYPE} && $disks->{$grub_disk}->{udev}->{DKD_PARTITION_TYPE} ne '0x83') {
+		if (popup('question', _("Partition type for /boot must be Linux, should I fix it?"), _('Warning')) eq 'no') {
+			return;
+		}
+
+		#_system('echo ",,0x83," |  sfdisk '.substr($grub_disk, 0, -1, '')." -N $grub_disk") and (popup('error', _("Error occured See log! (/var/log/uhu-installer.log) "), _('Error')) and return);
+	}
+	
+	w('nb')->set_current_page(2);
+}
+
+sub on_mount_back_clicked {
+	w('nb')->set_current_page(0);
+}
+
+sub on_passwords_back_clicked {
+	if ($install_type eq 'easy') {
+		w('nb')->set_current_page(0);
+	} else {
+		w('nb')->set_current_page(1);
+	}
+}
+
+sub add_step {	
+	my ($name) = @_;
+	
+	my $rown = @$steps;
+	my $row;
+	
+	$row->{label} = Gtk2::Label->new($name);	
+	$row->{label}->set('xalign', 0);	
+	w('steps')->attach_defaults($row->{label}, 0, 1, scalar @$steps, scalar(@$steps)+1);
+	
+	$row->{img} = Gtk2::Image->new_from_stock('none', 'button');
+	w('steps')->attach_defaults($row->{img}, 1, 2, scalar @$steps, scalar(@$steps)+1);
+	push @$steps, $row;
+	w('steps')->show_all;
+}
+
+sub set_step {
+	my ($idx, $status) = @_;
+	
+	my $stock;
+	$stock = 'gtk-ok' if ($status eq 'ok');
+	$stock = 'gtk-no' if ($status eq 'skip');
+	$stock = 'gtk-dialog-error' if ($status eq 'error');
+	
+	my $label = $steps->[$idx]->{label}->get_text;
+	$label =~ s/<\/?b>//g;
+	if ($status eq 'inprogress') {
+		$stock = 'none';
+		$steps->[$idx]->{label}->set_markup('<b>'.$label.'</b>');
+	} else {
+		$steps->[$idx]->{label}->set_text($label);
+	}
+	
+	$steps->[$idx]->{img}->set_from_stock($stock, 'button');
+}
+
+
+sub check_mirror_copy {
+	my ($params) = @_;
+	my $s = `dmsetup status mirror`;
+	chomp $s;
+	return TRUE unless $s;
+	return TRUE unless ((defined $s) and (length($s) > 0) and ($s =~ / (\d+)\/(\d+) /));
+	my $completed = $1;
+	my $full = $2;
+	debug "CHECK MIRROR completed: [$completed] full:[$full]";
+	if ((defined $full) and (defined $completed) and ($full > 0)) {
+		w('progress')->set_fraction($completed/$full);
+		w('progress')->set_text(int($completed*100/$full)."%");
+		if ($full == $completed) {
+			return FALSE;
+		}
+	}
+	return TRUE;
+}
+
+sub forker {
+	my ($c) = @_;
+	
+	for (@$c) {
+		add_step($_->{name});
+	}
+	forker_next($c);
+}
+
+sub forker_next {
+	my ($c) = @_; # steps
+	debug "forker next";
+	my $i = 0;
+	for my $proc (@$c) {
+		if  ($proc->{completed}) { # ha már lefutott, akkor takarítunk
+			# remove timeouts
+			debug "cleanup $i";
+			for (qw(waitcondtag updatetag pulsetag updatetag)) {
+				Glib::Source->remove($proc->{$_}) if defined $proc->{$_};
+				delete $c->[$i]->{$_};
+			}
+		} else { # ha meg nem futott le
+			debug "start $i";
+			set_step($i, 'inprogress');
+			if ($proc->{update}) { # akarunk valamit menet kozben?
+				debug "set update for $i";
+				$c->[$i]->{updatetag} = Glib::Timeout->add($proc->{updatetimeout} || 200, sub {
+					&{$proc->{update}};
+				});
+			} else {
+				debug "set pulse mode for $i";
+				w('progress')->pulse;
+				w('progress')->set_text('');
+				$c->[$i]->{pulsetag} = Glib::Timeout->add(50, sub { w('progress')->pulse; 1; });
+			}
+			if ($proc->{'fork'}) { # forkolni akarunk
+				debug "fork $i";
+				my $pid = _fork(
+					sub { &{$proc->{func}}; }, # futtatjuk a cuccot
+					sub { # vege
+						my ($ret) = @_;
+						unless ($ret == 0) { # hiba
+							debug "step[$i] error";
+							set_step($i, 'error');
+							popup('error', sprintf(_("Error occurred during %s!"), $proc->{name}));
+							for (qw(waitcondtag updatetag pulsetag updatetag)) {
+								Glib::Source->remove($proc->{$_}) if defined $proc->{$_};
+								delete $c->[$i]->{$_};
+							}
+						} else {
+							debug "stop[$i] ok";
+							if ($proc->{waitcond}) { # ha van varakozasi feltetel
+								if (&{$proc->{waitcond}}) { # es az teljesult
+									set_step($i, 'ok');
+									$c->[$i]->{completed} = 1;
+									debug "waitcond already fullfilled, nex...";
+									forker_next($c); # kovetkezo lepes
+								} else {
+									debug "set waitcond for $i";
+									$c->[$i]->{waitcondtag} = Glib::Timeout->add($proc->{waitcondtimeout} || 1000, sub { 
+										if (&{$proc->{waitcond}}) { # ha teljesult a feltetel
+											set_step($i, 'ok');
+											$c->[$i]->{completed} = 1;
+											debug "waitcond fullfilled, next...";
+											forker_next($c); # ugrunk
+										} else {
+											return TRUE;
+										}
+									});
+								}
+							} else {
+								debug "no waitcond, next...";
+								set_step($i, 'ok');
+								$c->[$i]->{completed} = 1;
+								forker_next($c);
+							}
+						}
+					}
+				);
+			} else { # ha nem kell forkolni
+				debug "run $i";
+				&{$proc->{func}};
+				if ($proc->{waitcond}) {
+					debug "set waitcond for $i";
+					$c->[$i]->{waitcondtag} = Glib::Timeout->add($proc->{waitcondtimeout} || 1000, sub { 
+						if (&{$proc->{waitcond}}) { # ha teljesult a feltetel
+							$c->[$i]->{completed} = 1;
+							set_step($i, 'ok');
+							debug "waitcond fullfilled, next...";
+							forker_next($c); # ugrunk
+						} else {
+							return TRUE;
+						}
+					});
+				} else {
+					debug "no waitcond, next...";
+					$c->[$i]->{completed} = 1;
+					set_step($i, 'ok');
+					forker_next($c);
+				}
+			}
+			return;
+		}
+		$i++;
+	}
+	debug "no more steps";
+	w('progress')->set_fraction(1);
+	w('progress')->set_text("100%");
+	popup('info', '<b>'._("Installation finished").'</b>', _("Installation finished"));
+	w('install_exit')->grab_focus;
+}
+
+sub devtouuiddev {
+	my ($dev) = @_;
+	
+	debug "get uuid for [$dev]";
+	
+	_system "udevadm", "trigger";
+	_system "udevadm", "settle";
+	my $data = diskinfo($dev);
+	my $path;
+	unless ($data->{udev}->{ID_FS_UUID}) {
+		debug "can't find uuid for $dev, boot device may not be persistent!";
+		$path = $dev;
+	} else {
+		$path = "/dev/disk/by-uuid/$data->{udev}->{ID_FS_UUID}";
+	}
+	
+	return $path;
+}
+
+sub wipefs {
+	my ($dev) = @_;
+	
+	if ( -b $dev ) {
+		for (1..3) {
+			_system("wipefs -a $dev");
+		}
+		_system("mdadm --zero-superblock $dev");
+		_system("dd if=/dev/zero of=$dev bs=1M count=8");
+	}
+}
+
+sub write_grub_boot_device_config {
+	my ($dev, $conf) = @_;
+	
+	my $path = devtouuiddev($dev);
+	
+	my $conffh;
+	open $conffh, ">", $conf;
+	print $conffh "exec tail -n +2 \$0\n";
+	print $conffh "set uhu_boot=\"$path\"\n";
+	close $conffh;
+	_system "chmod", "+x", $conf;
+}
+
+sub install {
+	my $s = [];
+	
+	if ($install_type eq 'easy' or $install_type eq 'expertlive') { # live install
+		
+		my $params;
+		if ($install_type eq 'easy') { # easy mode
+			my $iter = w('disks')->get_selection->get_selected;
+			my $disk = w('disks')->get_model->get($iter, 0);
+			
+			$params->{type} = 'easy';
+			$params->{rootdev} = $disk.'3';
+			$params->{bootdev} = $disk.'2';
+			$params->{bootdevfs} = "ext4";
+			$params->{bootdsk} = $disk;
+		} else { # expert mode
+			$params->{type} = 'expertlive';
+			for (@$table_rows) {
+				if ($_->{path}->child->get_text eq '/' and $_->{path}->is_sensitive) {
+					$params->{rootdev} = $_->{disk}->get_model->get($_->{disk}->get_active_iter, 0);
+				}
+				if ($_->{path}->child->get_text eq '/boot' and $_->{path}->is_sensitive) {
+					$params->{bootdev} = $_->{disk}->get_model->get($_->{disk}->get_active_iter, 0);
+					$params->{bootdevfs} = $_->{fs}->get_active_text;
+				}
+				if (!$_->{path}->is_sensitive) {
+					$params->{swapdev} = $_->{disk}->get_model->get($_->{disk}->get_active_iter, 0);
+				}
+			}
+			$params->{bootdev} = $params->{rootdev} unless $params->{bootdev};
+			$params->{bootdsk} = w('grub')->get_model->get(w('grub')->get_active_iter, 0);
+		}
+		
+		wipefs($params->{bootdev});
+		wipefs($params->{rootdev});
+		
+		# auto partitioning in easy mode only
+		if ($params->{type} eq 'easy') {
+			push @$s, {
+				name => _('Partitioning'), 
+				'fork' => TRUE,
+				func => sub {
+					_system 'sgdisk', '--zap-all', $params->{bootdsk};
+					
+					_system 'sgdisk', '-n', '0:0:+200M', $params->{bootdsk}; # create EFI and system boot partition
+					_system 'sgdisk', '-t', '1:ef00', $params->{bootdsk}; # set EFI boot partition type to EFI System
+					
+					_system 'sgdisk', '-n', '0:0:+1G', $params->{bootdsk}; # create boot partition
+					
+					_system 'sgdisk', '-n', '0:0:0', $params->{bootdsk}; # create root partition
+					
+					_system 'sgdisk', '-n', '0:34:2047', $params->{bootdsk}; # create hidden MBR boot partition
+					_system 'sgdisk', '-t', '4:ef02', $params->{bootdsk}; # set MBR boot partition type to BIOS boot partition
+					
+					_system 'sgdisk', '-h', '1:2:3', $params->{bootdsk}; # create hybrid MBR based on GPT table
+				}
+			}
+		}
+	
+		push @$s, {
+			name => _('Live copy'),
+			'fork' => FALSE,
+			waitcond => sub {
+				my ($pid) = @_; 
+				my $s = `dmsetup status mirror`;
+				chomp $s;
+				return FALSE unless $s;
+				return FALSE unless ((defined $s) and (length($s) > 0) and ($s =~ / (\d+)\/(\d+) /));
+				my $completed = $1;
+				my $full = $2;
+				if ((defined $completed) and (defined $full) and ($full > 0)) {
+					return $completed == $full;
+				}
+				return FALSE;
+			},
+			func => sub { 
+				_system "modprobe", "dm-mirror";
+				sleep 1;
+				_system('echo "0 $(blockdev --getsz /dev/mapper/snapshot) linear /dev/mapper/snapshot 0" | dmsetup create mirror');
+				_system('echo "0 $(blockdev --getsz /dev/mapper/mirror) linear /dev/mapper/mirror 0" | dmsetup load live');
+				_system('dmsetup resume live');
+				_system('echo "0 $(blockdev --getsz /dev/mapper/snapshot) mirror core 1 1024 2 /dev/mapper/snapshot 0 '.$params->{rootdev}.' 0" | dmsetup load mirror');
+				_system('dmsetup resume mirror');
+				
+			},
+			update => sub { check_mirror_copy },
+			updatetimeout => 1000
+		};
+		
+		push @$s, {
+			name => _('Finish copying'),
+			'fork' => TRUE,
+			func => sub {
+				# kivesszuk a memdisket a musorbol
+				_system('echo "0 $(blockdev --getsz "'.$params->{rootdev}.'") linear '.$params->{rootdev}.' 0" | dmsetup load live');
+				_system 'dmsetup', 'resume', 'live';
+				_system 'dmsetup', 'remove', 'mirror';
+				
+
+				# megkeressuk a loop deviceot es kivesszuk a rendszerbol
+				my $dmdev = `basename "$(readlink -f /dev/mapper/snapshot)"`;
+				chomp $dmdev;
+				my @lodevs;
+				for (glob("/sys/block/".$dmdev."/slaves/*")) {
+					my $l = `basename $(readlink -f $_)`;
+					chomp $l;
+					push @lodevs, $l if ($l =~ /^loop/);
+				}
+				_system 'dmsetup', 'remove', 'snapshot';
+				for (@lodevs) {
+					system 'losetup', '-d', "/dev/$_";
+				}
+				# remove uhu-installer desktop icon
+				system 'rm', '/home/uhu/Desktop/uhu-installer.desktop';
+			}
+		};
+		
+		if ($params->{swapdev}) {
+			push @$s, {
+				name => _('Adding swap space'), 
+				'fork' => TRUE,
+				func => sub { 
+					unless ($params->{swapdev} =~ /^\/dev\// and -b $params->{swapdev}) { # create swap file
+						_system 'dd', 'if=/dev/zero', 'of='.$params->{swapdev}, 'bs=1M', 'count=256';
+					}
+					_system 'mkswap', '-f', $params->{swapdev};
+					_system 'swapon', $params->{swapdev};
+				}
+			}
+		}
+		
+		push @$s, {
+			name => _('Filesystem setup'),
+			'fork' => TRUE,
+			func => sub { 
+				# megnöveljük a filerendszer méretét
+				_system 'resize2fs', '-p', '/dev/mapper/live';
+				# bekapcsoljuk a journal-t
+				_system 'tune2fs', '-j', '/dev/mapper/live';
+				_system 'tune2fs', '-U', 'random', '/dev/mapper/live';
+				_system 'sync';
+				_system 'echo 3 > /proc/sys/vm/drop_caches';
+				_system 'udevadm', 'trigger', '--subsystem-match=block';
+				_system 'udevadm', 'settle';
+			}
+		};
+		
+		if (w('install_bootloader')->get_active or $install_type eq 'easy') {
+			push @$s, {
+				'fork' => TRUE,
+				name => _('Install bootloader'), 
+				func => sub {
+					if ($params->{rootdev} ne $params->{bootdev}) { # ha külön boot partíció van
+						wipefs($params->{bootdev});
+						_system 'mkfs.'.$params->{bootdevfs}, $params->{bootdev};
+						#if ext filesystem
+						_system 'tune2fs', '-i0', '-c0', '-m2', '-LBoot', $params->{bootdev};
+						_system 'mkdir', '-p', '/tmp/boot';
+						_system 'mount', $params->{bootdev}, '/tmp/boot';
+						_system "mv -v /boot/* /tmp/boot/";
+						_system 'umount', '/tmp/boot';
+						_system 'mount', $params->{bootdev}, '/boot';
+					}
+					write_grub_boot_device_config($params->{rootdev}, "/etc/grub.d/39_1_uhu_boot");
+					_system 'grub2-mkconfig', '-o', '/boot/grub2/grub.cfg';
+					_system 'grub2-install', $params->{bootdsk};
+					_system 'sync';
+					_system 'mount', '-a';
+					
+					my $fstabfh;
+					open $fstabfh, ">/etc/fstab" or debug "error while opening /etc/fstab: $!";
+					print $fstabfh devtouuiddev($params->{bootdev})." /boot ".$params->{bootdevfs}." defaults 0 0\n" if ($params->{rootdev} ne $params->{bootdev});
+					print $fstabfh devtouuiddev($params->{rootdev})." / ext4 defaults 0 0\n";
+					close $fstabfh;
+				}
+			};
+		}
+		
+		push @$s, {
+			'fork' => FALSE,
+			name => _('Set passwords'),
+			func => sub {
+				_system 'usermod', '-c', w('fullname')->get_text, 'uhu';
+				_system("echo root:".w('rootpass1')->get_text." | chpasswd");
+				_system("echo uhu:".w('userpass1')->get_text." | chpasswd");
+			}
+		};
+	} else { # normal install
+	
+		# mount
+		my $umounts;
+		my $real_source_dev = `readlink -f "/dev/block/\$(dmsetup table snapshot|cut -d' ' -f4)"`;
+		chomp $real_source_dev;
+		_system('echo "0 $(blockdev --getsz '.$real_source_dev.') linear '.$real_source_dev.' 0" | dmsetup -r create src');
+		my $source_dev = '/dev/mapper/src';
+		
+		my $mounts;
+		my $fstab;
+		for (@$table_rows) {
+			$mounts->{$_->{path}->get_text} = [$_->{disk}->get_model->get($_->{disk}->get_active_iter, 0), $_->{fs}->get_active_text]; # disk, fs
+		}
+		my $bootdev;
+		my $rootdev;
+		my $cd = 0; # current depth
+		while (scalar keys %$mounts > 0) {
+			for (keys %$mounts) {
+				
+				my $dev = $mounts->{$_}->[0];
+				my $path = $dev;
+				my $fs = $mounts->{$_}->[1];
+				$path =~ s/[^\/]//g;
+				my $depth = length($path);
+				$depth = 0 if $path eq '/';
+				
+				$bootdev = $dev if ($_ =~ /^\/boot\/*$/);
+				$rootdev = $dev if ($_ =~ /^/+$/);
+				
+				if ($depth == $cd) {
+					# XXX FIXME TODO /mnt helyett rendes temp dir
+					if ($fs eq 'swap') {
+						$fstab .= "$dev $fs $fs defaults 0 0\n";
+					} else {
+						push @$umounts, [$dev, '/mnt/'.$_];
+						$fstab .= "$dev $_ $fs defaults 1 1\n";
+					}
+					delete $mounts->{$_};
+				}
+			}
+			$cd++;
+		}
+		# XXX FIXME TODO: rendes tmp dir kellene
+		push @$umounts, [$source_dev, '/tmp/sourcedisk']; # source
+	
+		# mkfs
+		push @$s, {
+			'fork' => TRUE,
+			name => _('Create filesystems'),
+			func => sub {
+				for (@$table_rows) {
+					if ($_->{format}->get_active) {
+						_system "umount", $_->{disk}->get_model->get($_->{disk}->get_active_iter, 0);
+						wipefs $_->{disk}->get_model->get($_->{disk}->get_active_iter, 0);
+						if ($_->{fs}->get_active_text eq 'swap') {
+							if (_system 'mkswap', '-f', $_->{disk}->get_model->get($_->{disk}->get_active_iter, 0)) {
+								debug "Can't create swap on ".$_->{disk}->get_model->get($_->{disk}->get_active_iter, 0);
+								return 1;
+							}
+						} else {
+							if (_system 'mkfs.'.$_->{fs}->get_active_text, $_->{disk}->get_model->get($_->{disk}->get_active_iter, 0)) {
+								debug "Can't create ".$_->{fs}->get_active_text." filesystem on ".$_->{disk}->get_model->get($_->{disk}->get_active_iter, 0);
+								return 1;
+							}
+						}
+					}
+				}
+			}
+		};
+		
+		
+		
+		push @$s, {
+			'fork' => TRUE,
+			name => _('Mounting disks'),
+			func => sub {
+				for (@$umounts) {
+					_system 'mkdir', '-p', $_->[1];
+					_system 'mount', $_->[0], $_->[1];
+				}
+			}
+		};
+		
+		# copy
+		push @$s, {
+			'fork' => TRUE,
+			name => _('Copying files'),
+			func => sub {
+				_system 'cp', '-a', '/tmp/sourcedisk/.', '/mnt/';
+				my $fstabfh;
+				open $fstabfh, "> /mnt/etc/fstab";
+				foreach (split /\n/, $fstab) {
+					my @x = split /\s/;
+					$x[0] = devtouuiddev($x[0]);
+					print $fstabfh join(' ', @x)."\n";
+				}
+				close $fstabfh;
+			},
+			update => sub {
+			
+				my $buf = "\0"x64;
+				my $path = "/mnt/";
+				Encode::_utf8_off($buf);
+			    syscall(&SYS_statfs, $path, $buf) == 0 or die;
+			    my ($bsize, $blocks, $bfree, $bavail, $files, $ffree, $namelen) = unpack  "x4 L6 x8 L", $buf;
+			    my $cpsize = $bsize*($blocks-$bfree);
+			    
+			    $buf = "\0"x64;
+				$path = "/tmp/sourcedisk";
+				Encode::_utf8_off($buf);
+				syscall(&SYS_statfs, $path, $buf) == 0 or die;
+				($bsize, $blocks, $bfree, $bavail, $files, $ffree, $namelen) = unpack  "x4 L6 x8 L", $buf;
+				my $size = $bsize*($blocks-$bfree);
+			    
+			    debug "size: [$size] cpsize: [$cpsize]";
+			    my $p = $cpsize/$size;
+			    $p=1 if ($p > 1);
+			    w('progress')->set_fraction($p);
+				w('progress')->set_text(int($p*100)."%");
+				1;
+			},
+			updatetimeout => 1000
+		};
+		
+		if (w('install_bootloader')->get_active) {
+			my $bootdsk = w('grub')->get_model->get(w('grub')->get_active_iter, 0);
+			push @$s, {
+				'fork' => TRUE,
+				name => _('Install bootloader'),
+				func => sub {
+					_system "mount", "--bind", "/dev/", "/mnt/dev/";
+					_system "mount", "--bind", "/proc/", "/mnt/proc/";
+					_system "mount", "--bind", "/sys/", "/mnt/sys/";
+					write_grub_boot_device_config($rootdev, "/mnt/etc/grub.d/39_1_uhu_boot");
+					_system "chroot", "/mnt", "grub2-mkconfig", "-o", "/boot/grub2/grub.cfg";
+					_system "chroot", "/mnt", "grub2-install", $bootdsk;
+					_system "umount", "/mnt/dev";
+					_system "umount", "/mnt/proc";
+					_system "umount", "/mnt/sys";
+				}
+			};
+		}
+		
+		push @$s, {
+			'fork' => FALSE,
+			name => _('Set passwords'),
+			func => sub {
+				_system "mount", "--bind", "/dev/", "/mnt/dev/";
+				_system "mount", "--bind", "/proc/", "/mnt/proc/";
+				_system "mount", "--bind", "/sys/", "/mnt/sys/";
+				_system "chroot", "/mnt", "userdel", "-fr", "uhu";
+				_system "chroot", "/mnt", "useradd", "-m", w('username')->get_text, "-c", w('fullname')->get_text;
+				_system("chroot /mnt bash -c \"echo 'root:".w('rootpass1')->get_text."' | chpasswd -m\"");
+				_system("chroot /mnt bash -c \"echo '".w('username')->get_text.":".w('userpass1')->get_text."' | chpasswd -m\"");
+				_system 'sed', '-r', '-e', 's/^AutomaticLogin=.*/AutomaticLogin='.w('username')->get_text.'/', '-i', '/etc/gdm/custom.conf';
+				_system("chown", "-R", w('username')->get_text, "/home/".w('username')->get_text);
+				_system "umount", "/mnt/dev";
+				_system "umount", "/mnt/proc";
+				_system "umount", "/mnt/sys";
+			}
+		};
+		
+		# finish/umount
+		push @$s, {
+			'fork' => TRUE,
+			name => _('Finishing install'),
+			func => sub {
+				for(reverse @$umounts) {
+					_system 'umount', $_->[1];
+				}
+				
+				_system("dmsetup remove src");				
+			}
+		};
+	}
+	forker($s);
+	w('install_exit')->set_sensitive(TRUE);
+}
+
+sub on_install_exit_clicked {
+	Gtk2::main_quit;
+}
+
+sub on_refresh_disk_list_clicked {
+	# reload
+	&vinyokeres;
+	&create_disks_model;
+	&fill_grub_model;
+	&on_install_type_changed;
+}
+
+sub on_install_bootloader_toggled {
+	w('grub')->set_sensitive(w('install_bootloader')->get_active);
+}
+
+sub on_passwords_next_clicked {
+
+	unless ($install_type eq 'expertlive' or $install_type eq 'easy') {
+		if (w('username')->get_text !~ /^[[:ascii:]]{3,}$/ or w('username')->get_text =~ /[[:space:]]/) {
+			popup('error', _("Username contains invalid characters!"), _('Username error'));
+			w('username')->grab_focus;
+			return;
+		}
+	}
+	
+	if (w('fullname')->get_text =~ /[,:=]/) {
+		popup('error', _("Fullname contains invalid characters!"), _('Fullname error'));
+		w('fullname')->grab_focus;
+		return;
+	}
+
+	if (length(w('userpass1')->get_text) == 0) {
+		popup('error', _("You must enter a password for user!"), _('Password error'));
+		w('userpass1')->grab_focus;
+		return;
+	}
+	
+	if (length(w('userpass1')->get_text) < 6) {
+		popup('error', _("Password too short!"), _('Password error'));
+		w('userpass1')->grab_focus;
+		return;
+	}
+	
+	if (w('userpass1')->get_text ne w('userpass2')->get_text) {
+		# megadott jelszo nem egyezik
+		popup('error', _("User's passwords mismatch!"), _('Password error'));
+		w('userpass2')->grab_focus;
+		return;
+	}
+	
+	if (length(w('rootpass1')->get_text) == 0) {
+		popup('error', _("You must enter a password for root!"), _('Password error'));
+		w('rootpass1')->grab_focus;
+		return;
+	}
+	
+	if (length(w('rootpass1')->get_text) < 6) {
+		popup('error', _("Password too short!"), _('Password error'));
+		w('rootpass1')->grab_focus;
+		return;
+	}
+
+
+	if (w('rootpass1')->get_text ne w('rootpass2')->get_text) {
+		# megadott jelszo nem egyezik
+		popup('error', _("Root's passwords mismatch!"), _('Password error'));
+		w('rootpass1')->grab_focus;
+		return;
+	}
+	
+	w('nb')->set_current_page(3);
+	
+	install;
+}
+
+
+sub on_easy_next_clicked {
+	$install_type = 'easy';
+	my $iter = w('disks')->get_selection->get_selected;
+	my $disk = w('disks')->get_model->get($iter, 0);
+	
+	#check disk space
+	my $buf = "\0"x64;
+	my $path = "/";
+	Encode::_utf8_off($buf);
+    syscall(&SYS_statfs, $path, $buf) == 0 or die;
+    my ($bsize, $blocks, $bfree, $bavail, $files, $ffree, $namelen) = unpack  "x4 L6 x8 L", $buf;
+    debug "free space: [$disks->{$disk}->{size}] [".($blocks*$bsize)."]";
+    if ($disks->{$disk}->{size} < ($blocks*$bsize+1024**2)*1.05) { # + 1Gb boot + 5%
+    	if (popup('question', _("The selected root device has insufficent free space, do you really want to continue?"), _('Warning')) eq 'no') {
+    		return;
+    	}
+    }
+    
+	my $used = 0;
+	unless ($disks->{$disk}->{'used'}) {
+		if ($disks->{$disk}->{'has_partitions'}) {
+			for (keys %$disks) {
+				if (/^$disk/ && !/^$disk$/) {
+					if ($disks->{$_}->{'used'}) {
+						$used = 1;
+					}							
+				}
+			}
+		}
+	} else {
+		$used = 1;
+	}
+			
+	if ($used) {
+		if (popup('question', sprintf(_("Selected disk [%s] is in use!"), $disk), _('Disk access error')) eq 'no') {
+			return;
+		}
+	}
+    
+	if (popup('question', sprintf(_("You have selected the following disk:\n%s\nOn the chosen disk, all your data will be lost. Are you sure?"), $disk), _('Warning')) eq 'no') {
+		return;
+	}
+	w('nb')->set_current_page(2);
+}
+
+sub create_grub_model {
+	my $combo = w('grub');
+	my $r = Gtk2::CellRendererText->new;
+	$combo->pack_start($r, TRUE);
+	$combo->add_attribute($r, markup => TRUE);
+	$combo->set_active(0);
+}
+
+sub fill_grub_model {
+	my $model = Gtk2::ListStore->new ('Glib::String', 'Glib::String');
+	my $i;
+	for (sort keys %$disks) {
+		next unless ($disks->{$_}->{type} eq 'HDD');
+		next if ($disks->{$_}->{udev}->{DKD_PARTITION_TYPE} eq '0x05' or $disks->{$_}->{udev}->{DKD_PARTITION_TYPE} eq '0x82'); # skip extended partition
+		$model->set($model->append,
+			0 => $_,
+			1 => "<b> $disks->{$_}->{type} $disks->{$_}->{name}</b> ".convsize($disks->{$_}->{size})."\n$disks->{$_}->{udev}->{ID_FS_LABEL} $disks->{$_}->{udev}->{ID_FS_TYPE} ($_)"
+		);
+		$i++;
+	}
+	w('grub')->set_model($model);
+	w('grub')->set_active(0);
+}
+
+sub on_install_type_changed {	
+	debug "install type changed to ".w('install_type')->get_active_text;
+	remove_mount;
+	if (w('install_type')->get_active == 0) { # live
+		add_mount('/boot', 0, 'ext4', 1);
+		add_mount('/', 1, 'ext4', 1);
+		add_mount(undef, 2, 'swap', 1);
+	} else { # normal
+		add_mount('/boot', 0, 'ext4', 1);
+		add_mount('/', 1, 'ext4', 1);
+		add_mount(undef, 2, 'swap', 1);
+	}
+}
+
+sub on_nb_switch_page {
+	my (undef, undef, $idx) = @_;
+	
+	debug "notebook tab changed to $idx";
+	if ($idx == 2) {
+		if ($install_type eq 'easy' or $install_type eq 'expertlive') {	
+			w('username')->set_text('uhu');
+			w('username')->set_sensitive(FALSE);
+		} else {
+			w('username')->set_text('');
+			w('username')->set_sensitive(TRUE);
+		}
+	}
+}
+
+sub create_disks_model {
+	my $list = Gtk2::SimpleList->new_from_treeview(w('disks'), 'none' => 'hidden', 'Lemez' => 'markup');
+	
+	for (sort keys %$disks) {
+		next unless ($disks->{$_}->{type} eq 'HDD' and !$disks->{$_}->{partition});
+		push @{$list->{data}}, [$_, "<b> $disks->{$_}->{type} $disks->{$_}->{name}</b> ".convsize($disks->{$_}->{size})."\n($_)"];
+	}
+	$list->select(0);
+	$list->get_selection->set_mode('browse');
+}
+
+sub on_input {
+	my ($LOG) = @_;
+    my $buf  = '';
+    while (1) {
+        my $r = sysread $LOG, $buf, 1024;
+        return 1 unless defined $r;
+        return 1 unless $r > 0;
+        my $buffer = w('log')->get_buffer;
+		my $old = $buffer->get_text($buffer->get_start_iter, $buffer->get_end_iter, FALSE);
+        $buffer->set_text($old.$buf);
+    }
+}
+
+my $LOG;
+open $LOG, ">/var/log/uhu-installer.log" or die "Can't open log: $!\n";
+print "[".fileno($LOG)."]\n\n";
+
+
+
+# csak root-kent futtathato
+if ($> != 0) {
+	debug "Run as root!";
+	exit 1;
+}
+
+open STDOUT, ">>/var/log/uhu-installer.log";
+open STDERR, ">>/var/log/uhu-installer.log";
+my $flags = fcntl(\*STDERR, F_GETFL, 0) or die "Can't get flags for the socket: $!\n";
+$flags = fcntl(\*STDERR, F_SETFL, $flags | O_NONBLOCK) or die "Can't set flags for the socket: $!\n";
+
+STDIN->autoflush(1);
+STDOUT->autoflush(1);
+STDERR->autoflush(1);
+
+vinyokeres;
+create_disks_model;
+create_grub_model;
+fill_grub_model;
+w('install_type')->set_active(0);
+
+# temp hack ###############################
+#w('userpass1')->set_text('123123');
+#w('userpass2')->set_text('123123');
+#w('rootpass1')->set_text('123123');
+#w('rootpass2')->set_text('123123');
+###########################################
+
+w('window')->show_all;
+
+#Glib::IO->add_watch(fileno(\*STDERR), 'in', sub { on_input(\*STDERR);1; });
+Gtk2->main;

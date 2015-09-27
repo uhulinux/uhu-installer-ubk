@@ -1,0 +1,21 @@
+#!/bin/sh
+
+true > uhu-installer.pot
+
+xgettext --output=uhu-installer.pot --join-existing \
+	--keyword=_ --keyword=N_ --keyword=U_ \
+	--from-code=UTF-8 --language=perl \
+	--add-comments=TRANSLATORS \
+	uhu-installer
+
+xgettext --output=uhu-installer.pot --join-existing \
+	--keyword=_ --keyword=N_ --keyword=U_ \
+	--from-code=UTF-8 --language=glade \
+	--add-comments=TRANSLATORS \
+	uhu-installer.glade
+
+msguniq uhu-installer.pot > uhu-installer.pot.tmp
+mv uhu-installer.pot.tmp uhu-installer.pot
+
+msgmerge --lang=hu hu.po uhu-installer.pot > hu.po.new
+mv hu.po.new hu.po

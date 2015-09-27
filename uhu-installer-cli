@@ -1,0 +1,98 @@
+#!/bin/bash -e
+
+if [ "$#" != 3 ]; then
+	echo "usage: uhu-installer <boot disk> <boot device> <root device>" >&2
+	exit 1
+fi
+
+if [ ! -e "$1" ]; then
+	echo "boot disk does not exist: $1" >&2
+	exit 1
+fi
+
+if [ ! -e "$2" ]; then
+	echo "boot device does not exist: $2" >&2
+	exit 1
+fi
+
+if [ ! -e "$3" ]; then
+	echo "root device does not exist: $3" >&2
+	exit 1
+fi
+
+if [ ! -b "$1" ]; then
+	echo "boot disk is not a block device: $1" >&2
+	exit 1
+fi
+
+if [ ! -b "$2" ]; then
+	echo "boot device is not a block device: $2" >&2
+	exit 1
+fi
+
+if [ ! -b "$3" ]; then
+	echo "boot device is not a block device: $3" >&2
+	exit 1
+fi
+
+bootdsk="$1"
+bootdev="$2"
+rootdev="$3"
+
+echo "Copying..."
+modprobe dm-mirror
+
+echo "0 $(blockdev --getsz /dev/mapper/snapshot) linear /dev/mapper/snapshot 0" | dmsetup create mirror
+echo "0 $(blockdev --getsz /dev/mapper/mirror) linear /dev/mapper/mirror 0" | dmsetup load live
+dmsetup resume live
+echo "0 $(blockdev --getsz /dev/mapper/snapshot) mirror core 1 1024 2 /dev/mapper/snapshot 0 $rootdev 0" | dmsetup load mirror
+dmsetup resume mirror
+
+size="$(dmsetup status mirror | cut -d" " -f7 | cut -d/ -f2)"
+while true; do
+	copied="$(dmsetup status mirror | cut -d" " -f7 | cut -d/ -f1)"
+	echo -en "\r$(($copied*100/$size))%"
+	if [ "$copied" = "$size" ]; then
+		echo
+		break
+	fi
+	sleep 1
+done
+echo "done."
+
+echo "0 $(blockdev --getsz "$rootdev") linear $rootdev 0" | dmsetup load live
+dmsetup resume live
+dmsetup remove mirror
+
+dmdev="$(basename "$(readlink -f /dev/mapper/snapshot)")"
+echo "$dmdev"
+loopdevs=()
+for dev in /sys/block/"$dmdev"/slaves/*; do
+	loopdevs[${#loopdevs[@]}]="$(basename "$(readlink -f "$dev")")"
+done
+dmsetup remove snapshot
+for dev in "${loopdevs[@]}"; do
+	case "$dev" in
+		loop*)
+			losetup -d /dev/"$dev"
+			;;
+	esac
+done
+
+resize2fs -p /dev/mapper/live
+tune2fs -j /dev/mapper/live
+
+mkfs.ext3 "$bootdev"
+tune2fs -i0 -c0 -m2 -LBoot "$bootdev"
+mkdir -p /tmp/boot
+mount "$bootdev" /tmp/boot
+mv -v /boot/* /tmp/boot/
+umount /tmp/boot
+cat >/etc/fstab <<EOF
+$bootdev /boot ext3 defaults 0 0
+$rootdev / ext4 defaults 0 0
+EOF
+mount "$bootdev" /boot
+grub-install --no-floppy "$bootdsk"
+update-grubmenu
+sync
