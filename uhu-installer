@@ -1028,8 +1028,16 @@ sub install {
 			name => _('Mounting disks'),
 			func => sub {
 				for (@$umounts) {
+					if ($_->[1] eq '/mnt/') {
+						_system 'mkdir', '-p', $_->[1];
+						_system 'mount', $_->[0], $_->[1];
+					}
+				}
+				for (@$umounts) {
+				if ($_->[1] ne '/mnt/') {
 					_system 'mkdir', '-p', $_->[1];
 					_system 'mount', $_->[0], $_->[1];
+				}
 				}
 			}
 		};
