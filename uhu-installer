@@ -540,7 +540,7 @@ sub on_mount_next_clicked {
 }
 
 sub on_mount_back_clicked {
-	w('nb')->set_current_page(0);
+#	w('nb')->set_current_page(0);
 }
 
 sub on_passwords_back_clicked {
@@ -1374,6 +1374,7 @@ w('install_type')->set_active(1);
 #w('rootpass2')->set_text('123123');
 ###########################################
 
+w('nb')->set_current_page(1);
 w('window')->show_all;
 
 #Glib::IO->add_watch(fileno(\*STDERR), 'in', sub { on_input(\*STDERR);1; });
