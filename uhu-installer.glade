@@ -165,6 +165,8 @@ If you don't want to erease a whole disk, select &lt;b&gt;Expert mode&lt;/b&gt;.
                 <child>
                   <widget class="GtkHBox" id="hbox4">
                     <property name="visible">True</property>
+                    <property name="sensitive">False</property>
+                    <property name="can_focus">False</property>
                     <property name="border_width">5</property>
                     <property name="spacing">5</property>
                     <child>
@@ -176,6 +178,8 @@ If you don't want to erease a whole disk, select &lt;b&gt;Expert mode&lt;/b&gt;.
                         <child>
                           <widget class="GtkComboBox" id="install_type">
                             <property name="visible">True</property>
+                            <property name="sensitive">False</property>
+                            <property name="can_focus">False</property>
                             <property name="items" translatable="yes">Live
 Normal</property>
                             <signal name="changed" handler="on_install_type_changed"/>
@@ -479,7 +483,8 @@ Normal</property>
                     <child>
                       <widget class="GtkButton" id="mount_back">
                         <property name="visible">True</property>
-                        <property name="can_focus">True</property>
+                        <property name="sensitive">False</property>
+                        <property name="can_focus">False</property>
                         <property name="receives_default">True</property>
                         <property name="response_id">0</property>
                         <signal name="clicked" handler="on_mount_back_clicked"/>
