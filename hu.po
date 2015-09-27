@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: uhu-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-27 17:51+0200\n"
-"PO-Revision-Date: 2010-09-06 17:04+0200\n"
-"Last-Translator: Tamási János <janusz@uhulinux.hu>\n"
+"POT-Creation-Date: 2015-09-27 18:57+0200\n"
+"PO-Revision-Date: 2015-09-27 18:59+0200\n"
+"Last-Translator: rezso <rezso@rezso.net>\n"
 "Language-Team: hungarian <>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
@@ -36,7 +36,7 @@ msgid "Wrong mount path for:"
 msgstr "Hibás csatolási pont:"
 
 #: uhu-installer:475 uhu-installer:482 uhu-installer:492 uhu-installer:502
-#: uhu-installer:514
+#: uhu-installer:514 uhu-installer:1294
 msgid "Error"
 msgstr "Hiba"
 
@@ -181,6 +181,10 @@ msgstr ""
 "%s\n"
 "A kiválasztott lemezen minden adat el fog veszni, biztosan folytatni akarja?"
 
+#: uhu-installer:1294
+msgid "This mode currently disabled."
+msgstr "Ez a mód jelenleg nem engedélyezett."
+
 #: uhu-installer.glade:7
 msgid "UHU installer"
 msgstr "UHU telepítő"
@@ -207,7 +211,7 @@ msgstr ""
 msgid "_Expert mode"
 msgstr "_Haladó mód"
 
-#: uhu-installer.glade:125 uhu-installer.glade:539 uhu-installer.glade:866
+#: uhu-installer.glade:125 uhu-installer.glade:540 uhu-installer.glade:867
 msgid "_Next"
 msgstr "_Következő"
 
@@ -215,126 +219,127 @@ msgstr "_Következő"
 msgid "easy"
 msgstr "Egyszerű"
 
+#: uhu-installer.glade:179
+msgid ""
+"Live\n"
+"Normal"
+msgstr ""
+"Live\n"
+"Normál"
+
 #: uhu-installer.glade:195
 msgid ""
-"Copying the system to the selected partitions. You can split the filesystem "
-"to partitions, and you can use other filesystem type than ext4."
+"<b>Live mode:</b> Installing the live system to the selected partitions on "
+"the fly. Any change on the live system will be moved to the installed "
+"system.\n"
+"<b>Normal mode:</b> Copying the system to the selected partitions. You can "
+"split the filesystem to partitions, you can use other filesystem type than "
+"ext4, and you change the username."
 msgstr ""
-"A rendszer telepítése a megadott partíciókra.Lehetőség van úgy telepíteni a "
-"rendszert, hogy az több különböző partíción foglaljon helyet, illetve "
-"lehetőség van az ext4-en kívül más fájlrendszer típusok használatára is."
+"<b>Live mód:</b> A live rendszer áthelyezése a kiválasztott lemezekre. A "
+"live rendszeren végzett változtatások is átkerülnek telepítés során, így a "
+"live rendszeren végzett bármilyen módosítás megmarad.\n"
+"<b>Normál mód:</b> Rendszer telepítése a megadott partíciókra. A normál "
+"módban lehetőség van úgy telepíteni a rendszert, hogy az több különböző "
+"partíción foglaljon helyet, illetve lehetőség van az ext4-en kívül más "
+"fájlrendszer típusok használatára is, illetve megváltoztatható a "
+"felhasználónév."
 
-#: uhu-installer.glade:236
+#: uhu-installer.glade:237
 msgid "Mount point"
 msgstr "Csatolási pont"
 
-#: uhu-installer.glade:242
+#: uhu-installer.glade:243
 msgid "Disk"
 msgstr "Lemez"
 
-#: uhu-installer.glade:252
+#: uhu-installer.glade:253
 msgid "Fs type"
 msgstr "Fájlrendszer"
 
-#: uhu-installer.glade:262
+#: uhu-installer.glade:263
 msgid "Format"
 msgstr "Formázás"
 
-#: uhu-installer.glade:338
+#: uhu-installer.glade:339
 msgid "Refresh disk list"
 msgstr "Lista frissítése"
 
-#: uhu-installer.glade:339
+#: uhu-installer.glade:340
 msgid "_Refresh"
-msgstr "Frissítés"
+msgstr "_Frissítés"
 
-#: uhu-installer.glade:367
+#: uhu-installer.glade:368
 msgid "Partitioning with GParted"
 msgstr "Particionálás GParteddel"
 
-#: uhu-installer.glade:386
+#: uhu-installer.glade:387
 msgid "_Partitioning"
 msgstr "_Particionálás"
 
-#: uhu-installer.glade:414
+#: uhu-installer.glade:415
 msgid "Add new mount point"
 msgstr "Új csatolási pont hozzáadása"
 
-#: uhu-installer.glade:445
+#: uhu-installer.glade:446
 msgid "Install bootloader to:"
 msgstr "Rendszerbetöltő helye:"
 
-#: uhu-installer.glade:501 uhu-installer.glade:828
+#: uhu-installer.glade:502 uhu-installer.glade:829
 msgid "_Back"
 msgstr "_Vissza"
 
-#: uhu-installer.glade:570
+#: uhu-installer.glade:571
 msgid "mount"
 msgstr "csatolás"
 
-#: uhu-installer.glade:608
+#: uhu-installer.glade:609
 msgid "Username:"
 msgstr "Felhasználónév:"
 
-#: uhu-installer.glade:619 uhu-installer.glade:740
+#: uhu-installer.glade:620 uhu-installer.glade:741
 msgid "Password:"
 msgstr "Jelszó:"
 
-#: uhu-installer.glade:630 uhu-installer.glade:747
+#: uhu-installer.glade:631 uhu-installer.glade:748
 msgid "Password again:"
 msgstr "Jelszó még egyszer:"
 
-#: uhu-installer.glade:682
+#: uhu-installer.glade:683
 msgid "Full name:"
 msgstr "Teljes név:"
 
-#: uhu-installer.glade:703
+#: uhu-installer.glade:704
 msgid "<b>User password</b>"
 msgstr "<b>Felhasználó jelszava</b>"
 
-#: uhu-installer.glade:787
+#: uhu-installer.glade:788
 msgid "<b>Root password</b>"
 msgstr "<b>Rendszergazda jelszava</b>"
 
-#: uhu-installer.glade:897
+#: uhu-installer.glade:898
 msgid "passwords"
-msgstr ""
+msgstr "Jelszavak"
 
-#: uhu-installer.glade:942
+#: uhu-installer.glade:943
 msgid "<b>Install steps</b>"
 msgstr "<b>Lépések</b>"
 
-#: uhu-installer.glade:1004
+#: uhu-installer.glade:1005
 msgid "E_xit"
 msgstr "_Kilépés"
 
-#: uhu-installer.glade:1034
+#: uhu-installer.glade:1035
 msgid "install"
-msgstr ""
+msgstr "Telepítés"
 
 #~ msgid ""
-#~ "Live\n"
-#~ "Normál"
+#~ "Copying the system to the selected partitions. You can split the "
+#~ "filesystem to partitions, and you can use other filesystem type than ext4."
 #~ msgstr ""
-#~ "Live\n"
-#~ "Normál"
-
-#~ msgid ""
-#~ "<b>Live mode:</b> Installing the live system to the selected partitions "
-#~ "on the fly. Any change on the live system will be moved to the installed "
-#~ "system.\n"
-#~ "<b>Normal mode:</b> Copying the system to the selected partitions. You "
-#~ "can split the filesystem to partitions, you can use other filesystem type "
-#~ "than ext4, and you change the username."
-#~ msgstr ""
-#~ "<b>Live mód:</b> A live rendszer áthelyezése a kiválasztott lemezekre. A "
-#~ "live rendszeren végzett változtatások is átkerülnek telepítés során, így "
-#~ "a live rendszeren végzett bármilyen módosítás megmarad.\n"
-#~ "<b>Normál mód:</b> Rendszer telepítése a megadott partíciókra. A normál "
-#~ "módban lehetőség van úgy telepíteni a rendszert, hogy az több különböző "
-#~ "partíción foglaljon helyet, illetve lehetőség van az ext4-en kívül más "
-#~ "fájlrendszer típusok használatára is, illetve megváltoztatható a "
-#~ "felhasználónév."
+#~ "A rendszer telepítése a megadott partíciókra.Lehetőség van úgy telepíteni "
+#~ "a rendszert, hogy az több különböző partíción foglaljon helyet, illetve "
+#~ "lehetőség van az ext4-en kívül más fájlrendszer típusok használatára is."
 
 #~ msgid "Error occured See log! (/var/log/uhu-installer.log) "
 #~ msgstr ""

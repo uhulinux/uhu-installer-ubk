@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-27 17:51+0200\n"
+"POT-Creation-Date: 2015-09-27 18:57+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,7 +35,7 @@ msgid "Wrong mount path for:"
 msgstr ""
 
 #: uhu-installer:475 uhu-installer:482 uhu-installer:492 uhu-installer:502
-#: uhu-installer:514
+#: uhu-installer:514 uhu-installer:1294
 msgid "Error"
 msgstr ""
 
@@ -173,6 +173,10 @@ msgid ""
 "On the chosen disk, all your data will be lost. Are you sure?"
 msgstr ""
 
+#: uhu-installer:1294
+msgid "This mode currently disabled."
+msgstr ""
+
 #: uhu-installer.glade:7
 msgid "UHU installer"
 msgstr ""
@@ -191,7 +195,7 @@ msgstr ""
 msgid "_Expert mode"
 msgstr ""
 
-#: uhu-installer.glade:125 uhu-installer.glade:539 uhu-installer.glade:866
+#: uhu-installer.glade:125 uhu-installer.glade:540 uhu-installer.glade:867
 msgid "_Next"
 msgstr ""
 
@@ -199,96 +203,106 @@ msgstr ""
 msgid "easy"
 msgstr ""
 
-#: uhu-installer.glade:195
+#: uhu-installer.glade:179
 msgid ""
-"Copying the system to the selected partitions. You can split the filesystem "
-"to partitions, and you can use other filesystem type than ext4."
+"Live\n"
+"Normal"
 msgstr ""
 
-#: uhu-installer.glade:236
+#: uhu-installer.glade:195
+msgid ""
+"<b>Live mode:</b> Installing the live system to the selected partitions on "
+"the fly. Any change on the live system will be moved to the installed "
+"system.\n"
+"<b>Normal mode:</b> Copying the system to the selected partitions. You can "
+"split the filesystem to partitions, you can use other filesystem type than "
+"ext4, and you change the username."
+msgstr ""
+
+#: uhu-installer.glade:237
 msgid "Mount point"
 msgstr ""
 
-#: uhu-installer.glade:242
+#: uhu-installer.glade:243
 msgid "Disk"
 msgstr ""
 
-#: uhu-installer.glade:252
+#: uhu-installer.glade:253
 msgid "Fs type"
 msgstr ""
 
-#: uhu-installer.glade:262
+#: uhu-installer.glade:263
 msgid "Format"
 msgstr ""
 
-#: uhu-installer.glade:338
+#: uhu-installer.glade:339
 msgid "Refresh disk list"
 msgstr ""
 
-#: uhu-installer.glade:339
+#: uhu-installer.glade:340
 msgid "_Refresh"
 msgstr ""
 
-#: uhu-installer.glade:367
+#: uhu-installer.glade:368
 msgid "Partitioning with GParted"
 msgstr ""
 
-#: uhu-installer.glade:386
+#: uhu-installer.glade:387
 msgid "_Partitioning"
 msgstr ""
 
-#: uhu-installer.glade:414
+#: uhu-installer.glade:415
 msgid "Add new mount point"
 msgstr ""
 
-#: uhu-installer.glade:445
+#: uhu-installer.glade:446
 msgid "Install bootloader to:"
 msgstr ""
 
-#: uhu-installer.glade:501 uhu-installer.glade:828
+#: uhu-installer.glade:502 uhu-installer.glade:829
 msgid "_Back"
 msgstr ""
 
-#: uhu-installer.glade:570
+#: uhu-installer.glade:571
 msgid "mount"
 msgstr ""
 
-#: uhu-installer.glade:608
+#: uhu-installer.glade:609
 msgid "Username:"
 msgstr ""
 
-#: uhu-installer.glade:619 uhu-installer.glade:740
+#: uhu-installer.glade:620 uhu-installer.glade:741
 msgid "Password:"
 msgstr ""
 
-#: uhu-installer.glade:630 uhu-installer.glade:747
+#: uhu-installer.glade:631 uhu-installer.glade:748
 msgid "Password again:"
 msgstr ""
 
-#: uhu-installer.glade:682
+#: uhu-installer.glade:683
 msgid "Full name:"
 msgstr ""
 
-#: uhu-installer.glade:703
+#: uhu-installer.glade:704
 msgid "<b>User password</b>"
 msgstr ""
 
-#: uhu-installer.glade:787
+#: uhu-installer.glade:788
 msgid "<b>Root password</b>"
 msgstr ""
 
-#: uhu-installer.glade:897
+#: uhu-installer.glade:898
 msgid "passwords"
 msgstr ""
 
-#: uhu-installer.glade:942
+#: uhu-installer.glade:943
 msgid "<b>Install steps</b>"
 msgstr ""
 
-#: uhu-installer.glade:1004
+#: uhu-installer.glade:1005
 msgid "E_xit"
 msgstr ""
 
-#: uhu-installer.glade:1034
+#: uhu-installer.glade:1035
 msgid "install"
 msgstr ""
