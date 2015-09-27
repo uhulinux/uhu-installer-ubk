@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: uhu-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-03 17:44+0200\n"
+"POT-Creation-Date: 2015-09-27 04:50+0200\n"
 "PO-Revision-Date: 2010-09-06 17:04+0200\n"
 "Last-Translator: Tamási János <janusz@uhulinux.hu>\n"
 "Language-Team: hungarian <>\n"
@@ -18,37 +18,37 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
 
-#: uhu-installer:388
+#: uhu-installer:387
 msgid "Remove"
 msgstr "Eltávolítás"
 
-#: uhu-installer:468 uhu-installer:1245
+#: uhu-installer:467 uhu-installer:1255
 #, perl-format
 msgid "Selected disk [%s] is in use!"
 msgstr "A kiválasztott lemez [%s] használatban van!"
 
-#: uhu-installer:468 uhu-installer:1245
+#: uhu-installer:467 uhu-installer:1255
 msgid "Disk access error"
 msgstr "Lemez hozzáférési hiba"
 
-#: uhu-installer:476
+#: uhu-installer:475
 msgid "Wrong mount path for:"
 msgstr "Hibás csatolási pont:"
 
-#: uhu-installer:476 uhu-installer:483 uhu-installer:493 uhu-installer:503
-#: uhu-installer:515
+#: uhu-installer:475 uhu-installer:482 uhu-installer:492 uhu-installer:502
+#: uhu-installer:514
 msgid "Error"
 msgstr "Hiba"
 
-#: uhu-installer:493
+#: uhu-installer:492
 msgid "The following disks used more than once:"
 msgstr "A következő meghajtók többször is fel lettek használva:"
 
-#: uhu-installer:503
+#: uhu-installer:502
 msgid "The following mount points used more than once:"
 msgstr "A csatolási pontok többször is fel lettek használva:"
 
-#: uhu-installer:515 uhu-installer:1224
+#: uhu-installer:514 uhu-installer:1234
 msgid ""
 "The selected root device has insufficent free space, do you really want to "
 "continue?"
@@ -56,11 +56,11 @@ msgstr ""
 "A kiválasztott gyökér partíción nincs elegendő szabad hely, biztosan "
 "folytatni akarja?"
 
-#: uhu-installer:524
+#: uhu-installer:523
 msgid "The following disks will be ereased, do you really want to continue?"
 msgstr "A következő lemezek törlődni fognak, biztosan folytatja?"
 
-#: uhu-installer:525
+#: uhu-installer:524
 msgid ""
 "The following disks will be ereased or some files on it may be overwritten, "
 "do you really want to continue?"
@@ -68,109 +68,109 @@ msgstr ""
 "A következő partíciók törlődni fognak, vagy néhány fájl felülíródhat rajtuk, "
 "biztosan folytatni akarja?"
 
-#: uhu-installer:526 uhu-installer:533 uhu-installer:1224 uhu-installer:1250
+#: uhu-installer:525 uhu-installer:532 uhu-installer:1234 uhu-installer:1260
 msgid "Warning"
 msgstr "Figyelmeztetés"
 
-#: uhu-installer:533
+#: uhu-installer:532
 msgid "Partition type for /boot must be Linux, should I fix it?"
 msgstr "A /boot partíció típusa Linux kell legyen, javítsam?"
 
-#: uhu-installer:655
+#: uhu-installer:654
 #, perl-format
 msgid "Error occurred during %s!"
 msgstr "Hiba történt a következő folyamat során: %s!"
 
-#: uhu-installer:719
+#: uhu-installer:718
 msgid "Installation finished"
 msgstr "A telepítés befejeződött"
 
-#: uhu-installer:806
+#: uhu-installer:805
 msgid "Partitioning"
 msgstr "Particionálás"
 
-#: uhu-installer:827
+#: uhu-installer:826
 msgid "Live copy"
 msgstr "Live rendszer másolása"
 
-#: uhu-installer:857
+#: uhu-installer:856
 msgid "Finish copying"
 msgstr "Másolás befejezése"
 
-#: uhu-installer:886
+#: uhu-installer:885
 msgid "Adding swap space"
 msgstr "Swap hozzáadása"
 
-#: uhu-installer:899
+#: uhu-installer:898
 msgid "Filesystem setup"
 msgstr "Fájlrendszer beállítása"
 
-#: uhu-installer:917 uhu-installer:1083
+#: uhu-installer:916 uhu-installer:1090
 msgid "Install bootloader"
 msgstr "Rendszerbetöltő telepítése"
 
-#: uhu-installer:947 uhu-installer:1100
+#: uhu-installer:946 uhu-installer:1107
 msgid "Set passwords"
 msgstr "Jelszavak beállítása"
 
-#: uhu-installer:1003
+#: uhu-installer:1002
 msgid "Create filesystems"
 msgstr "Fájlrendszer létrehozása"
 
-#: uhu-installer:1029
+#: uhu-installer:1028
 msgid "Mounting disks"
 msgstr "Fájlrendszerek csatolása"
 
-#: uhu-installer:1041
+#: uhu-installer:1048
 msgid "Copying files"
 msgstr "Fájlok másolása"
 
-#: uhu-installer:1120
+#: uhu-installer:1132
 msgid "Finishing install"
 msgstr "Telepítés befejezése"
 
-#: uhu-installer:1154
+#: uhu-installer:1165
 msgid "Username contains invalid characters!"
 msgstr "A felhasználónév nem megengedett karaktereket tartalmaz!"
 
-#: uhu-installer:1154
+#: uhu-installer:1165
 msgid "Username error"
 msgstr "Felhasználónév hiba"
 
-#: uhu-installer:1161
+#: uhu-installer:1171
 msgid "Fullname contains invalid characters!"
 msgstr "A felhasználó teljes neve nem megengedett karaktereket tartalmaz!"
 
-#: uhu-installer:1161
+#: uhu-installer:1171
 msgid "Fullname error"
 msgstr "Teljes név hiba"
 
-#: uhu-installer:1167
+#: uhu-installer:1177
 msgid "You must enter a password for user!"
 msgstr "Meg kell adni egy jelszót a felhasználónak!"
 
-#: uhu-installer:1167 uhu-installer:1173 uhu-installer:1180 uhu-installer:1186
-#: uhu-installer:1192 uhu-installer:1200
+#: uhu-installer:1177 uhu-installer:1183 uhu-installer:1190 uhu-installer:1196
+#: uhu-installer:1202 uhu-installer:1210
 msgid "Password error"
 msgstr "Jelszó hiba"
 
-#: uhu-installer:1173 uhu-installer:1192
+#: uhu-installer:1183 uhu-installer:1202
 msgid "Password too short!"
 msgstr "A jelszó túl rövid!"
 
-#: uhu-installer:1180
+#: uhu-installer:1190
 msgid "User's passwords mismatch!"
 msgstr "A felhasználó jelszavai nem egyeznek meg!"
 
-#: uhu-installer:1186
+#: uhu-installer:1196
 msgid "You must enter a password for root!"
 msgstr "Meg kell adni egy jelszót a rendszergazdának!"
 
-#: uhu-installer:1200
+#: uhu-installer:1210
 msgid "Root's passwords mismatch!"
 msgstr "A rendszergazda jelszavai nem egyeznek meg!"
 
-#: uhu-installer:1250
+#: uhu-installer:1260
 #, perl-format
 msgid ""
 "You have selected the following disk:\n"
@@ -181,7 +181,7 @@ msgstr ""
 "%s\n"
 "A kiválasztott lemezen minden adat el fog veszni, biztosan folytatni akarja?"
 
-#: uhu-installer.glade:7
+#: uhu-installer.glade:8
 msgid "UHU installer"
 msgstr "UHU telepítő"
 
@@ -203,19 +203,19 @@ msgstr ""
 "Ha nem szeretne egy teljes merevlemezt felhasználni, válassza a <b>Haladó "
 "mód</b>ot."
 
-#: uhu-installer.glade:87
+#: uhu-installer.glade:98
 msgid "_Expert mode"
 msgstr "_Haladó mód"
 
-#: uhu-installer.glade:125 uhu-installer.glade:540 uhu-installer.glade:867
+#: uhu-installer.glade:142 uhu-installer.glade:612 uhu-installer.glade:998
 msgid "_Next"
 msgstr "_Következő"
 
-#: uhu-installer.glade:153
+#: uhu-installer.glade:173
 msgid "easy"
 msgstr "Egyszerű"
 
-#: uhu-installer.glade:179
+#: uhu-installer.glade:200
 msgid ""
 "Live\n"
 "Normál"
@@ -223,118 +223,100 @@ msgstr ""
 "Live\n"
 "Normál"
 
-#: uhu-installer.glade:195
+#: uhu-installer.glade:220
 msgid ""
-"<b>Live mode:</b> Installing the live system to the selected partitions on "
-"the fly. Any change on the live system will be moved to the installed "
-"system.\n"
-"<b>Normal mode:</b> Copying the system to the selected partitions. You can "
-"split the filesystem to partitions, you can use other filesystem type than "
-"ext4, and you change the username."
+"Copying the system to the selected partitions. You can split the filesystem "
+"to partitions, and you can use other filesystem type than ext4."
 msgstr ""
-"<b>Live mód:</b> A live rendszer áthelyezése a kiválasztott lemezekre. A "
-"live rendszeren végzett változtatások is átkerülnek telepítés során, így a "
-"live rendszeren végzett bármilyen módosítás megmarad.\n"
-"<b>Normál mód:</b> Rendszer telepítése a megadott partíciókra. A normál "
-"módban lehetőség van úgy telepíteni a rendszert, hogy az több különböző "
-"partíción foglaljon helyet, illetve lehetőség van az ext4-en kívül más "
-"fájlrendszer típusok használatára is, illetve megváltoztatható a "
-"felhasználónév."
+"A rendszer telepítése a megadott partíciókra.Lehetőség van úgy telepíteni a "
+"rendszert, hogy az több különböző partíción foglaljon helyet, illetve "
+"lehetőség van az ext4-en kívül más fájlrendszer típusok használatára is."
 
-#: uhu-installer.glade:237
+#: uhu-installer.glade:268
 msgid "Mount point"
 msgstr "Csatolási pont"
 
-#: uhu-installer.glade:243
+#: uhu-installer.glade:275
 msgid "Disk"
 msgstr "Lemez"
 
-#: uhu-installer.glade:253
+#: uhu-installer.glade:286
 msgid "Fs type"
 msgstr "Fájlrendszer"
 
-#: uhu-installer.glade:263
+#: uhu-installer.glade:297
 msgid "Format"
 msgstr "Formázás"
 
-#: uhu-installer.glade:339
+#: uhu-installer.glade:383
 msgid "Refresh disk list"
 msgstr "Lista frissítése"
 
-#: uhu-installer.glade:340
+#: uhu-installer.glade:384
 msgid "_Refresh"
 msgstr "Frissítés"
 
-#: uhu-installer.glade:368
+#: uhu-installer.glade:413
 msgid "Partitioning with GParted"
 msgstr "Particionálás GParteddel"
 
-#: uhu-installer.glade:387
+#: uhu-installer.glade:435
 msgid "_Partitioning"
 msgstr "_Particionálás"
 
-#: uhu-installer.glade:415
+#: uhu-installer.glade:464
 msgid "Add new mount point"
 msgstr "Új csatolási pont hozzáadása"
 
-#: uhu-installer.glade:446
+#: uhu-installer.glade:496
 msgid "Install bootloader to:"
 msgstr "Rendszerbetöltő helye:"
 
-#: uhu-installer.glade:502 uhu-installer.glade:829
+#: uhu-installer.glade:568 uhu-installer.glade:954
 msgid "_Back"
 msgstr "_Vissza"
 
-#: uhu-installer.glade:571
+#: uhu-installer.glade:646
 msgid "mount"
 msgstr "csatolás"
 
-#: uhu-installer.glade:609
+#: uhu-installer.glade:688
 msgid "Username:"
 msgstr "Felhasználónév:"
 
-#: uhu-installer.glade:620 uhu-installer.glade:741
+#: uhu-installer.glade:700 uhu-installer.glade:850
 msgid "Password:"
 msgstr "Jelszó:"
 
-#: uhu-installer.glade:631 uhu-installer.glade:748
+#: uhu-installer.glade:712 uhu-installer.glade:858
 msgid "Password again:"
 msgstr "Jelszó még egyszer:"
 
-#: uhu-installer.glade:683
+#: uhu-installer.glade:777
 msgid "Full name:"
 msgstr "Teljes név:"
 
-#: uhu-installer.glade:704
+#: uhu-installer.glade:803
 msgid "<b>User password</b>"
 msgstr "<b>Felhasználó jelszava</b>"
 
-#: uhu-installer.glade:788
+#: uhu-installer.glade:907
 msgid "<b>Root password</b>"
 msgstr "<b>Rendszergazda jelszava</b>"
 
-#: uhu-installer.glade:898
+#: uhu-installer.glade:1032
 msgid "passwords"
 msgstr ""
 
-#: uhu-installer.glade:943
+#: uhu-installer.glade:1083
 msgid "<b>Install steps</b>"
 msgstr "<b>Lépések</b>"
 
-#: uhu-installer.glade:1005
+#: uhu-installer.glade:1162
 msgid "E_xit"
 msgstr "_Kilépés"
 
-#: uhu-installer.glade:1035
+#: uhu-installer.glade:1196
 msgid "install"
 msgstr ""
 
-#~ msgid "Error occured See log! (/var/log/uhu-installer.log) "
-#~ msgstr ""
-#~ "Hiba történt, ellenőrizze a hibanaplót! (/var/log/uhu-installer.log) "
-
-#~ msgid "Add new partition"
-#~ msgstr "Új partíció hozzáadása"
-
-#~ msgid "Log"
-#~ msgstr "Napló"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-03 17:44+0200\n"
+"POT-Creation-Date: 2015-09-27 04:50+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,155 +17,155 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: uhu-installer:388
+#: uhu-installer:387
 msgid "Remove"
 msgstr ""
 
-#: uhu-installer:468 uhu-installer:1245
+#: uhu-installer:467 uhu-installer:1255
 #, perl-format
 msgid "Selected disk [%s] is in use!"
 msgstr ""
 
-#: uhu-installer:468 uhu-installer:1245
+#: uhu-installer:467 uhu-installer:1255
 msgid "Disk access error"
 msgstr ""
 
-#: uhu-installer:476
+#: uhu-installer:475
 msgid "Wrong mount path for:"
 msgstr ""
 
-#: uhu-installer:476 uhu-installer:483 uhu-installer:493 uhu-installer:503
-#: uhu-installer:515
+#: uhu-installer:475 uhu-installer:482 uhu-installer:492 uhu-installer:502
+#: uhu-installer:514
 msgid "Error"
 msgstr ""
 
-#: uhu-installer:493
+#: uhu-installer:492
 msgid "The following disks used more than once:"
 msgstr ""
 
-#: uhu-installer:503
+#: uhu-installer:502
 msgid "The following mount points used more than once:"
 msgstr ""
 
-#: uhu-installer:515 uhu-installer:1224
+#: uhu-installer:514 uhu-installer:1234
 msgid ""
 "The selected root device has insufficent free space, do you really want to "
 "continue?"
 msgstr ""
 
-#: uhu-installer:524
+#: uhu-installer:523
 msgid "The following disks will be ereased, do you really want to continue?"
 msgstr ""
 
-#: uhu-installer:525
+#: uhu-installer:524
 msgid ""
 "The following disks will be ereased or some files on it may be overwritten, "
 "do you really want to continue?"
 msgstr ""
 
-#: uhu-installer:526 uhu-installer:533 uhu-installer:1224 uhu-installer:1250
+#: uhu-installer:525 uhu-installer:532 uhu-installer:1234 uhu-installer:1260
 msgid "Warning"
 msgstr ""
 
-#: uhu-installer:533
+#: uhu-installer:532
 msgid "Partition type for /boot must be Linux, should I fix it?"
 msgstr ""
 
-#: uhu-installer:655
+#: uhu-installer:654
 #, perl-format
 msgid "Error occurred during %s!"
 msgstr ""
 
-#: uhu-installer:719
+#: uhu-installer:718
 msgid "Installation finished"
 msgstr ""
 
-#: uhu-installer:806
+#: uhu-installer:805
 msgid "Partitioning"
 msgstr ""
 
-#: uhu-installer:827
+#: uhu-installer:826
 msgid "Live copy"
 msgstr ""
 
-#: uhu-installer:857
+#: uhu-installer:856
 msgid "Finish copying"
 msgstr ""
 
-#: uhu-installer:886
+#: uhu-installer:885
 msgid "Adding swap space"
 msgstr ""
 
-#: uhu-installer:899
+#: uhu-installer:898
 msgid "Filesystem setup"
 msgstr ""
 
-#: uhu-installer:917 uhu-installer:1083
+#: uhu-installer:916 uhu-installer:1090
 msgid "Install bootloader"
 msgstr ""
 
-#: uhu-installer:947 uhu-installer:1100
+#: uhu-installer:946 uhu-installer:1107
 msgid "Set passwords"
 msgstr ""
 
-#: uhu-installer:1003
+#: uhu-installer:1002
 msgid "Create filesystems"
 msgstr ""
 
-#: uhu-installer:1029
+#: uhu-installer:1028
 msgid "Mounting disks"
 msgstr ""
 
-#: uhu-installer:1041
+#: uhu-installer:1048
 msgid "Copying files"
 msgstr ""
 
-#: uhu-installer:1120
+#: uhu-installer:1132
 msgid "Finishing install"
 msgstr ""
 
-#: uhu-installer:1154
+#: uhu-installer:1165
 msgid "Username contains invalid characters!"
 msgstr ""
 
-#: uhu-installer:1154
+#: uhu-installer:1165
 msgid "Username error"
 msgstr ""
 
-#: uhu-installer:1161
+#: uhu-installer:1171
 msgid "Fullname contains invalid characters!"
 msgstr ""
 
-#: uhu-installer:1161
+#: uhu-installer:1171
 msgid "Fullname error"
 msgstr ""
 
-#: uhu-installer:1167
+#: uhu-installer:1177
 msgid "You must enter a password for user!"
 msgstr ""
 
-#: uhu-installer:1167 uhu-installer:1173 uhu-installer:1180 uhu-installer:1186
-#: uhu-installer:1192 uhu-installer:1200
+#: uhu-installer:1177 uhu-installer:1183 uhu-installer:1190 uhu-installer:1196
+#: uhu-installer:1202 uhu-installer:1210
 msgid "Password error"
 msgstr ""
 
-#: uhu-installer:1173 uhu-installer:1192
+#: uhu-installer:1183 uhu-installer:1202
 msgid "Password too short!"
 msgstr ""
 
-#: uhu-installer:1180
+#: uhu-installer:1190
 msgid "User's passwords mismatch!"
 msgstr ""
 
-#: uhu-installer:1186
+#: uhu-installer:1196
 msgid "You must enter a password for root!"
 msgstr ""
 
-#: uhu-installer:1200
+#: uhu-installer:1210
 msgid "Root's passwords mismatch!"
 msgstr ""
 
-#: uhu-installer:1250
+#: uhu-installer:1260
 #, perl-format
 msgid ""
 "You have selected the following disk:\n"
@@ -173,7 +173,7 @@ msgid ""
 "On the chosen disk, all your data will be lost. Are you sure?"
 msgstr ""
 
-#: uhu-installer.glade:7
+#: uhu-installer.glade:8
 msgid "UHU installer"
 msgstr ""
 
@@ -187,118 +187,114 @@ msgid ""
 "If you don't want to erease a whole disk, select <b>Expert mode</b>."
 msgstr ""
 
-#: uhu-installer.glade:87
+#: uhu-installer.glade:98
 msgid "_Expert mode"
 msgstr ""
 
-#: uhu-installer.glade:125 uhu-installer.glade:540 uhu-installer.glade:867
+#: uhu-installer.glade:142 uhu-installer.glade:612 uhu-installer.glade:998
 msgid "_Next"
 msgstr ""
 
-#: uhu-installer.glade:153
+#: uhu-installer.glade:173
 msgid "easy"
 msgstr ""
 
-#: uhu-installer.glade:179
+#: uhu-installer.glade:200
 msgid ""
 "Live\n"
 "Normál"
 msgstr ""
 
-#: uhu-installer.glade:195
+#: uhu-installer.glade:220
 msgid ""
-"<b>Live mode:</b> Installing the live system to the selected partitions on "
-"the fly. Any change on the live system will be moved to the installed "
-"system.\n"
-"<b>Normal mode:</b> Copying the system to the selected partitions. You can "
-"split the filesystem to partitions, you can use other filesystem type than "
-"ext4, and you change the username."
+"Copying the system to the selected partitions. You can split the filesystem "
+"to partitions, and you can use other filesystem type than ext4."
 msgstr ""
 
-#: uhu-installer.glade:237
+#: uhu-installer.glade:268
 msgid "Mount point"
 msgstr ""
 
-#: uhu-installer.glade:243
+#: uhu-installer.glade:275
 msgid "Disk"
 msgstr ""
 
-#: uhu-installer.glade:253
+#: uhu-installer.glade:286
 msgid "Fs type"
 msgstr ""
 
-#: uhu-installer.glade:263
+#: uhu-installer.glade:297
 msgid "Format"
 msgstr ""
 
-#: uhu-installer.glade:339
+#: uhu-installer.glade:383
 msgid "Refresh disk list"
 msgstr ""
 
-#: uhu-installer.glade:340
+#: uhu-installer.glade:384
 msgid "_Refresh"
 msgstr ""
 
-#: uhu-installer.glade:368
+#: uhu-installer.glade:413
 msgid "Partitioning with GParted"
 msgstr ""
 
-#: uhu-installer.glade:387
+#: uhu-installer.glade:435
 msgid "_Partitioning"
 msgstr ""
 
-#: uhu-installer.glade:415
+#: uhu-installer.glade:464
 msgid "Add new mount point"
 msgstr ""
 
-#: uhu-installer.glade:446
+#: uhu-installer.glade:496
 msgid "Install bootloader to:"
 msgstr ""
 
-#: uhu-installer.glade:502 uhu-installer.glade:829
+#: uhu-installer.glade:568 uhu-installer.glade:954
 msgid "_Back"
 msgstr ""
 
-#: uhu-installer.glade:571
+#: uhu-installer.glade:646
 msgid "mount"
 msgstr ""
 
-#: uhu-installer.glade:609
+#: uhu-installer.glade:688
 msgid "Username:"
 msgstr ""
 
-#: uhu-installer.glade:620 uhu-installer.glade:741
+#: uhu-installer.glade:700 uhu-installer.glade:850
 msgid "Password:"
 msgstr ""
 
-#: uhu-installer.glade:631 uhu-installer.glade:748
+#: uhu-installer.glade:712 uhu-installer.glade:858
 msgid "Password again:"
 msgstr ""
 
-#: uhu-installer.glade:683
+#: uhu-installer.glade:777
 msgid "Full name:"
 msgstr ""
 
-#: uhu-installer.glade:704
+#: uhu-installer.glade:803
 msgid "<b>User password</b>"
 msgstr ""
 
-#: uhu-installer.glade:788
+#: uhu-installer.glade:907
 msgid "<b>Root password</b>"
 msgstr ""
 
-#: uhu-installer.glade:898
+#: uhu-installer.glade:1032
 msgid "passwords"
 msgstr ""
 
-#: uhu-installer.glade:943
+#: uhu-installer.glade:1083
 msgid "<b>Install steps</b>"
 msgstr ""
 
-#: uhu-installer.glade:1005
+#: uhu-installer.glade:1162
 msgid "E_xit"
 msgstr ""
 
-#: uhu-installer.glade:1035
+#: uhu-installer.glade:1196
 msgid "install"
 msgstr ""
