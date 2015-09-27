@@ -175,7 +175,7 @@ If you don't want to erease a whole disk, select &lt;b&gt;Expert mode&lt;/b&gt;.
                         <property name="yscale">0</property>
                         <child>
                           <widget class="GtkComboBox" id="install_type">
-                            <property name="visible">False</property>
+                            <property name="visible">True</property>
                             <property name="items" translatable="yes">Live
 Normal</property>
                             <signal name="changed" handler="on_install_type_changed"/>
