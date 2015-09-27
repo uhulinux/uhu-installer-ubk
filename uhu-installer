@@ -1285,13 +1285,13 @@ sub on_install_type_changed {
 	debug "install type changed to ".w('install_type')->get_active_text;
 	remove_mount;
 	if (w('install_type')->get_active == 0) { # live
-		add_mount('/boot', 0, 'ext4', 1);
-		add_mount('/', 1, 'ext4', 1);
-		add_mount(undef, 2, 'swap', 1);
+#		add_mount('/boot', 0, 'ext4', 1);
+		add_mount('/', 0, 'ext4', 1);
+		add_mount(undef, 1, 'swap', 1);
 	} else { # normal
-		add_mount('/boot', 0, 'ext4', 1);
-		add_mount('/', 1, 'ext4', 1);
-		add_mount(undef, 2, 'swap', 1);
+#		add_mount('/boot', 0, 'ext4', 1);
+		add_mount('/', 0, 'ext4', 1);
+		add_mount(undef, 1, 'swap', 1);
 	}
 }
 
