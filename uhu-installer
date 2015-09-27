@@ -7,7 +7,6 @@ use locale;
 use utf8;
 
 use Data::Dumper;
-Encode::_utf8_on($_) for @ARGV;
 use POSIX;
 use Fcntl;
 
@@ -23,6 +22,7 @@ use IPC::Open3;
 use Symbol 'gensym';
 use I18N::Langinfo qw(langinfo CODESET);
 use Locale::gettext;
+Encode::_utf8_on($_) for @ARGV;
 
 my $disks;
 my $table_rows;
