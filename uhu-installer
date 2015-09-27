@@ -1365,7 +1365,7 @@ vinyokeres;
 create_disks_model;
 create_grub_model;
 fill_grub_model;
-w('install_type')->set_active(0);
+w('install_type')->set_active(1);
 
 # temp hack ###############################
 #w('userpass1')->set_text('123123');
