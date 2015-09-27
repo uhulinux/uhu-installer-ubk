@@ -202,7 +202,7 @@ msgstr ""
 #: uhu-installer.glade:200
 msgid ""
 "Live\n"
-"Normál"
+"Normal"
 msgstr ""
 
 #: uhu-installer.glade:220
