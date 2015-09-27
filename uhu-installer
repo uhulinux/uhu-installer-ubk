@@ -926,7 +926,7 @@ sub install {
 						_system 'umount', '/tmp/boot';
 						_system 'mount', $params->{bootdev}, '/boot';
 					}
-					write_grub_boot_device_config($params->{rootdev}, "/etc/grub.d/39_1_uhu_boot");
+					# write_grub_boot_device_config($params->{rootdev}, "/etc/grub.d/39_1_uhu_boot");
 					_system 'grub2-mkconfig', '-o', '/boot/grub2/grub.cfg';
 					_system 'grub2-install', $params->{bootdsk};
 					_system 'sync';
@@ -1084,7 +1084,7 @@ sub install {
 					_system "mount", "--bind", "/dev/", "/mnt/dev/";
 					_system "mount", "--bind", "/proc/", "/mnt/proc/";
 					_system "mount", "--bind", "/sys/", "/mnt/sys/";
-					write_grub_boot_device_config($rootdev, "/mnt/etc/grub.d/39_1_uhu_boot");
+					# write_grub_boot_device_config($rootdev, "/mnt/etc/grub.d/39_1_uhu_boot");
 					_system "chroot", "/mnt", "grub2-mkconfig", "-o", "/boot/grub2/grub.cfg";
 					_system "chroot", "/mnt", "grub2-install", $bootdsk;
 					_system "umount", "/mnt/dev";
