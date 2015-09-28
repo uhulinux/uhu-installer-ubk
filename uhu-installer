@@ -479,7 +479,7 @@ sub on_mount_next_clicked {
 	unless ($has_root) {
 		my $fs = "ext4";
 		$fs = "ext(2,3,4), jfs, xfs" if ($install_type eq 'expert');
-		popup('error', _(sprintf("You must have a / mount point with %s filesystem!", $fs)), _('Error'));
+		popup('error', sprintf(_("You must have a / mount point with %s filesystem!", $fs)), _('Error'));
 		return;
 	}
 	my $msg = [];

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: uhu-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-27 18:57+0200\n"
-"PO-Revision-Date: 2015-09-27 18:59+0200\n"
+"POT-Creation-Date: 2015-09-28 22:29+0200\n"
+"PO-Revision-Date: 2015-09-28 22:30+0200\n"
 "Last-Translator: rezso <rezso@rezso.net>\n"
 "Language-Team: hungarian <>\n"
 "Language: hu\n"
@@ -39,6 +39,11 @@ msgstr "Hibás csatolási pont:"
 #: uhu-installer:514 uhu-installer:1294
 msgid "Error"
 msgstr "Hiba"
+
+#: uhu-installer:482
+#, perl-format
+msgid "You must have a / mount point with %s filesystem!"
+msgstr "Lennie kell egy / csatolási pontnak %s fájlrendszerrel!"
 
 #: uhu-installer:492
 msgid "The following disks used more than once:"
@@ -211,7 +216,7 @@ msgstr ""
 msgid "_Expert mode"
 msgstr "_Haladó mód"
 
-#: uhu-installer.glade:125 uhu-installer.glade:540 uhu-installer.glade:867
+#: uhu-installer.glade:125 uhu-installer.glade:545 uhu-installer.glade:872
 msgid "_Next"
 msgstr "_Következő"
 
@@ -219,7 +224,7 @@ msgstr "_Következő"
 msgid "easy"
 msgstr "Egyszerű"
 
-#: uhu-installer.glade:179
+#: uhu-installer.glade:183
 msgid ""
 "Live\n"
 "Normal"
@@ -227,7 +232,7 @@ msgstr ""
 "Live\n"
 "Normál"
 
-#: uhu-installer.glade:195
+#: uhu-installer.glade:199
 msgid ""
 "<b>Live mode:</b> Installing the live system to the selected partitions on "
 "the fly. Any change on the live system will be moved to the installed "
@@ -245,91 +250,91 @@ msgstr ""
 "fájlrendszer típusok használatára is, illetve megváltoztatható a "
 "felhasználónév."
 
-#: uhu-installer.glade:237
+#: uhu-installer.glade:241
 msgid "Mount point"
 msgstr "Csatolási pont"
 
-#: uhu-installer.glade:243
+#: uhu-installer.glade:247
 msgid "Disk"
 msgstr "Lemez"
 
-#: uhu-installer.glade:253
+#: uhu-installer.glade:257
 msgid "Fs type"
 msgstr "Fájlrendszer"
 
-#: uhu-installer.glade:263
+#: uhu-installer.glade:267
 msgid "Format"
 msgstr "Formázás"
 
-#: uhu-installer.glade:339
+#: uhu-installer.glade:343
 msgid "Refresh disk list"
 msgstr "Lista frissítése"
 
-#: uhu-installer.glade:340
+#: uhu-installer.glade:344
 msgid "_Refresh"
 msgstr "_Frissítés"
 
-#: uhu-installer.glade:368
+#: uhu-installer.glade:372
 msgid "Partitioning with GParted"
 msgstr "Particionálás GParteddel"
 
-#: uhu-installer.glade:387
+#: uhu-installer.glade:391
 msgid "_Partitioning"
 msgstr "_Particionálás"
 
-#: uhu-installer.glade:415
+#: uhu-installer.glade:419
 msgid "Add new mount point"
 msgstr "Új csatolási pont hozzáadása"
 
-#: uhu-installer.glade:446
+#: uhu-installer.glade:450
 msgid "Install bootloader to:"
 msgstr "Rendszerbetöltő helye:"
 
-#: uhu-installer.glade:502 uhu-installer.glade:829
+#: uhu-installer.glade:507 uhu-installer.glade:834
 msgid "_Back"
 msgstr "_Vissza"
 
-#: uhu-installer.glade:571
+#: uhu-installer.glade:576
 msgid "mount"
 msgstr "csatolás"
 
-#: uhu-installer.glade:609
+#: uhu-installer.glade:614
 msgid "Username:"
 msgstr "Felhasználónév:"
 
-#: uhu-installer.glade:620 uhu-installer.glade:741
+#: uhu-installer.glade:625 uhu-installer.glade:746
 msgid "Password:"
 msgstr "Jelszó:"
 
-#: uhu-installer.glade:631 uhu-installer.glade:748
+#: uhu-installer.glade:636 uhu-installer.glade:753
 msgid "Password again:"
 msgstr "Jelszó még egyszer:"
 
-#: uhu-installer.glade:683
+#: uhu-installer.glade:688
 msgid "Full name:"
 msgstr "Teljes név:"
 
-#: uhu-installer.glade:704
+#: uhu-installer.glade:709
 msgid "<b>User password</b>"
 msgstr "<b>Felhasználó jelszava</b>"
 
-#: uhu-installer.glade:788
+#: uhu-installer.glade:793
 msgid "<b>Root password</b>"
 msgstr "<b>Rendszergazda jelszava</b>"
 
-#: uhu-installer.glade:898
+#: uhu-installer.glade:903
 msgid "passwords"
 msgstr "Jelszavak"
 
-#: uhu-installer.glade:943
+#: uhu-installer.glade:948
 msgid "<b>Install steps</b>"
 msgstr "<b>Lépések</b>"
 
-#: uhu-installer.glade:1005
+#: uhu-installer.glade:1010
 msgid "E_xit"
 msgstr "_Kilépés"
 
-#: uhu-installer.glade:1035
+#: uhu-installer.glade:1040
 msgid "install"
 msgstr "Telepítés"
 
