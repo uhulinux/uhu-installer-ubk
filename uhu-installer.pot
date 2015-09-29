@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-28 22:29+0200\n"
+"POT-Creation-Date: 2015-09-29 10:15+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,8 +40,7 @@ msgid "Error"
 msgstr ""
 
 #: uhu-installer:482
-#, perl-format
-msgid "You must have a / mount point with %s filesystem!"
+msgid "You must have a / mount point!"
 msgstr ""
 
 #: uhu-installer:492
