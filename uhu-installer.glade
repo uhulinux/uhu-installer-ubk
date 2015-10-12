@@ -483,8 +483,7 @@ Normal</property>
                     <child>
                       <widget class="GtkButton" id="mount_back">
                         <property name="visible">True</property>
-                        <property name="sensitive">False</property>
-                        <property name="can_focus">False</property>
+                        <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
                         <property name="response_id">0</property>
                         <signal name="clicked" handler="on_mount_back_clicked"/>
