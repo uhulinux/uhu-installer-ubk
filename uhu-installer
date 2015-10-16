@@ -1054,7 +1054,7 @@ sub on_easy_next_clicked {
     syscall(&SYS_statfs, $path, $buf) == 0 or die;
     my ($bsize, $blocks, $bfree, $bavail, $files, $ffree, $namelen) = unpack  "x4 L6 x8 L", $buf;
     debug "free space: [$disks->{$disk}->{size}] [".($blocks*$bsize)."]";
-    if ($disks->{$disk}->{size} < ($blocks*$bsize+1024**2)*1.05) { # + 1Gb boot + 5%
+    if ($disks->{$disk}->{size} < ($blocks*$bsize+1024**2)*0.53) { # + 500Mb boot + 5%
     	if (popup('question', _("The selected root device has insufficent free space, do you really want to continue?"), _('Warning')) eq 'no') {
     		return;
     	}
