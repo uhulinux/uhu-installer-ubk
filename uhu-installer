@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+0#!/usr/bin/perl
 
 use strict;
 use warnings;
@@ -774,7 +774,7 @@ sub install {
 				_system 'sgdisk', '--zap-all', $params->{bootdsk};
 				_system 'sgdisk', '-n', '0:0:+200M', $params->{bootdsk}; # create EFI and system boot partition
 				_system 'sgdisk', '-t', '1:ef00', $params->{bootdsk}; # set EFI boot partition type to EFI System
-				_system 'sgdisk', '-n', '0:0:+500M', $params->{bootdsk}; # create boot partition
+				_system 'sgdisk', '-n', '0:0:+1G', $params->{bootdsk}; # create boot partition
 				_system 'sgdisk', '-n', '0:0:0', $params->{bootdsk}; # create root partition
 				_system 'sgdisk', '-n', '0:34:2047', $params->{bootdsk}; # create hidden MBR boot partition
 				_system 'sgdisk', '-t', '4:ef02', $params->{bootdsk}; # set MBR boot partition type to BIOS boot partition
@@ -1054,7 +1054,7 @@ sub on_easy_next_clicked {
     syscall(&SYS_statfs, $path, $buf) == 0 or die;
     my ($bsize, $blocks, $bfree, $bavail, $files, $ffree, $namelen) = unpack  "x4 L6 x8 L", $buf;
     debug "free space: [$disks->{$disk}->{size}] [".($blocks*$bsize)."]";
-    if ($disks->{$disk}->{size} < ($blocks*$bsize+1024**2)*0.53) { # + 500Mb boot + 5%
+    if ($disks->{$disk}->{size} < ($blocks*$bsize+1024**2)*1.05) { # + 1Gb boot + 5%
     	if (popup('question', _("The selected root device has insufficent free space, do you really want to continue?"), _('Warning')) eq 'no') {
     		return;
     	}
