@@ -781,7 +781,7 @@ sub install {
 				_system 'sgdisk', '-h', '1:2:3', $params->{bootdsk}; # create hybrid MBR based on GPT table
 				_system 'mkfs.ext4', $params->{bootdev}; # fájlrendszer létrehozás
 				_system 'mkfs.ext4', $params->{rootdev};
-				_system 'tune2fs', '-i0', '-c0', '-LUhU', $params->{rootdev}; # Partíció névadás
+				_system 'tune2fs', '-i0', '-c0', '-LUHU', $params->{rootdev}; # Partíció névadás
 				_system 'tune2fs', '-i0', '-c0', '-m2', '-LBoot', $params->{bootdev};
 			}
 		};
@@ -848,17 +848,10 @@ sub install {
 			'fork' => TRUE,
 			name => _('Mounting disks'),
 			func => sub {
+				@$umounts = sort @$umounts;
 				for (@$umounts) {
-					if ($_->[1] eq '/mnt/') {
-						_system 'mkdir', '-p', $_->[1];
-						_system 'mount', $_->[0], $_->[1];
-					}
-				}
-				for (@$umounts) {
-				if ($_->[1] ne '/mnt/') {
 					_system 'mkdir', '-p', $_->[1];
 					_system 'mount', $_->[0], $_->[1];
-				}
 				}
 			}
 		};
