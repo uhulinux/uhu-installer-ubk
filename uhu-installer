@@ -939,12 +939,28 @@ sub install {
 				_system("chroot /mnt bash -c \"echo 'root:".w('rootpass1')->get_text."' | chpasswd -m\"");
 				_system("chroot /mnt bash -c \"echo '".w('username')->get_text.":".w('userpass1')->get_text."' | chpasswd -m\"");
 				_system("chroot", "/mnt", "chown", "-R", w('username')->get_text, "/home/".w('username')->get_text);
-			#	if (-f /mnt/etc/gdm/custom.conf) {
-			#	_system("chroot", "/mnt", "sed", "-r", "-e", "s/^AutomaticLogin=.*/AutomaticLogin=".w('username')->get_text."/", "-i", "/etc/gdm/custom.conf");
-			#	}
-			#	if (-f /mnt/etc/lightdm/lightdm.conf) {
-			#	_system("chroot", "/mnt", "sed", "-r", "-e", "s/^#autologin-user=/autologin-user=".w('username')->get_text."/", "-i", "/etc/lightdm/lightdm.conf");
-			#	}
+				# set autologin user
+#				if (-f /mnt/etc/gdm/custom.conf) {
+#				_system("chroot", "/mnt", "sed", "-r", "-e", "s/^AutomaticLogin=.*/AutomaticLogin=".w('username')->get_text."/", "-i", "/etc/gdm/custom.conf");
+#				}
+#				if (-f /mnt/etc/lightdm/lightdm.conf) {
+#				_system("chroot", "/mnt", "sed", "-r", "-e", "s/^#autologin-user=.*/autologin-user=".w('username')->get_text."/", "-i", "/etc/lightdm/lightdm.conf");
+#				}
+#				if (-f /mnt/etc/sddm.conf) {
+#				_system("chroot", "/mnt", "sed", "-r", "-e", "s/^User=.*/User=".w('username')->get_text."/", "-i", "/etc/lightdm/lightdm.conf");
+#				}
+				# disable autologin
+				if (-f /mnt/etc/gdm/custom.conf) {
+				_system("chroot", "/mnt", "sed", "-r", "-e", "s/^AutomaticLoginEnable=.*/AutomaticLoginEnable=false/", "-i", "/etc/gdm/custom.conf");
+				}
+				if (-f /mnt/etc/lightdm/lightdm.conf) {
+				_system("chroot", "/mnt", "sed", "-r", "-e", "s/^pam-service=.*/pam-service=lightdm/", "-i", "/etc/lightdm/lightdm.conf");
+				_system("chroot", "/mnt", "sed", "-r", "-e", "s/^autologin-user=.*/#autologin-user=/", "-i", "/etc/lightdm/lightdm.conf");
+				}
+				if (-f /mnt/etc/sddm.conf) {
+				_system("chroot", "/mnt", "sed", "-r", "-e", "s/^User=.*/User=/", "-i", "/etc/lightdm/lightdm.conf");
+				_system("chroot", "/mnt", "sed", "-r", "-e", "s/^Session=.*/Session=/", "-i", "/etc/lightdm/lightdm.conf");
+				}
 				_system "umount", "/mnt/dev";
 				_system "umount", "/mnt/proc";
 				_system "umount", "/mnt/sys";
