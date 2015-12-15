@@ -848,7 +848,7 @@ sub install {
 			'fork' => TRUE,
 			name => _('Mounting disks'),
 			func => sub {
-				@$umounts = sort @$umounts;
+				@$umounts = sort { $a->[1] <=> $b->[1] } @$umounts;
 				for (@$umounts) {
 					_system 'mkdir', '-p', $_->[1];
 					_system 'mount', $_->[0], $_->[1];
