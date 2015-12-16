@@ -950,14 +950,14 @@ sub install {
 				# _system("chroot", "/mnt", "sed", "-r", "-e", "s/^User=.*/User=".w('username')->get_text."/", "-i", "/etc/lightdm/lightdm.conf");
 				# }
 				# disable autologin
-				if (-f /mnt/etc/gdm/custom.conf) {
+				if (-f "/mnt/etc/gdm/custom.conf") {
 				_system("chroot", "/mnt", "sed", "-r", "-e", "s/^AutomaticLoginEnable=.*/AutomaticLoginEnable=false/", "-i", "/etc/gdm/custom.conf");
 				}
-				if (-f /mnt/etc/lightdm/lightdm.conf) {
+				if (-f "/mnt/etc/lightdm/lightdm.conf") {
 				_system("chroot", "/mnt", "sed", "-r", "-e", "s/^pam-service=.*/pam-service=lightdm/", "-i", "/etc/lightdm/lightdm.conf");
 				_system("chroot", "/mnt", "sed", "-r", "-e", "s/^autologin-user=.*/#autologin-user=/", "-i", "/etc/lightdm/lightdm.conf");
 				}
-				if (-f /mnt/etc/sddm.conf) {
+				if (-f "/mnt/etc/sddm.conf") {
 				_system("chroot", "/mnt", "sed", "-r", "-e", "s/^User=.*/User=/", "-i", "/etc/sddm.conf");
 				_system("chroot", "/mnt", "sed", "-r", "-e", "s/^Session=.*/Session=/", "-i", "/etc/sddm.conf");
 				}
