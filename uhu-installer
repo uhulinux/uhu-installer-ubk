@@ -958,8 +958,8 @@ sub install {
 				_system("chroot", "/mnt", "sed", "-r", "-e", "s/^autologin-user=.*/#autologin-user=/", "-i", "/etc/lightdm/lightdm.conf");
 				}
 				if (-f /mnt/etc/sddm.conf) {
-				_system("chroot", "/mnt", "sed", "-r", "-e", "s/^User=.*/User=/", "-i", "/etc/lightdm/lightdm.conf");
-				_system("chroot", "/mnt", "sed", "-r", "-e", "s/^Session=.*/Session=/", "-i", "/etc/lightdm/lightdm.conf");
+				_system("chroot", "/mnt", "sed", "-r", "-e", "s/^User=.*/User=/", "-i", "/etc/sddm.conf");
+				_system("chroot", "/mnt", "sed", "-r", "-e", "s/^Session=.*/Session=/", "-i", "/etc/sddm.conf");
 				}
 				_system "umount", "/mnt/dev";
 				_system "umount", "/mnt/proc";
