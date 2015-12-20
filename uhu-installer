@@ -126,12 +126,12 @@ sub _($) {
 }
 
 
-sub diskinfo {	
+sub diskinfo {
 	my ($disk) = @_;
 	$disk =~ /\/([^\/]+)$/;
 	my $d = $1;
 	return 0 unless ($d);
-	
+
 	my $x = {
 		has_partitions => 0,
 		partition => 0,
@@ -155,9 +155,9 @@ sub diskinfo {
 			$x->{slink} = "/dev/$1";
 		}
 	}
-	
+
 	close $udevinfofh;
-	
+
 	if ($d =~ /^[vs]d/) { # hdd
 		$x->{type} = 'HDD';
 		$x->{name} = ($udev->{ID_VENDOR} // '')." ".($udev->{ID_MODEL} // '');
@@ -179,24 +179,24 @@ sub diskinfo {
 		$x->{type} = 'LVM';
 		$x->{name} = $udev->{DM_NAME};
 		$x->{used} = 1 if (scalar(() = glob("/sys/block/$d/holders/*")) > 0);
-		
+
 	} elsif ($d =~ /^md/) { # raid
 		$x->{type} = 'Raid';
 		$x->{name} = $udev->{MD_LEVEL}." ".$udev->{MD_NAME};
 		$x->{used} = 1 if (scalar(() = glob("/sys/block/$d/holders/*")) > 0);
 	}
-	
+
 	# get size
 	my $diskfh;
 	sysopen $diskfh, $disk, O_NDELAY|O_RDONLY;
 	my $tmpsize = pack("Q", 0);
 	my $retval = ioctl($diskfh, 0x80041272, $tmpsize);
-	if ($retval == 0) {	
+	if ($retval == 0) {
 		$x->{size} = unpack("Q", $tmpsize);
 	}
 	close $diskfh;
 	$x->{udev} = $udev;
-	
+
 	return $x;
 }
 
@@ -235,15 +235,15 @@ sub create_disk_combo {
 
 sub fill_disk_combo {
 	my ($except) = @_;
-	
+
 	my $model = Gtk2::ListStore->new ('Glib::String', 'Glib::String');
 	my $i;
 	for (sort keys %$disks) {
 		next if ($disks->{$_}->{udev}->{DM_NAME} =~ /^live|snapshot$/); # skip live disk
 		next if ($disks->{$_}->{has_partitions}); # skip disks which have partitions
 		next if ($disks->{$_}->{udev}->{DKD_PARTITION_TYPE} eq '0x05'); # skip extended partition
-		$model->set($model->append, 
-			0 => $_, 
+		$model->set($model->append,
+			0 => $_,
 			1 => "<b> $disks->{$_}->{type} $disks->{$_}->{name}</b> ".convsize($disks->{$_}->{size})."\n$disks->{$_}->{udev}->{ID_FS_LABEL} $disks->{$_}->{udev}->{ID_FS_TYPE} ($_)");
 		$i++;
 	}
@@ -261,7 +261,7 @@ sub create_path_combo {
 
 sub remove_mount {
 	my ($i) = @_;
-	
+
 	my $t = w('mounts');
 	unless (defined $i) { # ha nincs index mindent torlunk
 		debug "remove all mounts";
@@ -302,7 +302,7 @@ sub remove_mount {
 		debug "resize to ".(scalar(@$table_rows)+1)." rows";
 		$t->resize(scalar(@$table_rows)+1, 5);
 	}
-	
+
 	if (scalar(@$table_rows) > 1) {
 		for (@$table_rows) {
 			$_->{remove}->set_sensitive(TRUE);
@@ -316,7 +316,7 @@ sub remove_mount {
 sub add_mount {
 	my ($path, $disk, $fs, $format) = @_;
 	my $m = w('mounts_alignment');
-	
+
 	my $row;
 	my $t;
 	my $live = w('install_type')->get_active == 0;
@@ -324,13 +324,13 @@ sub add_mount {
 	$t = w('mounts');
 	$row = $t->get_property('n-rows')-1;
 	$t->resize($row+2, 5);
-	
+
 	if ($live) { # live
 		w('add_mount')->set_sensitive($row+1 != 3);
 	} else {
 		w('add_mount')->set_sensitive(TRUE);
 	}
-	
+
 	if ($live) { # live
 		$table_rows->[$row]->{path} = create_path_combo;
 		$table_rows->[$row]->{path}->child->set_text($path) if $path;
@@ -338,14 +338,14 @@ sub add_mount {
 		$table_rows->[$row]->{path} = Gtk2::Entry->new_with_max_length(100);
 		$table_rows->[$row]->{path}->set_text($path) if ($path);
 	}
-	
+
 	$t->attach_defaults($table_rows->[$row]->{path}, 0, 1, $row+1, $row+2);
-	
+
 	$table_rows->[$row]->{disk} = create_disk_combo;
 	$table_rows->[$row]->{disk}->set_model(fill_disk_combo);
 	$table_rows->[$row]->{disk}->set_active($disk) if (defined $disk);
 	$t->attach_defaults($table_rows->[$row]->{disk}, 1, 2, $row+1, $row+2);
-	
+
 	$table_rows->[$row]->{fs} = Gtk2::ComboBox->new_text;
 	my $i = 0;
 	my @fs_types = qw(ext4 swap ext3 xfs ext2 jfs);
@@ -357,28 +357,28 @@ sub add_mount {
 		}
 		$i++;
 	}
-	$table_rows->[$row]->{fs}->signal_connect('changed', sub { 
+	$table_rows->[$row]->{fs}->signal_connect('changed', sub {
 		$table_rows->[$row]->{path}->set_sensitive($table_rows->[$row]->{fs}->get_active_text ne 'swap');
 		$live?$table_rows->[$row]->{path}->child->set_text(''):$table_rows->[$row]->{path}->set_text('') if ($table_rows->[$row]->{fs}->get_active_text eq 'swap');
 	});
 	$table_rows->[$row]->{path}->set_sensitive($table_rows->[$row]->{fs}->get_active_text ne 'swap');
 	$t->attach_defaults($table_rows->[$row]->{fs}, 2, 3, $row+1, $row+2);
-	
+
 	$table_rows->[$row]->{format} = Gtk2::CheckButton->new;
 	$table_rows->[$row]->{format}->set_active($format);
 	$table_rows->[$row]->{format}->set_sensitive((!$live));
 	$t->attach_defaults($table_rows->[$row]->{format}, 3, 4, $row+1, $row+2);
-	
+
 	# remove button
 	$table_rows->[$row]->{remove} = Gtk2::Button->new;
 	$table_rows->[$row]->{remove}->add(Gtk2::Image->new_from_stock('gtk-remove', 'button'));
 	$table_rows->[$row]->{remove}->{row} = $row;
 	$table_rows->[$row]->{remove}->signal_connect('clicked', sub { remove_mount($_[0]->{row}) });
 	$table_rows->[$row]->{remove}->set_tooltip_text(_('Remove'));
-	
+
 	$t->attach_defaults($table_rows->[$row]->{remove}, 4, 5, $row+1, $row+2);
 	$table_rows->[$row]->{remove}->set_sensitive(FALSE) if ($row == 0);
-	
+
 	if ($row > 0) {
 		$table_rows->[0]->{remove}->set_sensitive(TRUE);
 	}
@@ -431,11 +431,11 @@ sub on_mount_next_clicked {
 		if ($path eq '/') {
 			$root_disk = $rows->{disk}->get_model->get($rows->{disk}->get_active_iter, 0);
 		}
-		
+
 		if ($path eq '/boot') {
 			$boot_disk = $rows->{disk}->get_model->get($rows->{disk}->get_active_iter, 0);
 		}
-		
+
 		my $disk = $rows->{disk}->get_model->get($rows->{disk}->get_active_iter, 0);
 		my $used = 0;
 		debug "CHECK ACCESS [$disk]";
@@ -445,14 +445,14 @@ sub on_mount_next_clicked {
 					if (/^$disk/ && !/^$disk$/) {
 						if ($disks->{$_}->{'used'}) {
 							$used = 1;
-						}							
+						}
 					}
 				}
 			}
 		} else {
 			$used = 1;
 		}
-			
+
 		if ($used) {
 			if (popup('question', sprintf(_("Selected disk [%s] is in use!"), $disk), _('Disk access error')) eq 'no') {
 				return;
@@ -478,21 +478,21 @@ sub on_mount_next_clicked {
 			push @$msg, $_;
 		}
 	}
-	if (scalar @$msg > 0) {	
+	if (scalar @$msg > 0) {
 		popup('error', _("The following disks used more than once:")."\n".join("\n",@$msg), _('Error'));
 		return;
 	}
-		
+
 	for (keys %$pathcount) {
 		if ($pathcount->{$_} > 1) {
 			push @$msg, $_;
 		}
 	}
-	if (scalar @$msg > 0) {	
+	if (scalar @$msg > 0) {
 		popup('error', _("The following mount points used more than once:")."\n".join("\n",@$msg), _('Error'));
 		return;
 	}
-	
+
 	# check disk size
 	my $buf = "\0"x64;
 	my $path = "/";
@@ -515,7 +515,7 @@ sub on_mount_next_clicked {
 	if (popup('question', $warnmsg."\n".join("\n", @$msg), _('Warning')) eq 'no') {
 		return;
 	}
-	
+
 	my $grub_disk = $boot_disk?$boot_disk:$root_disk;
 	debug "grub disk: $grub_disk [".$disks->{$grub_disk}->{udev}->{DKD_PARTITION_TYPE}."]";
 	if ($disks->{$grub_disk}->{udev}->{DKD_PARTITION_TYPE} && $disks->{$grub_disk}->{udev}->{DKD_PARTITION_TYPE} ne '0x83') {
@@ -525,7 +525,7 @@ sub on_mount_next_clicked {
 
 		#_system('echo ",,0x83," |  sfdisk '.substr($grub_disk, 0, -1, '')." -N $grub_disk") and (popup('error', _("Error occured See log! (/var/log/uhu-installer.log) "), _('Error')) and return);
 	}
-	
+
 	w('nb')->set_current_page(2);
 }
 
@@ -541,16 +541,16 @@ sub on_passwords_back_clicked {
 	}
 }
 
-sub add_step {	
+sub add_step {
 	my ($name) = @_;
-	
+
 	my $rown = @$steps;
 	my $row;
-	
-	$row->{label} = Gtk2::Label->new($name);	
-	$row->{label}->set('xalign', 0);	
+
+	$row->{label} = Gtk2::Label->new($name);
+	$row->{label}->set('xalign', 0);
 	w('steps')->attach_defaults($row->{label}, 0, 1, scalar @$steps, scalar(@$steps)+1);
-	
+
 	$row->{img} = Gtk2::Image->new_from_stock('none', 'button');
 	w('steps')->attach_defaults($row->{img}, 1, 2, scalar @$steps, scalar(@$steps)+1);
 	push @$steps, $row;
@@ -559,12 +559,12 @@ sub add_step {
 
 sub set_step {
 	my ($idx, $status) = @_;
-	
+
 	my $stock;
 	$stock = 'gtk-ok' if ($status eq 'ok');
 	$stock = 'gtk-no' if ($status eq 'skip');
 	$stock = 'gtk-dialog-error' if ($status eq 'error');
-	
+
 	my $label = $steps->[$idx]->{label}->get_text;
 	$label =~ s/<\/?b>//g;
 	if ($status eq 'inprogress') {
@@ -573,7 +573,7 @@ sub set_step {
 	} else {
 		$steps->[$idx]->{label}->set_text($label);
 	}
-	
+
 	$steps->[$idx]->{img}->set_from_stock($stock, 'button');
 }
 
@@ -599,7 +599,7 @@ sub check_mirror_copy {
 
 sub forker {
 	my ($c) = @_;
-	
+
 	for (@$c) {
 		add_step($_->{name});
 	}
@@ -656,7 +656,7 @@ sub forker_next {
 									forker_next($c); # kovetkezo lepes
 								} else {
 									debug "set waitcond for $i";
-									$c->[$i]->{waitcondtag} = Glib::Timeout->add($proc->{waitcondtimeout} || 1000, sub { 
+									$c->[$i]->{waitcondtag} = Glib::Timeout->add($proc->{waitcondtimeout} || 1000, sub {
 										if (&{$proc->{waitcond}}) { # ha teljesult a feltetel
 											set_step($i, 'ok');
 											$c->[$i]->{completed} = 1;
@@ -681,7 +681,7 @@ sub forker_next {
 				&{$proc->{func}};
 				if ($proc->{waitcond}) {
 					debug "set waitcond for $i";
-					$c->[$i]->{waitcondtag} = Glib::Timeout->add($proc->{waitcondtimeout} || 1000, sub { 
+					$c->[$i]->{waitcondtag} = Glib::Timeout->add($proc->{waitcondtimeout} || 1000, sub {
 						if (&{$proc->{waitcond}}) { # ha teljesult a feltetel
 							$c->[$i]->{completed} = 1;
 							set_step($i, 'ok');
@@ -711,9 +711,9 @@ sub forker_next {
 
 sub devtouuiddev {
 	my ($dev) = @_;
-	
+
 	debug "get uuid for [$dev]";
-	
+
 	_system "udevadm", "trigger";
 	_system "udevadm", "settle";
 	my $data = diskinfo($dev);
@@ -724,13 +724,13 @@ sub devtouuiddev {
 	} else {
 		$path = "/dev/disk/by-uuid/$data->{udev}->{ID_FS_UUID}";
 	}
-	
+
 	return $path;
 }
 
 sub wipefs {
 	my ($dev) = @_;
-	
+
 	if ( -b $dev ) {
 		for (1..3) {
 			_system("wipefs -a $dev");
@@ -742,7 +742,7 @@ sub wipefs {
 
 sub install {
 	my $s = [];
-	
+
 	my $params;
 	my $umounts;
 	my $mounts;
@@ -768,7 +768,7 @@ sub install {
 		wipefs($params->{bootdev});
 		wipefs($params->{rootdev});
 		push @$s, {
-		name => _('Partitioning'), 
+		name => _('Partitioning'),
 			'fork' => TRUE,
 			func => sub {
 				_system 'sgdisk', '--zap-all', $params->{bootdsk};
@@ -815,7 +815,7 @@ sub install {
 		}
 		# XXX FIXME TODO: rendes tmp dir kellene
 		push @$umounts, [$source_dev, '/tmp/sourcedisk']; # source
-	
+
 		# mkfs
 		push @$s, {
 			'fork' => TRUE,
@@ -840,7 +840,7 @@ sub install {
 				}
 			}
 		}
-		
+
 	}
 	# easy és haladó módban innen közös a teendő
 		# célpartíciók csatolása
@@ -878,21 +878,21 @@ sub install {
 				close $fstabfh;
 			},
 			update => sub {
-			
+
 				my $buf = "\0"x64;
 				my $path = "/mnt/";
 				Encode::_utf8_off($buf);
 			    syscall(&SYS_statfs, $path, $buf) == 0 or die;
 			    my ($bsize, $blocks, $bfree, $bavail, $files, $ffree, $namelen) = unpack  "x4 L6 x8 L", $buf;
 			    my $cpsize = $bsize*($blocks-$bfree);
-			    
+
 			    $buf = "\0"x64;
 				$path = "/tmp/sourcedisk";
 				Encode::_utf8_off($buf);
 				syscall(&SYS_statfs, $path, $buf) == 0 or die;
 				($bsize, $blocks, $bfree, $bavail, $files, $ffree, $namelen) = unpack  "x4 L6 x8 L", $buf;
 				my $size = $bsize*($blocks-$bfree);
-			    
+
 			    debug "size: [$size] cpsize: [$cpsize]";
 			    my $p = $cpsize/$size;
 			    $p=1 if ($p > 1);
@@ -966,7 +966,7 @@ sub install {
 				_system "umount", "/mnt/sys";
 			}
 		};
-		
+
 		# finish/umount
 		push @$s, {
 			'fork' => TRUE,
@@ -975,8 +975,8 @@ sub install {
 				for(reverse @$umounts) {
 					_system 'umount', $_->[1];
 				}
-				
-				_system("dmsetup remove src");				
+
+				_system("dmsetup remove src");
 			}
 		};
 	forker($s);
@@ -1006,7 +1006,13 @@ sub on_passwords_next_clicked {
 		w('username')->grab_focus;
 		return;
 	}
-	
+
+	if (w('username')->get_text =~ /uhu/) {
+		popup('error', _("Invalid username!"), _('Username error'));
+		w('username')->grab_focus;
+		return;
+	}
+
 	if (w('fullname')->get_text =~ /[,:=]/) {
 		popup('error', _("Fullname contains invalid characters!"), _('Fullname error'));
 		w('fullname')->grab_focus;
@@ -1018,26 +1024,26 @@ sub on_passwords_next_clicked {
 		w('userpass1')->grab_focus;
 		return;
 	}
-	
+
 	if (length(w('userpass1')->get_text) < 6) {
 		popup('error', _("Password too short!"), _('Password error'));
 		w('userpass1')->grab_focus;
 		return;
 	}
-	
+
 	if (w('userpass1')->get_text ne w('userpass2')->get_text) {
 		# megadott jelszo nem egyezik
 		popup('error', _("User's passwords mismatch!"), _('Password error'));
 		w('userpass2')->grab_focus;
 		return;
 	}
-	
+
 	if (length(w('rootpass1')->get_text) == 0) {
 		popup('error', _("You must enter a password for root!"), _('Password error'));
 		w('rootpass1')->grab_focus;
 		return;
 	}
-	
+
 	if (length(w('rootpass1')->get_text) < 6) {
 		popup('error', _("Password too short!"), _('Password error'));
 		w('rootpass1')->grab_focus;
@@ -1051,9 +1057,9 @@ sub on_passwords_next_clicked {
 		w('rootpass1')->grab_focus;
 		return;
 	}
-	
+
 	w('nb')->set_current_page(3);
-	
+
 	install;
 }
 
@@ -1062,7 +1068,7 @@ sub on_easy_next_clicked {
 	$install_type = 'easy';
 	my $iter = w('disks')->get_selection->get_selected;
 	my $disk = w('disks')->get_model->get($iter, 0);
-	
+
 	#check disk space
 	my $buf = "\0"x64;
 	my $path = "/";
@@ -1075,7 +1081,7 @@ sub on_easy_next_clicked {
     		return;
     	}
     }
-    
+
 	my $used = 0;
 	unless ($disks->{$disk}->{'used'}) {
 		if ($disks->{$disk}->{'has_partitions'}) {
@@ -1083,20 +1089,20 @@ sub on_easy_next_clicked {
 				if (/^$disk/ && !/^$disk$/) {
 					if ($disks->{$_}->{'used'}) {
 						$used = 1;
-					}							
+					}
 				}
 			}
 		}
 	} else {
 		$used = 1;
 	}
-			
+
 	if ($used) {
 		if (popup('question', sprintf(_("Selected disk [%s] is in use!"), $disk), _('Disk access error')) eq 'no') {
 			return;
 		}
 	}
-    
+
 	if (popup('question', sprintf(_("You have selected the following disk:\n%s\nOn the chosen disk, all your data will be lost. Are you sure?"), $disk), _('Warning')) eq 'no') {
 		return;
 	}
@@ -1127,7 +1133,7 @@ sub fill_grub_model {
 	w('grub')->set_active(0);
 }
 
-sub on_install_type_changed {	
+sub on_install_type_changed {
 	debug "install type changed to ".w('install_type')->get_active_text;
 	remove_mount;
 	if (w('install_type')->get_active == 0) { # live
@@ -1142,7 +1148,7 @@ sub on_install_type_changed {
 
 sub on_nb_switch_page {
 	my (undef, undef, $idx) = @_;
-	
+
 	debug "notebook tab changed to $idx";
 	if ($idx == 2) {
 			w('username')->set_text('');
@@ -1152,7 +1158,7 @@ sub on_nb_switch_page {
 
 sub create_disks_model {
 	my $list = Gtk2::SimpleList->new_from_treeview(w('disks'), 'none' => 'hidden', 'Lemez' => 'markup');
-	
+
 	for (sort keys %$disks) {
 		next unless ($disks->{$_}->{type} eq 'HDD' and !$disks->{$_}->{partition});
 		push @{$list->{data}}, [$_, "<b> $disks->{$_}->{type} $disks->{$_}->{name}</b> ".convsize($disks->{$_}->{size})."\n($_)"];
