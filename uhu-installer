@@ -522,8 +522,6 @@ sub on_mount_next_clicked {
 		if (popup('question', _("Partition type for /boot must be Linux, should I fix it?"), _('Warning')) eq 'no') {
 			return;
 		}
-
-		#_system('echo ",,0x83," |  sfdisk '.substr($grub_disk, 0, -1, '')." -N $grub_disk") and (popup('error', _("Error occured See log! (/var/log/uhu-installer.log) "), _('Error')) and return);
 	}
 
 	w('nb')->set_current_page(2);
@@ -1137,14 +1135,12 @@ sub fill_grub_model {
 sub on_install_type_changed {
 	debug "install type changed to ".w('install_type')->get_active_text;
 	remove_mount;
-#		add_mount('/boot', 0, 'ext4', 1);
 		add_mount('/', 0, 'ext4', 1);
 		add_mount(undef, 1, 'swap', 1);
 #	if (w('install_type')->get_active == 0) { # live
 #		popup('error', _("This mode currently disabled."), _('Error'));
 #		w('install_type')->set_active(1);
 	} else { # normal
-#		add_mount('/boot', 0, 'ext4', 1);
 		add_mount('/', 0, 'ext4', 1);
 		add_mount(undef, 1, 'swap', 1);
 	}
@@ -1220,5 +1216,4 @@ w('install_type')->set_active(1);
 
 w('window')->show_all;
 
-#Glib::IO->add_watch(fileno(\*STDERR), 'in', sub { on_input(\*STDERR);1; });
 Gtk2->main;

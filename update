@@ -18,4 +18,6 @@ msguniq uhu-installer.pot > uhu-installer.pot.tmp
 mv uhu-installer.pot.tmp uhu-installer.pot
 
 msgmerge --lang=hu hu.po uhu-installer.pot > hu.po.new
-mv hu.po.new hu.po
+msgattrib --output-file=hu.po --no-obsolete hu.po.new
+rm hu.po.new
+# mv hu.po.new hu.po

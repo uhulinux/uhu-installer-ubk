@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: uhu-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-20 21:03+0100\n"
+"POT-Creation-Date: 2016-01-10 05:05+0100\n"
 "PO-Revision-Date: 2015-12-20 21:05+0100\n"
 "Last-Translator: rezso <rezso@rezso.net>\n"
 "Language-Team: hungarian <>\n"
@@ -22,12 +22,12 @@ msgstr ""
 msgid "Remove"
 msgstr "Eltávolítás"
 
-#: uhu-installer:457 uhu-installer:1101
+#: uhu-installer:457 uhu-installer:1100
 #, perl-format
 msgid "Selected disk [%s] is in use!"
 msgstr "A kiválasztott lemez [%s] használatban van!"
 
-#: uhu-installer:457 uhu-installer:1101
+#: uhu-installer:457 uhu-installer:1100
 msgid "Disk access error"
 msgstr "Lemez hozzáférési hiba"
 
@@ -36,7 +36,7 @@ msgid "Wrong mount path for:"
 msgstr "Hibás csatolási pont:"
 
 #: uhu-installer:465 uhu-installer:472 uhu-installer:482 uhu-installer:492
-#: uhu-installer:504 uhu-installer:1140
+#: uhu-installer:504
 msgid "Error"
 msgstr "Hiba"
 
@@ -52,7 +52,7 @@ msgstr "A következő meghajtók többször is fel lettek használva:"
 msgid "The following mount points used more than once:"
 msgstr "A csatolási pontok többször is fel lettek használva:"
 
-#: uhu-installer:504 uhu-installer:1080
+#: uhu-installer:504 uhu-installer:1079
 msgid ""
 "The selected root device has insufficent free space, do you really want to "
 "continue?"
@@ -72,7 +72,7 @@ msgstr ""
 "A következő partíciók törlődni fognak, vagy néhány fájl felülíródhat rajtuk, "
 "biztosan folytatni akarja?"
 
-#: uhu-installer:515 uhu-installer:522 uhu-installer:1080 uhu-installer:1106
+#: uhu-installer:515 uhu-installer:522 uhu-installer:1079 uhu-installer:1105
 msgid "Warning"
 msgstr "Figyelmeztetés"
 
@@ -80,89 +80,89 @@ msgstr "Figyelmeztetés"
 msgid "Partition type for /boot must be Linux, should I fix it?"
 msgstr "A /boot partíció típusa Linux kell legyen, javítsam?"
 
-#: uhu-installer:644
+#: uhu-installer:642
 #, perl-format
 msgid "Error occurred during %s!"
 msgstr "Hiba történt a következő folyamat során: %s!"
 
-#: uhu-installer:708
+#: uhu-installer:706
 msgid "Installation finished"
 msgstr "A telepítés befejeződött"
 
-#: uhu-installer:771
+#: uhu-installer:769
 msgid "Partitioning"
 msgstr "Particionálás"
 
-#: uhu-installer:822
+#: uhu-installer:820
 msgid "Create filesystems"
 msgstr "Fájlrendszer létrehozása"
 
-#: uhu-installer:849
+#: uhu-installer:847
 msgid "Mounting disks"
 msgstr "Fájlrendszerek csatolása"
 
-#: uhu-installer:868
+#: uhu-installer:866
 msgid "Copying files"
 msgstr "Fájlok másolása"
 
-#: uhu-installer:910
+#: uhu-installer:908
 msgid "Install bootloader"
 msgstr "Rendszerbetöltő telepítése"
 
-#: uhu-installer:932
+#: uhu-installer:930
 msgid "Set passwords"
 msgstr "Jelszavak beállítása"
 
-#: uhu-installer:973
+#: uhu-installer:972
 msgid "Finishing install"
 msgstr "Telepítés befejezése"
 
-#: uhu-installer:1005
+#: uhu-installer:1004
 msgid "Username contains invalid characters!"
 msgstr "A felhasználónév nem megengedett karaktereket tartalmaz!"
 
-#: uhu-installer:1005 uhu-installer:1011
+#: uhu-installer:1004 uhu-installer:1010
 msgid "Username error"
 msgstr "Felhasználónév hiba"
 
-#: uhu-installer:1011
+#: uhu-installer:1010
 msgid "Invalid username!"
 msgstr "Érvénytelen felhasználónév"
 
-#: uhu-installer:1017
+#: uhu-installer:1016
 msgid "Fullname contains invalid characters!"
 msgstr "A felhasználó teljes neve nem megengedett karaktereket tartalmaz!"
 
-#: uhu-installer:1017
+#: uhu-installer:1016
 msgid "Fullname error"
 msgstr "Teljes név hiba"
 
-#: uhu-installer:1023
+#: uhu-installer:1022
 msgid "You must enter a password for user!"
 msgstr "Meg kell adni egy jelszót a felhasználónak!"
 
-#: uhu-installer:1023 uhu-installer:1029 uhu-installer:1036 uhu-installer:1042
-#: uhu-installer:1048 uhu-installer:1056
+#: uhu-installer:1022 uhu-installer:1028 uhu-installer:1035 uhu-installer:1041
+#: uhu-installer:1047 uhu-installer:1055
 msgid "Password error"
 msgstr "Jelszó hiba"
 
-#: uhu-installer:1029 uhu-installer:1048
+#: uhu-installer:1028 uhu-installer:1047
 msgid "Password too short!"
 msgstr "A jelszó túl rövid!"
 
-#: uhu-installer:1036
+#: uhu-installer:1035
 msgid "User's passwords mismatch!"
 msgstr "A felhasználó jelszavai nem egyeznek meg!"
 
-#: uhu-installer:1042
+#: uhu-installer:1041
 msgid "You must enter a password for root!"
 msgstr "Meg kell adni egy jelszót a rendszergazdának!"
 
-#: uhu-installer:1056
+#: uhu-installer:1055
 msgid "Root's passwords mismatch!"
 msgstr "A rendszergazda jelszavai nem egyeznek meg!"
 
-#: uhu-installer:1106
+#: uhu-installer:1105
 #, perl-format
 msgid ""
 "You have selected the following disk:\n"
@@ -172,10 +172,6 @@ msgstr ""
 "A következő lemezt választotta:\n"
 "%s\n"
 "A kiválasztott lemezen minden adat el fog veszni, biztosan folytatni akarja?"
-
-#: uhu-installer:1140
-msgid "This mode currently disabled."
-msgstr "Ez a mód jelenleg nem engedélyezett."
 
 #: uhu-installer.glade:7
 msgid "UHU installer"
@@ -324,33 +320,3 @@ msgstr "_Kilépés"
 #: uhu-installer.glade:1039
 msgid "install"
 msgstr "Telepítés"
-
-#~ msgid "Live copy"
-#~ msgstr "Live rendszer másolása"
-
-#~ msgid "Finish copying"
-#~ msgstr "Másolás befejezése"
-
-#~ msgid "Adding swap space"
-#~ msgstr "Swap hozzáadása"
-
-#~ msgid "Filesystem setup"
-#~ msgstr "Fájlrendszer beállítása"
-
-#~ msgid ""
-#~ "Copying the system to the selected partitions. You can split the "
-#~ "filesystem to partitions, and you can use other filesystem type than ext4."
-#~ msgstr ""
-#~ "A rendszer telepítése a megadott partíciókra.Lehetőség van úgy telepíteni "
-#~ "a rendszert, hogy az több különböző partíción foglaljon helyet, illetve "
-#~ "lehetőség van az ext4-en kívül más fájlrendszer típusok használatára is."
-
-#~ msgid "Error occured See log! (/var/log/uhu-installer.log) "
-#~ msgstr ""
-#~ "Hiba történt, ellenőrizze a hibanaplót! (/var/log/uhu-installer.log) "
-
-#~ msgid "Add new partition"
-#~ msgstr "Új partíció hozzáadása"
-
-#~ msgid "Log"
-#~ msgstr "Napló"

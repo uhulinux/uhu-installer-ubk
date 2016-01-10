@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-20 21:03+0100\n"
+"POT-Creation-Date: 2016-01-10 05:05+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,12 +21,12 @@ msgstr ""
 msgid "Remove"
 msgstr ""
 
-#: uhu-installer:457 uhu-installer:1101
+#: uhu-installer:457 uhu-installer:1100
 #, perl-format
 msgid "Selected disk [%s] is in use!"
 msgstr ""
 
-#: uhu-installer:457 uhu-installer:1101
+#: uhu-installer:457 uhu-installer:1100
 msgid "Disk access error"
 msgstr ""
 
@@ -35,7 +35,7 @@ msgid "Wrong mount path for:"
 msgstr ""
 
 #: uhu-installer:465 uhu-installer:472 uhu-installer:482 uhu-installer:492
-#: uhu-installer:504 uhu-installer:1140
+#: uhu-installer:504
 msgid "Error"
 msgstr ""
 
@@ -51,7 +51,7 @@ msgstr ""
 msgid "The following mount points used more than once:"
 msgstr ""
 
-#: uhu-installer:504 uhu-installer:1080
+#: uhu-installer:504 uhu-installer:1079
 msgid ""
 "The selected root device has insufficent free space, do you really want to "
 "continue?"
@@ -67,7 +67,7 @@ msgid ""
 "do you really want to continue?"
 msgstr ""
 
-#: uhu-installer:515 uhu-installer:522 uhu-installer:1080 uhu-installer:1106
+#: uhu-installer:515 uhu-installer:522 uhu-installer:1079 uhu-installer:1105
 msgid "Warning"
 msgstr ""
 
@@ -75,98 +75,94 @@ msgstr ""
 msgid "Partition type for /boot must be Linux, should I fix it?"
 msgstr ""
 
-#: uhu-installer:644
+#: uhu-installer:642
 #, perl-format
 msgid "Error occurred during %s!"
 msgstr ""
 
-#: uhu-installer:708
+#: uhu-installer:706
 msgid "Installation finished"
 msgstr ""
 
-#: uhu-installer:771
+#: uhu-installer:769
 msgid "Partitioning"
 msgstr ""
 
-#: uhu-installer:822
+#: uhu-installer:820
 msgid "Create filesystems"
 msgstr ""
 
-#: uhu-installer:849
+#: uhu-installer:847
 msgid "Mounting disks"
 msgstr ""
 
-#: uhu-installer:868
+#: uhu-installer:866
 msgid "Copying files"
 msgstr ""
 
-#: uhu-installer:910
+#: uhu-installer:908
 msgid "Install bootloader"
 msgstr ""
 
-#: uhu-installer:932
+#: uhu-installer:930
 msgid "Set passwords"
 msgstr ""
 
-#: uhu-installer:973
+#: uhu-installer:972
 msgid "Finishing install"
 msgstr ""
 
-#: uhu-installer:1005
+#: uhu-installer:1004
 msgid "Username contains invalid characters!"
 msgstr ""
 
-#: uhu-installer:1005 uhu-installer:1011
+#: uhu-installer:1004 uhu-installer:1010
 msgid "Username error"
 msgstr ""
 
-#: uhu-installer:1011
+#: uhu-installer:1010
 msgid "Invalid username!"
 msgstr ""
 
-#: uhu-installer:1017
+#: uhu-installer:1016
 msgid "Fullname contains invalid characters!"
 msgstr ""
 
-#: uhu-installer:1017
+#: uhu-installer:1016
 msgid "Fullname error"
 msgstr ""
 
-#: uhu-installer:1023
+#: uhu-installer:1022
 msgid "You must enter a password for user!"
 msgstr ""
 
-#: uhu-installer:1023 uhu-installer:1029 uhu-installer:1036 uhu-installer:1042
-#: uhu-installer:1048 uhu-installer:1056
+#: uhu-installer:1022 uhu-installer:1028 uhu-installer:1035 uhu-installer:1041
+#: uhu-installer:1047 uhu-installer:1055
 msgid "Password error"
 msgstr ""
 
-#: uhu-installer:1029 uhu-installer:1048
+#: uhu-installer:1028 uhu-installer:1047
 msgid "Password too short!"
 msgstr ""
 
-#: uhu-installer:1036
+#: uhu-installer:1035
 msgid "User's passwords mismatch!"
 msgstr ""
 
-#: uhu-installer:1042
+#: uhu-installer:1041
 msgid "You must enter a password for root!"
 msgstr ""
 
-#: uhu-installer:1056
+#: uhu-installer:1055
 msgid "Root's passwords mismatch!"
 msgstr ""
 
-#: uhu-installer:1106
+#: uhu-installer:1105
 #, perl-format
 msgid ""
 "You have selected the following disk:\n"
 "%s\n"
 "On the chosen disk, all your data will be lost. Are you sure?"
-msgstr ""
-
-#: uhu-installer:1140
-msgid "This mode currently disabled."
 msgstr ""
 
 #: uhu-installer.glade:7
