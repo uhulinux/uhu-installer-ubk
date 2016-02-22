@@ -1140,10 +1140,10 @@ sub on_install_type_changed {
 #	if (w('install_type')->get_active == 0) { # live
 #		popup('error', _("This mode currently disabled."), _('Error'));
 #		w('install_type')->set_active(1);
-	} else { # normal
-		add_mount('/', 0, 'ext4', 1);
-		add_mount(undef, 1, 'swap', 1);
-	}
+#	} else { # normal
+#		add_mount('/', 0, 'ext4', 1);
+#		add_mount(undef, 1, 'swap', 1);
+#	}
 }
 
 sub on_nb_switch_page {
