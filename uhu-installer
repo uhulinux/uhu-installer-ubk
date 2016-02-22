@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-# use strict;
+use strict;
 use warnings;
 
 use locale;
@@ -1184,10 +1184,10 @@ STDIN->autoflush(1);
 STDOUT->autoflush(1);
 STDERR->autoflush(1);
 
-vinyokeres;
-create_disks_model;
-create_grub_model;
-fill_grub_model;
+&vinyokeres;
+&create_disks_model;
+&create_grub_model;
+&fill_grub_model;
 w('install_type')->set_active(1);
 
 # temp hack ###############################
