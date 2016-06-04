@@ -910,13 +910,13 @@ sub install {
 					_system "mount", "--bind", "/dev/", "/mnt/dev/";
 					_system "mount", "--bind", "/proc/", "/mnt/proc/";
 					_system "mount", "--bind", "/sys/", "/mnt/sys/";
-					_system "chroot", "/mnt", "grub2-mkconfig", "-o", "/boot/grub2/grub.cfg";
+					_system "chroot", "/mnt", "grub-mkconfig", "-o", "/boot/grub/grub.cfg";
 					 if ($install_type eq 'easy') { # easy módban
 						debug "easy install [$params->{bootdsk}]";
-						_system "chroot", "/mnt", "grub2-install", $params->{bootdsk};
+						_system "chroot", "/mnt", "grub-install", $params->{bootdsk};
 					} else { # haladó módban
 						debug "normál install [$bootdsk]";
-						_system "chroot", "/mnt", "grub2-install", $bootdsk;
+						_system "chroot", "/mnt", "grub-install", $bootdsk;
 					}
 					_system "umount", "/mnt/dev";
 					_system "umount", "/mnt/proc";
