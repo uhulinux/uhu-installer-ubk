@@ -961,6 +961,17 @@ sub install {
 			'fork' => TRUE,
 			name => _('Finishing install'),
 			func => sub {
+				_system "mount", "--bind", "/dev/", "/mnt/dev/";
+				_system "mount", "--bind", "/proc/", "/mnt/proc/";
+				_system "mount", "--bind", "/sys/", "/mnt/sys/";
+				
+				# telepített rendszerre nem kell telepítő
+				_system("chroot", "/mnt", "dpkg", "--purge", "uhu-installer");
+				
+				_system "umount", "/mnt/dev";
+				_system "umount", "/mnt/proc";
+				_system "umount", "/mnt/sys";
+				
 				for(reverse @$umounts) {
 					_system 'umount', $_->[1];
 				}
