@@ -908,6 +908,7 @@ sub install {
 				name => _('Install bootloader'),
 				func => sub {
 					_system "mount", "--bind", "/dev/", "/mnt/dev/";
+					_system "mount", "--bind", "/dev/pts", "/mnt/dev/pts";
 					_system "mount", "--bind", "/proc/", "/mnt/proc/";
 					_system "mount", "--bind", "/sys/", "/mnt/sys/";
 					_system "chroot", "/mnt", "grub-mkconfig", "-o", "/boot/grub/grub.cfg";
@@ -918,6 +919,7 @@ sub install {
 						debug "normál install [$bootdsk]";
 						_system "chroot", "/mnt", "grub-install", $bootdsk;
 					}
+					_system "umount", "/mnt/dev/pts";
 					_system "umount", "/mnt/dev";
 					_system "umount", "/mnt/proc";
 					_system "umount", "/mnt/sys";
@@ -930,6 +932,7 @@ sub install {
 			name => _('Set passwords'),
 			func => sub {
 				_system "mount", "--bind", "/dev/", "/mnt/dev/";
+				_system "mount", "--bind", "/dev/pts", "/mnt/dev/pts";
 				_system "mount", "--bind", "/proc/", "/mnt/proc/";
 				_system "mount", "--bind", "/sys/", "/mnt/sys/";
 				_system "chroot", "/mnt", "userdel", "-fr", "uhu";
@@ -950,6 +953,7 @@ sub install {
 				_system("chroot", "/mnt", "sed", "-r", "-e", "s/^User=.*/User=/", "-i", "/etc/sddm.conf");
 				_system("chroot", "/mnt", "sed", "-r", "-e", "s/^Session=.*/Session=/", "-i", "/etc/sddm.conf");
 				}
+				_system "umount", "/mnt/dev/pts";
 				_system "umount", "/mnt/dev";
 				_system "umount", "/mnt/proc";
 				_system "umount", "/mnt/sys";
@@ -962,12 +966,14 @@ sub install {
 			name => _('Finishing install'),
 			func => sub {
 				_system "mount", "--bind", "/dev/", "/mnt/dev/";
+				_system "mount", "--bind", "/dev/pts", "/mnt/dev/pts";
 				_system "mount", "--bind", "/proc/", "/mnt/proc/";
 				_system "mount", "--bind", "/sys/", "/mnt/sys/";
 				
 				# telepített rendszerre nem kell telepítő
 				_system("chroot", "/mnt", "dpkg", "--purge", "uhu-installer");
 				
+				_system "umount", "/mnt/dev/pts";
 				_system "umount", "/mnt/dev";
 				_system "umount", "/mnt/proc";
 				_system "umount", "/mnt/sys";
