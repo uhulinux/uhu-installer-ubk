@@ -801,10 +801,10 @@ sub install {
 				if ($depth == $cd) {
 					# XXX FIXME TODO /mnt helyett rendes temp dir
 					if ($fs eq 'swap') {
-						$fstab .= "$dev $fs $fs defaults 0 0\n";
+						$fstab .= devtouuiddev($dev)." $fs $fs defaults 0 0\n";
 					} else {
 						push @$umounts, [$dev, '/mnt/'.$_];
-						$fstab .= "$dev $_ $fs defaults 1 1\n";
+						$fstab .= devtouuiddev($dev)." $_ $fs defaults 1 1\n";
 					}
 					delete $mounts->{$_};
 				}
