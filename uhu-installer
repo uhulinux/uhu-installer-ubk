@@ -770,6 +770,7 @@ sub install {
 			'fork' => TRUE,
 			func => sub {
 				_system 'sgdisk', '--zap-all', $params->{bootdsk};
+				_system 'sgdisk', '-o', $params->{bootdsk}; # create new empty GPT table
 				_system 'sgdisk', '-n', '0:0:+200M', $params->{bootdsk}; # create EFI and system boot partition
 				_system 'sgdisk', '-t', '1:ef00', $params->{bootdsk}; # set EFI boot partition type to EFI System
 				_system 'sgdisk', '-n', '0:0:+1G', $params->{bootdsk}; # create boot partition
