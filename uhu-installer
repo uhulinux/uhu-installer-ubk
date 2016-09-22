@@ -778,6 +778,8 @@ sub install {
 				_system 'sgdisk', '-n', '0:34:2047', $params->{bootdsk}; # create hidden MBR boot partition
 				_system 'sgdisk', '-t', '4:ef02', $params->{bootdsk}; # set MBR boot partition type to BIOS boot partition
 				_system 'sgdisk', '-h', '1:2:3', $params->{bootdsk}; # create hybrid MBR based on GPT table
+				_system 'umount', $params->{bootdev}; # lecsatolás, ha van mit
+				_system 'umount', $params->{rootdev};
 				_system 'mkfs.ext4', $params->{bootdev}; # fájlrendszer létrehozás
 				_system 'mkfs.ext4', $params->{rootdev};
 				_system 'tune2fs', '-i0', '-c0', '-LUHU', $params->{rootdev}; # Partíció névadás
