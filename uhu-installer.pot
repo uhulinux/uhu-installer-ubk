@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-10 05:05+0100\n"
+"POT-Creation-Date: 2016-10-30 17:47+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,12 +21,12 @@ msgstr ""
 msgid "Remove"
 msgstr ""
 
-#: uhu-installer:457 uhu-installer:1100
+#: uhu-installer:457 uhu-installer:1114
 #, perl-format
 msgid "Selected disk [%s] is in use!"
 msgstr ""
 
-#: uhu-installer:457 uhu-installer:1100
+#: uhu-installer:457 uhu-installer:1114
 msgid "Disk access error"
 msgstr ""
 
@@ -51,7 +51,7 @@ msgstr ""
 msgid "The following mount points used more than once:"
 msgstr ""
 
-#: uhu-installer:504 uhu-installer:1079
+#: uhu-installer:504 uhu-installer:1093
 msgid ""
 "The selected root device has insufficent free space, do you really want to "
 "continue?"
@@ -67,7 +67,7 @@ msgid ""
 "do you really want to continue?"
 msgstr ""
 
-#: uhu-installer:515 uhu-installer:522 uhu-installer:1079 uhu-installer:1105
+#: uhu-installer:515 uhu-installer:522 uhu-installer:1093 uhu-installer:1119
 msgid "Warning"
 msgstr ""
 
@@ -88,76 +88,76 @@ msgstr ""
 msgid "Partitioning"
 msgstr ""
 
-#: uhu-installer:820
+#: uhu-installer:823
 msgid "Create filesystems"
 msgstr ""
 
-#: uhu-installer:847
+#: uhu-installer:850
 msgid "Mounting disks"
 msgstr ""
 
-#: uhu-installer:866
+#: uhu-installer:871
 msgid "Copying files"
 msgstr ""
 
-#: uhu-installer:908
+#: uhu-installer:913
 msgid "Install bootloader"
 msgstr ""
 
-#: uhu-installer:930
+#: uhu-installer:937
 msgid "Set passwords"
 msgstr ""
 
-#: uhu-installer:972
+#: uhu-installer:971
 msgid "Finishing install"
 msgstr ""
 
-#: uhu-installer:1004
+#: uhu-installer:1018
 msgid "Username contains invalid characters!"
 msgstr ""
 
-#: uhu-installer:1004 uhu-installer:1010
+#: uhu-installer:1018 uhu-installer:1024
 msgid "Username error"
 msgstr ""
 
-#: uhu-installer:1010
+#: uhu-installer:1024
 msgid "Invalid username!"
 msgstr ""
 
-#: uhu-installer:1016
+#: uhu-installer:1030
 msgid "Fullname contains invalid characters!"
 msgstr ""
 
-#: uhu-installer:1016
+#: uhu-installer:1030
 msgid "Fullname error"
 msgstr ""
 
-#: uhu-installer:1022
+#: uhu-installer:1036
 msgid "You must enter a password for user!"
 msgstr ""
 
-#: uhu-installer:1022 uhu-installer:1028 uhu-installer:1035 uhu-installer:1041
-#: uhu-installer:1047 uhu-installer:1055
+#: uhu-installer:1036 uhu-installer:1042 uhu-installer:1049 uhu-installer:1055
+#: uhu-installer:1061 uhu-installer:1069
 msgid "Password error"
 msgstr ""
 
-#: uhu-installer:1028 uhu-installer:1047
+#: uhu-installer:1042 uhu-installer:1061
 msgid "Password too short!"
 msgstr ""
 
-#: uhu-installer:1035
+#: uhu-installer:1049
 msgid "User's passwords mismatch!"
 msgstr ""
 
-#: uhu-installer:1041
+#: uhu-installer:1055
 msgid "You must enter a password for root!"
 msgstr ""
 
-#: uhu-installer:1055
+#: uhu-installer:1069
 msgid "Root's passwords mismatch!"
 msgstr ""
 
-#: uhu-installer:1105
+#: uhu-installer:1119
 #, perl-format
 msgid ""
 "You have selected the following disk:\n"
@@ -201,7 +201,7 @@ msgstr ""
 msgid ""
 "<b>Live mode:</b> Installing the live system to the selected partitions on "
 "the fly. Any change on the live system will be moved to the installed "
-"system.\n"
+"system. The installer will create an GPT partion table.\n"
 "<b>Normal mode:</b> Copying the system to the selected partitions. You can "
 "split the filesystem to partitions, you can use other filesystem type than "
 "ext4, and you change the username."

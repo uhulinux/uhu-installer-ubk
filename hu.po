@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: uhu-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-10 05:05+0100\n"
+"POT-Creation-Date: 2016-10-30 17:47+0100\n"
 "PO-Revision-Date: 2015-12-20 21:05+0100\n"
 "Last-Translator: rezso <rezso@rezso.net>\n"
 "Language-Team: hungarian <>\n"
@@ -22,12 +22,12 @@ msgstr ""
 msgid "Remove"
 msgstr "Eltávolítás"
 
-#: uhu-installer:457 uhu-installer:1100
+#: uhu-installer:457 uhu-installer:1114
 #, perl-format
 msgid "Selected disk [%s] is in use!"
 msgstr "A kiválasztott lemez [%s] használatban van!"
 
-#: uhu-installer:457 uhu-installer:1100
+#: uhu-installer:457 uhu-installer:1114
 msgid "Disk access error"
 msgstr "Lemez hozzáférési hiba"
 
@@ -52,7 +52,7 @@ msgstr "A következő meghajtók többször is fel lettek használva:"
 msgid "The following mount points used more than once:"
 msgstr "A csatolási pontok többször is fel lettek használva:"
 
-#: uhu-installer:504 uhu-installer:1079
+#: uhu-installer:504 uhu-installer:1093
 msgid ""
 "The selected root device has insufficent free space, do you really want to "
 "continue?"
@@ -72,7 +72,7 @@ msgstr ""
 "A következő partíciók törlődni fognak, vagy néhány fájl felülíródhat rajtuk, "
 "biztosan folytatni akarja?"
 
-#: uhu-installer:515 uhu-installer:522 uhu-installer:1079 uhu-installer:1105
+#: uhu-installer:515 uhu-installer:522 uhu-installer:1093 uhu-installer:1119
 msgid "Warning"
 msgstr "Figyelmeztetés"
 
@@ -93,76 +93,76 @@ msgstr "A telepítés befejeződött"
 msgid "Partitioning"
 msgstr "Particionálás"
 
-#: uhu-installer:820
+#: uhu-installer:823
 msgid "Create filesystems"
 msgstr "Fájlrendszer létrehozása"
 
-#: uhu-installer:847
+#: uhu-installer:850
 msgid "Mounting disks"
 msgstr "Fájlrendszerek csatolása"
 
-#: uhu-installer:866
+#: uhu-installer:871
 msgid "Copying files"
 msgstr "Fájlok másolása"
 
-#: uhu-installer:908
+#: uhu-installer:913
 msgid "Install bootloader"
 msgstr "Rendszerbetöltő telepítése"
 
-#: uhu-installer:930
+#: uhu-installer:937
 msgid "Set passwords"
 msgstr "Jelszavak beállítása"
 
-#: uhu-installer:972
+#: uhu-installer:971
 msgid "Finishing install"
 msgstr "Telepítés befejezése"
 
-#: uhu-installer:1004
+#: uhu-installer:1018
 msgid "Username contains invalid characters!"
 msgstr "A felhasználónév nem megengedett karaktereket tartalmaz!"
 
-#: uhu-installer:1004 uhu-installer:1010
+#: uhu-installer:1018 uhu-installer:1024
 msgid "Username error"
 msgstr "Felhasználónév hiba"
 
-#: uhu-installer:1010
+#: uhu-installer:1024
 msgid "Invalid username!"
 msgstr "Érvénytelen felhasználónév"
 
-#: uhu-installer:1016
+#: uhu-installer:1030
 msgid "Fullname contains invalid characters!"
 msgstr "A felhasználó teljes neve nem megengedett karaktereket tartalmaz!"
 
-#: uhu-installer:1016
+#: uhu-installer:1030
 msgid "Fullname error"
 msgstr "Teljes név hiba"
 
-#: uhu-installer:1022
+#: uhu-installer:1036
 msgid "You must enter a password for user!"
 msgstr "Meg kell adni egy jelszót a felhasználónak!"
 
-#: uhu-installer:1022 uhu-installer:1028 uhu-installer:1035 uhu-installer:1041
-#: uhu-installer:1047 uhu-installer:1055
+#: uhu-installer:1036 uhu-installer:1042 uhu-installer:1049 uhu-installer:1055
+#: uhu-installer:1061 uhu-installer:1069
 msgid "Password error"
 msgstr "Jelszó hiba"
 
-#: uhu-installer:1028 uhu-installer:1047
+#: uhu-installer:1042 uhu-installer:1061
 msgid "Password too short!"
 msgstr "A jelszó túl rövid!"
 
-#: uhu-installer:1035
+#: uhu-installer:1049
 msgid "User's passwords mismatch!"
 msgstr "A felhasználó jelszavai nem egyeznek meg!"
 
-#: uhu-installer:1041
+#: uhu-installer:1055
 msgid "You must enter a password for root!"
 msgstr "Meg kell adni egy jelszót a rendszergazdának!"
 
-#: uhu-installer:1055
+#: uhu-installer:1069
 msgid "Root's passwords mismatch!"
 msgstr "A rendszergazda jelszavai nem egyeznek meg!"
 
-#: uhu-installer:1105
+#: uhu-installer:1119
 #, perl-format
 msgid ""
 "You have selected the following disk:\n"
@@ -216,17 +216,19 @@ msgstr ""
 "Normál"
 
 #: uhu-installer.glade:199
+#, fuzzy
 msgid ""
 "<b>Live mode:</b> Installing the live system to the selected partitions on "
 "the fly. Any change on the live system will be moved to the installed "
-"system.\n"
+"system. The installer will create an GPT partion table.\n"
 "<b>Normal mode:</b> Copying the system to the selected partitions. You can "
 "split the filesystem to partitions, you can use other filesystem type than "
 "ext4, and you change the username."
 msgstr ""
 "<b>Live mód:</b> A live rendszer áthelyezése a kiválasztott lemezekre. A "
 "live rendszeren végzett változtatások is átkerülnek telepítés során, így a "
-"live rendszeren végzett bármilyen módosítás megmarad.\n"
+"live rendszeren végzett bármilyen módosítás megmarad. A telepítő GPT "
+"partíciós táblát hoz létre.\n"
 "<b>Normál mód:</b> Rendszer telepítése a megadott partíciókra. A normál "
 "módban lehetőség van úgy telepíteni a rendszert, hogy az több különböző "
 "partíción foglaljon helyet, illetve lehetőség van az ext4-en kívül más "

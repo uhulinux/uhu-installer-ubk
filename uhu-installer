@@ -26,7 +26,7 @@ Encode::_utf8_on($_) for @ARGV;
 
 my $disks;
 my $table_rows;
-my $install_type = 'easy'; # east, expertlive, expert
+my $install_type = 'easy'; # easy, expertlive, expert
 my $steps = []; # install steps;
 my $childs; # gyerekek
 

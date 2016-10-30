@@ -196,7 +196,7 @@ Normal</property>
                         <property name="width_request">500</property>
                         <property name="visible">True</property>
                         <property name="xalign">0</property>
-                        <property name="label" translatable="yes">&lt;b&gt;Live mode:&lt;/b&gt; Installing the live system to the selected partitions on the fly. Any change on the live system will be moved to the installed system.
+                        <property name="label" translatable="yes">&lt;b&gt;Live mode:&lt;/b&gt; Installing the live system to the selected partitions on the fly. Any change on the live system will be moved to the installed system. The installer will create an GPT partion table.
 &lt;b&gt;Normal mode:&lt;/b&gt; Copying the system to the selected partitions. You can split the filesystem to partitions, you can use other filesystem type than ext4, and you change the username.</property>
                         <property name="use_markup">True</property>
                         <property name="justify">GTK_JUSTIFY_FILL</property>
