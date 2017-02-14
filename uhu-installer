@@ -808,7 +808,7 @@ sub install {
 					} else {
 						push @$umounts, [$dev, '/mnt/'.$_];
 						if ($fs eq 'btrfs') {
-							$fstab .= "$dev $_ $fs nodatacow,compress=lzo 0 0\n";
+							$fstab .= "$dev $_ $fs nodatacow,compress=lzo 1 1\n";
 						} else {
 							$fstab .= "$dev $_ $fs defaults 0 1\n"
 						}
