@@ -348,7 +348,7 @@ sub add_mount {
 
 	$table_rows->[$row]->{fs} = Gtk2::ComboBox->new_text;
 	my $i = 0;
-	my @fs_types = qw(ext4 swap ext3 xfs ext2 jfs, btrfs);
+	my @fs_types = qw(ext4 swap ext3 xfs ext2 jfs btrfs);
 	@fs_types = qw(ext4 ext2 ext3 swap) if ($live); # live mode
 	for (@fs_types) {
 		$table_rows->[$row]->{fs}->append_text($_);
@@ -807,8 +807,11 @@ sub install {
 						$fstab .= "$dev $fs $fs defaults 0 0\n";
 					} else {
 						push @$umounts, [$dev, '/mnt/'.$_];
+						if ($fs eq 'btrfs') {
+						$fstab .= "$dev $_ $fs nodatacow,compress=lzo 0 0\n";
+					} else {
 						$fstab .= "$dev $_ $fs defaults 1 1\n"
-					}
+					} }
 					delete $mounts->{$_};
 				}
 			}
