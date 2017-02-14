@@ -348,7 +348,7 @@ sub add_mount {
 
 	$table_rows->[$row]->{fs} = Gtk2::ComboBox->new_text;
 	my $i = 0;
-	my @fs_types = qw(ext4 swap ext3 xfs ext2 jfs);
+	my @fs_types = qw(ext4 swap ext3 xfs ext2 jfs, btrfs);
 	@fs_types = qw(ext4 ext2 ext3 swap) if ($live); # live mode
 	for (@fs_types) {
 		$table_rows->[$row]->{fs}->append_text($_);
@@ -425,7 +425,7 @@ sub on_mount_next_clicked {
 		$path = $rows->{path}->get_text if ($install_type eq 'expert');
 		if ($install_type eq 'expertlive' and $path eq '/' and $rows->{fs}->get_active_text eq 'ext4') {
 			$has_root = 1;
-		} elsif ($install_type eq 'expert' and $path eq '/' and $rows->{fs}->get_active_text =~ /ext[234]|jfs|xfs/) {
+		} elsif ($install_type eq 'expert' and $path eq '/' and $rows->{fs}->get_active_text =~ /ext[234]|jfs|xfs|btrfs/) {
 			$has_root = 1;
 		}
 		if ($path eq '/') {
@@ -468,7 +468,7 @@ sub on_mount_next_clicked {
 	}
 	unless ($has_root) {
 		my $fs = "ext4";
-		$fs = "ext(2,3,4), jfs, xfs" if ($install_type eq 'expert');
+		$fs = "ext(2,3,4), jfs, xfs, btrfs" if ($install_type eq 'expert');
 		popup('error', _("You must have a / mount point!"), _('Error'));
 		return;
 	}
