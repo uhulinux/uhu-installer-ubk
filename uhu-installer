@@ -810,7 +810,7 @@ sub install {
 						if ($fs eq 'btrfs') {
 							$fstab .= "$dev $_ $fs nodatacow,compress=lzo 0 0\n";
 						} else {
-							$fstab .= "$dev $_ $fs defaults 1 1\n"
+							$fstab .= "$dev $_ $fs defaults 0 1\n"
 						}
 					}
 					delete $mounts->{$_};
