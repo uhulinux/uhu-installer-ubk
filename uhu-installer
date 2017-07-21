@@ -887,21 +887,21 @@ sub install {
 			update => sub {
 
 				my $buf = "\0"x64;
-				my $path = "/mnt/";
+				my $path = "/mnt/"; #célpartíció
 				Encode::_utf8_off($buf);
 			    syscall(&SYS_statfs, $path, $buf) == 0 or die;
 			    my ($bsize, $blocks, $bfree, $bavail, $files, $ffree, $namelen) = unpack  "x4 L6 x8 L", $buf;
-			    my $cpsize = $bsize*($blocks-$bfree);
+			    my $cpsize = $bsize*($blocks-$bfree); #másoltméret=blokkméret*(blokkszám-szabadblokkszám) #ha valamelyik 0, akkor másoltméret=0
 
 			    $buf = "\0"x64;
-				$path = "/tmp/sourcedisk";
+				$path = "/tmp/sourcedisk"; #forrás
 				Encode::_utf8_off($buf);
 				syscall(&SYS_statfs, $path, $buf) == 0 or die;
 				($bsize, $blocks, $bfree, $bavail, $files, $ffree, $namelen) = unpack  "x4 L6 x8 L", $buf;
-				my $size = $bsize*($blocks-$bfree);
+				my $size = $bsize*($blocks-$bfree); #forrásméret=blokkméret*(blokkszám-szabdblokkszám) #ha valamelyik 0, akkor a forrásméret 0
 
 			    debug "size: [$size] cpsize: [$cpsize]";
-			    my $p = $cpsize/$size;
+			    my $p = $cpsize/$size; # ha a forrásméret 0, akkor megdöglik
 			    $p=1 if ($p > 1);
 			    w('progress')->set_fraction($p);
 				w('progress')->set_text(int($p*100)."%");
