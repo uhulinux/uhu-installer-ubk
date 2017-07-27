@@ -29,7 +29,11 @@ my $table_rows;
 my $install_type = 'easy'; # easy, expertlive, expert
 my $steps = []; # install steps;
 my $childs; # gyerekek
-
+chomp (my $arch = `uname -m`);
+my $unpacktemplate = "x4 L6 x8 L";
+if ( "$arch" eq 'x86_64' ) {
+    $unpacktemplate = "x8 L!6 x8 L";
+}
 setlocale(LC_ALL, "");
 bindtextdomain('uhu-installer');
 bind_textdomain_codeset('uhu-installer', "UTF-8");
@@ -887,21 +891,21 @@ sub install {
 			update => sub {
 
 				my $buf = "\0"x64;
-				my $path = "/mnt/"; #célpartíció
+				my $path = "/mnt/";
 				Encode::_utf8_off($buf);
 			    syscall(&SYS_statfs, $path, $buf) == 0 or die;
-			    my ($bsize, $blocks, $bfree, $bavail, $files, $ffree, $namelen) = unpack  "x4 L6 x8 L", $buf;
-			    my $cpsize = $bsize*($blocks-$bfree); #másoltméret=blokkméret*(blokkszám-szabadblokkszám) #ha valamelyik 0, akkor másoltméret=0
+			    my ($bsize, $blocks, $bfree, $bavail, $files, $ffree, $namelen) = unpack  $unpacktemplate, $buf;
+			    my $cpsize = $bsize*($blocks-$bfree);
 
 			    $buf = "\0"x64;
-				$path = "/tmp/sourcedisk"; #forrás
+				$path = "/tmp/sourcedisk";
 				Encode::_utf8_off($buf);
 				syscall(&SYS_statfs, $path, $buf) == 0 or die;
-				($bsize, $blocks, $bfree, $bavail, $files, $ffree, $namelen) = unpack  "x4 L6 x8 L", $buf;
-				my $size = $bsize*($blocks-$bfree); #forrásméret=blokkméret*(blokkszám-szabdblokkszám) #ha valamelyik 0, akkor a forrásméret 0
+				($bsize, $blocks, $bfree, $bavail, $files, $ffree, $namelen) = unpack  $unpacktemplate, $buf;
+				my $size = $bsize*($blocks-$bfree);
 
 			    debug "size: [$size] cpsize: [$cpsize]";
-			    my $p = $cpsize/$size; # ha a forrásméret 0, akkor megdöglik
+			    my $p = $cpsize/$size;
 			    $p=1 if ($p > 1);
 			    w('progress')->set_fraction($p);
 				w('progress')->set_text(int($p*100)."%");
@@ -1091,7 +1095,7 @@ sub on_easy_next_clicked {
 	my $path = "/";
 	Encode::_utf8_off($buf);
     syscall(&SYS_statfs, $path, $buf) == 0 or die;
-    my ($bsize, $blocks, $bfree, $bavail, $files, $ffree, $namelen) = unpack  "x4 L6 x8 L", $buf;
+    my ($bsize, $blocks, $bfree, $bavail, $files, $ffree, $namelen) = unpack  $unpacktemplate, $buf;
     debug "free space: [$disks->{$disk}->{size}] [".($blocks*$bsize)."]";
     if ($disks->{$disk}->{size} < ($blocks*$bsize+1024**2)*1.05) { # + 1Gb boot + 5%
     	if (popup('question', _("The selected root device has insufficent free space, do you really want to continue?"), _('Warning')) eq 'no') {
